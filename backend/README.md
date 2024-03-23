@@ -41,4 +41,7 @@ pnpm i -D typescript @types/node ts-node nodemon jest ts-jest supertest @types/c
 npx tsc --init
 npm @eslint/config
 npx ts-jest config:init
+pnpm i typeorm pg reflect-metadata
 ```
+
+
