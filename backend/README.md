@@ -44,4 +44,10 @@ npx ts-jest config:init
 pnpm i typeorm pg reflect-metadata
 ```
 
+> **FINALLY DROPPED TYPEORM**
 
+## Requests
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Sample Product #1","slug":"sample-Product-1","price":"10.00"}' http://localhost:5000/products
+```
