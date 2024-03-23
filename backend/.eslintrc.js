@@ -3,7 +3,11 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['xo', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+  ],
   overrides: [
     {
       env: {
@@ -14,16 +18,12 @@ module.exports = {
         sourceType: 'script',
       },
     },
-    {
-      extends: ['xo-typescript', 'prettier'],
-      files: ['*.ts', '*.tsx'],
-    },
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  rules: {
-    "new-cap": "off", // Triggers false positives for TypeORM entities
-  },
+  plugins: ['@typescript-eslint'],
+  rules: {},
 };
