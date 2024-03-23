@@ -1,0 +1,15 @@
+{
+  "development": {
+    "driver": "sqlite3",
+    "filename": { "ENV": "DATABASE_URL" }
+  },
+  "production": {
+    "driver": "pg",
+    "host": { "ENV": "DATABASE_HOST" },
+    "user": { "ENV": "DATABASE_USER" },
+    "password": { "ENV": "DATABASE_PASSWORD" },
+    "database": {},
+    "port": { "ENV": "DATABASE_PORT", "default": 5432 },
+    "ssl": { "ENV": "DATABASE_SSL", "default": true }
+  }
+}
