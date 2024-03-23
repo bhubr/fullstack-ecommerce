@@ -9,9 +9,8 @@ import helmet from 'helmet';
 // because I need to call loadDatabaseEngine first
 // but then it makes importing "app" from test files (in order to do integ test with supertest) a bit more complicated
 // how to solve this?
-import loadDatabaseEngine from './db/load-database-engine';
-import { environment } from './settings';
-import loadDatabaseConfig from './db/load-database-config';
+import apiRouter from './routes/api';
+import DatabaseService from './services/database-service';
 
 export default async function initializeApp(): Promise<Application> {
   const app = express();
@@ -20,31 +19,10 @@ export default async function initializeApp(): Promise<Application> {
   app.use(express.json());
   app.use(helmet());
 
-  const { dbConfig, connectionString } = await loadDatabaseConfig(environment);
-  console.log('dbConfig', dbConfig);
-  console.log('connectionString', connectionString);
-  const db = await loadDatabaseEngine(dbConfig);
-  await db.initialize(connectionString);
-
-  app.get('/', async (req, res) => {
-    const products = await db.query('SELECT * FROM product', []);
-    res.json(products);
-  });
-
-  app.post('/products', async (req, res) => {
-    const { name, slug, price, description = '' } = req.body;
-    try {
-      const createdAt = new Date().toISOString();
-      const updatedAt = createdAt;
-      await db.query(
-        'INSERT INTO product (name, slug, price, description, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?)',
-        [name, slug, price, description, createdAt, updatedAt]
-      );
-      res.sendStatus(201);
-    } catch (err) {
-      res.status(500).json({ error: err.message });
-    }
-  });
+  app.use('/api', apiRouter);
+  
+  // This will initialize the database engine
+  await DatabaseService.getInstance();
 
   return app;
 }

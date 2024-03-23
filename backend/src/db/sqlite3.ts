@@ -1,17 +1,15 @@
 import sqlite3 from 'sqlite3';
-import { SQLite3DatabaseEngine, Scalar } from './types';
-// import { resolve } from 'path';
-// import { dbFile } from './settings';
+import { DatabaseEngine, Scalar } from './types';
 
-// const sqlite3 = sqlite3module.verbose();
-// const dbFilePath = resolve(__dirname, '..', dbFile);
-// const db = new sqlite3.Database(dbFilePath);
+interface SQLite3DatabaseEngine extends DatabaseEngine {
+  db?: sqlite3.Database;
+}
 
 const sqlite3db: SQLite3DatabaseEngine = {
   /**
    * The SQLite3 database instance
    */
-  db: undefined, 
+  db: undefined,
 
   /**
    * Initializes the SQLite3 database engine
@@ -35,10 +33,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
    * @param args The arguments to pass to the query
    * @returns The result of the query
    */
-  async query<T = void>(
-    sql: string,
-    args: Scalar[]
-  ): Promise<T> {
+  async query<T = void>(sql: string, args: Scalar[]): Promise<T> {
     return new Promise((resolve, reject) => {
       // We trust that this.db is defined because
       // it's the first thing we do when we initialize the app
@@ -52,33 +47,44 @@ const sqlite3db: SQLite3DatabaseEngine = {
       });
     });
   },
+
+  /**
+   * Get all from table
+   */
+  async getAllFromTable<T>(table: string): Promise<T[]> {
+    return this.query(`SELECT * FROM ${table}`, []);
+  },
+
+  /**
+   * Insert into table
+   */
+  async insertIntoTable<T>(
+    table: string,
+    payload: Record<string, Scalar>
+  ): Promise<T> {
+    const typedPayload = payload as Record<string, Scalar>;
+    const columns = Object.keys(typedPayload);
+    const values = Object.values(typedPayload);
+    const placeholders = new Array(columns.length).fill('?');
+    const sql = `INSERT INTO ${table}
+        (${columns.join(', ')})
+      VALUES
+        (${placeholders.join(', ')})`;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    await this.query(sql, values);
+    const rows = await this.query(
+      'SELECT last_insert_rowid() as id', []
+    );
+    const [{ id }] = rows;
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const record = { id, ...payload } as T;
+    return record;
+  }
 };
 
 export default sqlite3db;
 
 
-// export async function insertIntoTable<U, V>(
-//   table: string,
-//   payload: U
-// ): Promise<V> {
-//   const typedPayload = payload as Record<string, Scalar>;
-//   const columns = Object.keys(typedPayload);
-//   const values = Object.values(typedPayload);
-//   const placeholders = new Array(columns.length).fill('?');
-//   const sql = `INSERT INTO ${table}
-//       (${columns.join(', ')})
-//     VALUES
-//       (${placeholders.join(', ')})`;
-//   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-//   await queryAsync(sql, ...values);
-//   const rows = await queryAsync<[{ id: number }]>(
-//     'SELECT last_insert_rowid() as id'
-//   );
-//   const [{ id }] = rows;
-//   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-//   const record = { id, ...payload } as V;
-//   return record;
-// }
 
 // export async function getFromTableByField<T>(
 //   table: string,

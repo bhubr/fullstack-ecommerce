@@ -1,14 +1,11 @@
-import sqlite3 from 'sqlite3';
 
 export type Scalar = string | number | boolean | null;
 
 export interface DatabaseEngine {
   initialize(fileOrUrl: string): Promise<void>;
   query<T>(sql: string, args: Scalar[]): Promise<T>;
-}
-
-export interface SQLite3DatabaseEngine extends DatabaseEngine {
-  db?: sqlite3.Database;
+  getAllFromTable<T>(table: string): Promise<T[]>;
+  insertIntoTable<T>(table: string, values: Record<string, Scalar>): Promise<T>;
 }
 
 export type DatabaseEngineModule = {
