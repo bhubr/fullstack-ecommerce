@@ -1,26 +1,12 @@
-import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
 import type {
+  DatabaseConfigBase,
   DatabaseEngine,
   DatabaseEngineModule,
-  DbMigrateConfig,
 } from './types';
 
-async function readJSONAsync<T>(file: string): Promise<T> {
-  const data = await readFile(file, 'utf-8');
-  return JSON.parse(data) as T;
-}
-
-async function readDbMigrateConfig(): Promise<DbMigrateConfig> {
-  const dbMigrateConfigPath = resolve(__dirname, '..', 'database.json');
-  return readJSONAsync<DbMigrateConfig>(dbMigrateConfigPath);
-}
-
 async function loadDatabaseEngine(
-  environment: string
+  dbConfig: DatabaseConfigBase
 ): Promise<DatabaseEngine> {
-  const databaseConfigs = await readDbMigrateConfig(); // Assuming you have a property in your config for the database engine
-  const dbConfig = databaseConfigs[environment];
   let dbModule: DatabaseEngineModule;
 
   if (dbConfig.driver === 'sqlite3') {
