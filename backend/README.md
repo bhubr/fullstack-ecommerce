@@ -50,5 +50,5 @@ pnpm i typeorm pg reflect-metadata
 ## Requests
 
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"name":"Sample Product #2","slug":"sample-Product-2","price":"10.00"}' http://localhost:5000/api/products
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Sample Product #2","slug":"sample-Product-2","price":"10.00","pictureUrl":"https://via.placeholder.com/400x300?text=Product+2"}' http://localhost:5000/api/products
 ```

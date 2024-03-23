@@ -10,7 +10,7 @@ productsRouter.get('/', async (req, res) => {
 });
 
 productsRouter.post('/', async (req, res) => {
-  const { name, slug, price, description = '' } = req.body;
+  const { name, slug, price, description = '', pictureUrl = '' } = req.body;
   try {
     const createdAt = new Date().toISOString();
     const updatedAt = createdAt;
@@ -20,6 +20,7 @@ productsRouter.post('/', async (req, res) => {
       slug,
       price,
       description,
+      pictureUrl,
       createdAt,
       updatedAt,
     });
