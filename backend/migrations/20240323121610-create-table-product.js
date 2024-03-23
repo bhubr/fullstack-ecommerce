@@ -35,6 +35,10 @@ exports.up = function(db, callback) {
       type: 'text',
       notNull: true,
     },
+    pictureUrl: {
+      type: 'text',
+      notNull: true,
+    },
     price: {
       type: 'int',
       notNull: true,

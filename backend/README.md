@@ -18,6 +18,7 @@ npm init -y
 - `nodemon` &rarr; Monitor for automatic Node.js app restart
 - `jest` &rarr; Testing framework
 - `ts-jest` &rarr; TypeScript configuration for Jest
+- `@types/jest` &rarr; Types for `jest`
 - `supertest` &rarr; Request library for testing
 - `@types/cors` &rarr; Types for `cors`
 - `@types/express` &rarr; Types for `express`

@@ -1,7 +1,11 @@
 {
+  "test": {
+    "driver": "sqlite3",
+    "filename": "app-test.sqlite3"
+  },
   "development": {
     "driver": "sqlite3",
-    "filename": { "ENV": "DATABASE_URL" }
+    "filename": { "ENV": "SQLITE3_DATABASE" }
   },
   "production": {
     "driver": "pg",
