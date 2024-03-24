@@ -67,10 +67,19 @@ const sqlite3db: SQLite3DatabaseEngine = {
     let whereClause = '';
     if (where.length > 0) {
       whereClause = where
-        .map(([field, operator]) => `${field} ${operator} ?`)
+        .map(
+          ([field, operator, value]) =>
+            `${field} ${operator} ${value !== undefined ? '?' : ''}`
+        )
         .join(' AND ');
       query += ` WHERE ${whereClause}`;
-      args.push(...where.map(([, , value]) => value));
+      args.push(
+        ...where.reduce(
+          (carry, [, , value]) =>
+            value !== undefined ? [...carry, value] : carry,
+          [] as Scalar[]
+        )
+      );
     }
     let allArgs = [...args];
     if (limit !== undefined && offset !== undefined) {

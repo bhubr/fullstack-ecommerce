@@ -5,7 +5,13 @@ import jwt from 'jsonwebtoken';
 import isEmpty from '../helpers/is-empty';
 import { jwtSecret } from '../settings';
 import checkJwt from '../middlewares/check-jwt';
-import { getUserByEmail, getUserById, insertUser } from '../models/user';
+import {
+  getCartByUserId,
+  getUserByEmail,
+  getUserById,
+  insertUser,
+} from '../models/user';
+import { get } from 'node:http';
 
 const authRouter = express.Router();
 
@@ -18,7 +24,9 @@ authRouter.post('/signup', async (req, res) => {
   const { email, password } = req.body;
   console.log(req.body, isEmpty(email), isEmpty(password));
   if (isEmpty(email) || isEmpty(password)) {
-    return res.status(400).json({ message: 'Email and password are required' });
+    return res
+      .status(400)
+      .json({ message: "L'e-mail et le mot de passe sont requis" });
   }
   try {
     const passwordHash = await argon2.hash(password as string);
@@ -78,15 +86,14 @@ interface AuthRequest extends Request {
 }
 
 authRouter.get('/me', checkJwt, async (req: AuthRequest, res) => {
-  console.log('>> auth', req.auth);
   if (req.auth === undefined) {
     return res.status(401).json({ message: 'Unauthorized' });
   }
   const { userId } = req.auth;
-  console.log('userId', userId);
   const user = await getUserById(userId);
-  console.log(user, 'user');
-  return res.status(200).json(user);
+  const cart = await getCartByUserId(userId);
+  console.log('>> user/cart', user, cart);
+  return res.status(200).json({ ...user, cart });
 });
 
 export default authRouter;
