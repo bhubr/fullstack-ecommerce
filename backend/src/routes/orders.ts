@@ -120,6 +120,11 @@ ordersRouter.post('/', checkJwt, async (req: AuthRequest, res) => {
 
   try {
     const { id: cartId, items } = await getCartByUserId(userId);
+    // Fail if cart is empty
+    if (items.length === 0) {
+      return res.status(400).json({ error: 'Le panier est vide' });
+    }
+
     // compute total price
     const subTotal = items.reduce(
       (acc, item) => acc + item.quantity * item.product.price,
