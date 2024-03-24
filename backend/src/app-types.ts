@@ -76,3 +76,22 @@ export interface ISubmitOrderDTO {
   address: IAddressInformation;
   payment: IPaymentInformation;
 }
+
+export interface IOrder {
+  id: number;
+  userId: number;
+  addrStreet: string;
+  addrCity: string;
+  addrPostCode: string;
+  addrPhone: string;
+  reference: string;
+  subTotal: number;
+  shippingCost: number;
+}
+
+export interface IOrderProduct {
+  orderId: number;
+  productId: number;
+  quantity: number;
+  price: number;
+}

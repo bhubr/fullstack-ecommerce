@@ -72,17 +72,23 @@ export async function getCartByUserId(userId: number): Promise<ICartWithItems> {
 
   // valid carts are those that have not been checked out
   // and are not older than one week
-  const { records: carts } = await db.getAllFromTable<ICartWithItems>('cart', {
-    where: [
-      ['userId', '=', userId],
-      ['checkedOutAt', 'IS NULL'],
-      [
-        'updatedAt',
-        '>',
-        new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
-      ],
-    ],
-  });
+  // const { records: carts } = await db.getAllFromTable<ICartWithItems>('cart', {
+  //   where: [
+  //     ['userId', '=', userId],
+  //     ['checkedOutAt', 'IS NULL'],
+  //     [
+  //       'updatedAt',
+  //       '>',
+  //       new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+  //     ],
+  //   ],
+  // });
+  // replace above query by direct query with db.query
+  const carts = (await db.query(`
+    SELECT * FROM cart
+    WHERE userId = ? AND checkedOutAt IS NULL
+    AND updatedAt > ?
+  `, [userId, new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()])) as ICartWithItems[];
   let [cart] = carts;
   if (cart === undefined) {
     cart = await createCart(userId);

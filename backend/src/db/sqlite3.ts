@@ -62,7 +62,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
     options: IGetAllFromTableOptions = {}
   ): Promise<IGetAllFromTableResult<T>> {
     const { offset, limit, where = [] } = options;
-    let query = `SELECT * FROM ${table}`;
+    let query = `SELECT * FROM \`${table}\``;
     const args: Scalar[] = [];
     let whereClause = '';
     if (where.length > 0) {
@@ -90,7 +90,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
     console.log('>> query', query);
     const records = await this.query(query, allArgs);
     // Fire another query to get the total count of records matching the where clause
-    let countQuery = `SELECT COUNT(*) as count FROM ${table}`;
+    let countQuery = `SELECT COUNT(*) as count FROM \`${table}\``;
     if (where.length > 0) {
       countQuery += ` WHERE ${whereClause}`;
     }

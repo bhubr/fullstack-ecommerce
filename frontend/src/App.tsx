@@ -7,6 +7,8 @@ import SubmitOrder from './pages/SubmitOrder';
 import TopNavbar from './components/TopNavbar';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
+import OrderListContainer from './pages/OrderListContainer';
+import OrderDetailsContainer from './pages/OrderDetailsContainer';
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
         <Route path="/" element={<HomeContainer />} />
         <Route path="/panier" element={<Cart />} />
         <Route path="/commande" element={<SubmitOrder />} />
+        <Route path="/commandes" element={<OrderListContainer />} />
+        <Route path="/commandes/:reference" element={<OrderDetailsContainer />} />
         <Route path="/categories/:categorySlug" element={<HomeContainer />} />
         <Route path="/compte/connexion" element={<SigninForm />} />
         

@@ -48,6 +48,7 @@ const SubmitOrder = () => {
       ),
     [items]
   );
+  const shippingCost = useMemo(() => (subTotal > 50 ? 0 : 10), [subTotal]);
 
   return (
     <Container className="my-5">
@@ -58,8 +59,8 @@ const SubmitOrder = () => {
             <h4>Récapitulatif</h4>
             <ul>
               <SummaryItem label="Sous-total" price={subTotal} />
-              <SummaryItem label="Livraison" price={0} />
-              <SummaryItem label="Total" price={subTotal} />
+              <SummaryItem label="Livraison" price={shippingCost} />
+              <SummaryItem label="Total" price={subTotal + shippingCost} />
             </ul>
           </div>
           <CheckoutForm />

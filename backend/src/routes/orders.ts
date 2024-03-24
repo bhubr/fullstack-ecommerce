@@ -1,6 +1,11 @@
 import express from 'express';
 import checkJwt from '../middlewares/check-jwt';
-import { AuthRequest, ISubmitOrderDTO } from '../app-types';
+import {
+  AuthRequest,
+  IOrder,
+  IOrderProduct,
+  ISubmitOrderDTO,
+} from '../app-types';
 import { getCartByUserId } from '../models/cart';
 import createOrderReference from '../helpers/create-order-reference';
 import DatabaseService from '../services/database-service';
@@ -16,13 +21,68 @@ const isExpiryDateValid = (expiry: string): [true] | [false, string] => {
   const currentMonth = new Date().getMonth() + 1;
   console.log(currentYear, currentMonth);
   if (parseInt(year) < currentYear) {
-    return [false, 'Date d\'expiration dépassée'];
+    return [false, "Date d'expiration dépassée"];
   }
   if (parseInt(year) === currentYear && parseInt(month) < currentMonth) {
-    return [false, 'Date d\'expiration dépassée'];
+    return [false, "Date d'expiration dépassée"];
   }
   return [true];
-}
+};
+
+ordersRouter.get('/', checkJwt, async (req: AuthRequest, res) => {
+  const { userId } = req.auth;
+  try {
+    const db = (await DatabaseService.getInstance()).getDB();
+    const orders = await db.query('SELECT * FROM `order` WHERE userId = ?', [
+      userId,
+    ]);
+    return res.status(200).json(orders);
+  } catch (err) {
+    console.error(err);
+    const message = (err as Error).message;
+    return res.status(400).json({ error: message });
+  }
+});
+
+// Get one order by reference,
+// Get the associated cart_product entries AND the associated product entries
+ordersRouter.get('/:reference', checkJwt, async (req: AuthRequest, res) => {
+  const { userId } = req.auth;
+  const { reference } = req.params;
+  try {
+    const db = (await DatabaseService.getInstance()).getDB();
+    const { records } = await db.getAllFromTable<IOrder>('order', {
+      where: [
+        ['userId', '=', userId],
+        ['reference', '=', reference],
+      ],
+    });
+    const [order] = records;
+    if (!order) {
+      return res.status(404).json({ error: 'Order not found' });
+    }
+    const { records: orderItems } = await db.getAllFromTable<IOrderProduct>(
+      'order_product',
+      {
+        where: [['orderId', '=', order.id]],
+      }
+    );
+    const products = await Promise.all(
+      orderItems.map(async (item) => {
+        return db.query('SELECT * FROM product WHERE id = ?', [item.productId]);
+      })
+    );
+    const itemsWithProduct = orderItems.map((item, index) => ({
+      ...item,
+      product: products[index][0],
+    }));
+    return res.status(200).json({ ...order, items: itemsWithProduct });
+  } catch (err) {
+    console.error(err);
+    const message = (err as Error).message;
+    return res.status(400).json({ error: message });
+  }
+});
 
 ordersRouter.post('/', checkJwt, async (req: AuthRequest, res) => {
   const { address, payment } = req.body as ISubmitOrderDTO;
@@ -36,7 +96,9 @@ ordersRouter.post('/', checkJwt, async (req: AuthRequest, res) => {
   const sanitizedCardNumber = cardNumber.replace(/\s/g, '');
   // valid number is 16 digits
   if (!/^\d{16}$/.test(sanitizedCardNumber)) {
-    return res.status(400).json({ error: 'Format de numéro de carte incorrect' });
+    return res
+      .status(400)
+      .json({ error: 'Format de numéro de carte incorrect' });
   }
   // only valid number is 1234123412341234
   if (sanitizedCardNumber !== '1234123412341234') {
@@ -98,7 +160,7 @@ ordersRouter.post('/', checkJwt, async (req: AuthRequest, res) => {
       checkedOutAt: new Date().toISOString(),
     });
 
-    return res.status(200).json({ message: 'Order submitted' });
+    return res.status(200).json(order);
   } catch (err) {
     console.error(err);
     const message = (err as Error).message;

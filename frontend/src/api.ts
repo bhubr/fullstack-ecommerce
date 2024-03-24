@@ -1,6 +1,7 @@
 import axios from 'axios';
+import type { AxiosError } from 'axios';
 import { serverUrl } from './settings';
-import type { ICategory, IProduct, ISubmitOrderDTO } from './types';
+import type { ICategory, IProduct, ISubmitOrderDTO, IOrder } from './types';
 
 const api = axios.create({
   baseURL: `${serverUrl}/api`,
@@ -85,4 +86,23 @@ export const updateCart = async (
 export const submitOrder = async (payload: ISubmitOrderDTO) => {
   const res = await api.post('/orders', payload, { withCredentials: true });
   return res.data;
+};
+
+export const readOrders = async () => {
+  try {
+    const response = await api.get('/orders', { withCredentials: true });
+    return response.data; // Assuming the response contains orders data
+  } catch (error) {
+    console.error('Error fetching orders:', error);
+    throw error; // Propagate the error
+  }
+};
+
+export const readOrderByReference = async (reference: string): Promise<IOrder> => {
+  try {
+    const response = await api.get<IOrder>(`/orders/${reference}`, { withCredentials: true });
+    return response.data;
+  } catch (error) {
+    throw error as AxiosError<{ error: string }>; // Propagate the error
+  }
 };

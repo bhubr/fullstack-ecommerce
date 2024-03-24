@@ -28,6 +28,11 @@ const UserAccountNavbarDropdown = ({ user }: { user: IUser }) => {
         {/* <DropdownItem>{user.fullName}</DropdownItem>
            <DropdownItem divider /> */}
         <DropdownItem>
+          <Link to="/commandes">
+            Commandes
+          </Link>
+        </DropdownItem>
+        <DropdownItem>
           <Link to="#" onClick={signout}>
             Déconnexion
           </Link>

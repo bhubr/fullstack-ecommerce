@@ -9,7 +9,8 @@ import {
   Label,
   Input,
 } from 'reactstrap';
-import { AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
+import type { AxiosError } from 'axios';
 
 import { submitOrder } from '../api';
 
@@ -25,6 +26,7 @@ const CheckoutForm = () => {
     expiration: '',
   });
   const [error, setError] = useState<AxiosError | null>(null);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +37,7 @@ const CheckoutForm = () => {
     e.preventDefault();
 
     try {
-      await submitOrder({
+      const order = await submitOrder({
         address: {
           addrStreet: formData.address,
           addrCity: formData.city,
@@ -49,6 +51,7 @@ const CheckoutForm = () => {
           cardCvc: formData.cvv,
         },
       });
+      navigate(`/commandes/${order.reference}?success=true`)
     } catch (err) {
       setError(
         err as AxiosError

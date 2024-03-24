@@ -63,7 +63,6 @@ authRouter.post('/signin', async (req, res) => {
     const jwtExpiresAt = Date.now() + 3600000;
     const jwt = createJwt(user.id);
     res.cookie('jwt', jwt, { httpOnly: true });
-    console.log(user);
     return res.status(200).json({
       id: user.id,
       email: user.email,
