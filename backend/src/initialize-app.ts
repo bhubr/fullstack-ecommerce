@@ -11,16 +11,21 @@ import helmet from 'helmet';
 // how to solve this?
 import apiRouter from './routes/api';
 import DatabaseService from './services/database-service';
+import { staticImagesParent } from './settings';
 
 export default async function initializeApp(): Promise<Application> {
   const app = express();
   app.use(morgan('dev'));
   app.use(cors());
   app.use(express.json());
-  app.use(helmet());
+  app.use(helmet({
+    // allow images to be loaded from other domains
+    crossOriginResourcePolicy: false,
+  }));
+  app.use(express.static(staticImagesParent));
 
   app.use('/api', apiRouter);
-  
+
   // This will initialize the database engine
   await DatabaseService.getInstance();
 

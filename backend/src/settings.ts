@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -12,3 +13,5 @@ export const environment = process.env.NODE_ENV ?? 'development';
 console.log('Environment:', environment);
 
 export const isProduction = environment === 'production';
+
+export const staticImagesParent = resolve(__dirname, '..', 'tools');

@@ -1,5 +1,6 @@
 import { Card, CardImg, CardBody, CardFooter } from 'reactstrap';
 import { IProduct } from '../types';
+import { serverUrl } from '../settings';
 
 const ProductCard = ({ product }: { product: IProduct }) => (
   <Card className="h-100">
@@ -11,7 +12,7 @@ const ProductCard = ({ product }: { product: IProduct }) => (
         Sale
       </div>
     )}
-    <CardImg top src={product.pictureUrl} alt="..." />
+    <CardImg top src={`${serverUrl}${product.pictureUrl}`} alt="..." />
     <CardBody className="p-4">
       <div className="text-center">
         <h5 className="fw-bolder">{product.name}</h5>
