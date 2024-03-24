@@ -5,6 +5,7 @@ export interface DatabaseEngine {
   initialize(fileOrUrl: string): Promise<void>;
   query<T>(sql: string, args: Scalar[]): Promise<T>;
   getAllFromTable<T>(table: string): Promise<T[]>;
+  getOneFromTableByField<T>(table: string, field: string, value: Scalar): Promise<T[]>;
   insertIntoTable<T>(table: string, values: Record<string, Scalar>): Promise<T>;
 }
 

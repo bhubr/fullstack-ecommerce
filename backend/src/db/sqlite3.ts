@@ -79,6 +79,17 @@ const sqlite3db: SQLite3DatabaseEngine = {
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     const record = { id, ...payload } as T;
     return record;
+  },
+
+  /**
+   * Get one from table by field
+   */
+  async getOneFromTableByField<T>(
+    table: string,
+    field: string,
+    value: Scalar): Promise<T> {
+    const [record] = await this.query(`SELECT * FROM ${table} WHERE ${field} = ?`, [value]);
+    return record
   }
 };
 

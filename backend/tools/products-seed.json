@@ -1,0 +1,761 @@
+[
+  {
+    "title": "HP Pavilion 15-eg2000sf PC Portable 15.6\" FHD (Intel Core i5-1235U, RAM 16 Go, SSD 512 Go, AZERTY, Windows 11 Famille) Argent naturel",
+    "link": "/HP-Pavilion-15-eg2000sf-Portable-i5-1235U/dp/B0BB37LMJZ",
+    "pictureUrl": "/images/I/417qA9AOOTL._SR480,440_.jpg",
+    "price": {
+      "current": 595
+    },
+    "slug": "hp-pavilion-15-eg2000sf-portable-i5-1235u",
+    "description": "PC portable performant avec écran FHD, processeur Intel Core i5, mémoire RAM de 16 Go et SSD de 512 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "HP Laptop 15s-fq0002sf PC Portable 15.6\" FHD (Intel Celeron, RAM 4 Go, SSD 128 Go, AZERTY, Windows 11 Famille en Mode S) Gris Ardoise, Microsoft 365 Personnel inclus pendant 1 an",
+    "link": "/HP-Laptop-15s-fq0002sf-Microsoft-Personnel/dp/B0CH8N7D2X",
+    "pictureUrl": "/images/I/41jorgRNmEL._SR480,440_.jpg",
+    "price": {
+      "current": 229.99
+    },
+    "slug": "hp-laptop-15s-fq0002sf-microsoft-personnel",
+    "description": "PC portable léger avec écran FHD, processeur Intel Celeron, mémoire RAM de 4 Go et SSD de 128 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "Acer Aspire 1 A115-32-C3AK Ordinateur Portable 15,6'' Full HD, PC Portable (Intel Celeron N4500, RAM 4 Go, 128 Go eMMC, Intel UHD Graphics, Windows 11 ) - Clavier AZERTY (Français), Laptop Gris",
+    "link": "/Acer-A115-32-C3AK-Ordinateur-Portable-Celeron%C2%AE/dp/B0B1QDNQMF",
+    "pictureUrl": "/images/I/41Mguao3UUL._SR480,440_.jpg",
+    "price": {
+      "current": 349
+    },
+    "slug": "acer-a115-32-c3ak-ordinateur-portable-celeron",
+    "description": "PC portable abordable avec écran Full HD, processeur Intel Celeron, mémoire RAM de 4 Go et stockage eMMC de 128 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "Lenovo (FullHD 15,6 Zoll Ordinateur Portable (Intel® Quad N5100 4x2.80 GHz, 16Go DDR4, 1000 Go SSD, Intel™ UHD, HDMI, BT, USB 3.0, Webcam, WLAN, Windows 11, Clavier AZERTY [français]) #7388",
+    "link": "/Lenovo-Ordinateur-Portable-fran%C3%A7ais-7388/dp/B0CL4X6ZND",
+    "pictureUrl": "/images/I/51fE7FmJZ2L._SR480,440_.jpg",
+    "price": {
+      "current": 377
+    },
+    "slug": "lenovo-ordinateur-portable-francais-7388",
+    "description": "PC portable polyvalent avec écran Full HD, processeur Intel Quad N5100, mémoire DDR4 de 16 Go et SSD de 1000 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "HP Chromebook 15a-na0003sf Ordinateur Portable 15.6\" FHD (Intel Celeron, RAM 4 Go, eMMC 64 Go, AZERTY, ChromeOS) Gris",
+    "link": "/HP-Chromebook-15a-na0003sf-Ordinateur-portable/dp/B0BB37L8KH",
+    "pictureUrl": "/images/I/410lAVwwQ+L._SR480,440_.jpg",
+    "price": {
+      "current": 179
+    },
+    "slug": "hp-chromebook-15a-na0003sf-ordinateur-portable",
+    "description": "Chromebook compact avec écran FHD, processeur Intel Celeron, mémoire RAM de 4 Go et stockage eMMC de 64 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "MSI Thin GF63 12UCX-1058FR : Intel Core i5 12450H - 16GB DDR4 - SSD 512GB - Nvidia RTX2050 4GB - 15.6' Full HD 144Hz -Windows 11 Famille - Clavier retroeclairé AZERTY",
+    "link": "/MSI-Thin-GF63-12UCX-1058FR-retroeclair%C3%A9/dp/B0CJVBR1SW",
+    "pictureUrl": "/images/I/311tzGu50SL._SR480,440_.jpg",
+    "price": {
+      "current": 689
+    },
+    "slug": "msi-thin-gf63-12ucx-1058fr-retroeclaire",
+    "description": "PC portable gaming avec écran Full HD 144Hz, processeur Intel Core i5, 16GB DDR4 RAM et SSD de 512GB.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "Ordinateur PC portable 14 pouces 256Go Win11 Celeron N4020 Support 1 To SSD Expansion 2.4G+5G WiFi Bluetooth 4.2 USB HDMI 1920 x 1080 FHD avec souris sans fil & Membrane de clavier AZERTY - Argent",
+    "link": "/Ordinateur-portable-Expansion-Bluetooth-membrane/dp/B0BGQ2XDWH",
+    "pictureUrl": "/images/I/41B50HGndNL._SR480,440_.jpg",
+    "price": {
+      "current": 212.49
+    },
+    "slug": "ordinateur-portable-expansion-bluetooth-membrane",
+    "description": "PC portable compact avec écran FHD, processeur Celeron N4020, 256Go de stockage et connectivité WiFi et Bluetooth.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "HP Laptop 17-cp0003sf PC Portable 17,3\" FHD (AMD Ryzen 7 5700U, RAM 16 Go, SSD 1 To, AZERTY, Windows 11 Famille) Argent naturel",
+    "link": "/HP-Laptop-17-cp0003sf-Portable-Windows/dp/B0CKR6DZC8",
+    "pictureUrl": "/images/I/41B9sGMLu8L._SR480,440_.jpg",
+    "price": {
+      "current": 649
+    },
+    "slug": "hp-laptop-17-cp0003sf-portable-windows",
+    "description": "PC portable grand format avec écran FHD, processeur AMD Ryzen 7 5700U, mémoire RAM de 16 Go et SSD de 1 To.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "Acer Aspire 3 A317-54-73VM, Ordinateur Portable 17,3'' Full HD IPS, PC Portable (Intel Core i7-1255U, RAM 16 Go, SSD 512 Go, Intel Iris Xe Graphics, Windows 11), Laptop Gris, Clavier AZERTY (Français)",
+    "link": "/Acer-A317-54-73VM-Ordinateur-Portable-i7-1255U/dp/B0CN4ZGG95",
+    "pictureUrl": "/images/I/31k06AoPrPL._SR480,440_.jpg",
+    "price": {
+      "current": 699.99
+    },
+    "slug": "acer-a317-54-73vm-ordinateur-portable-i7-1255u",
+    "description": "PC portable de grande taille avec écran Full HD IPS, processeur Intel Core i7, mémoire RAM de 16 Go et SSD de 512 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "Acer Chromebook 315 CB315-3H-C7HM, Ordinateur Portable 15,6'' HD, PC Portable (Intel Celeron N4120, RAM 4 Go, 128 Go eMMC, UHD Graphics, Chrome OS), Laptop Gris, Clavier AZERTY (Français)",
+    "link": "/Acer-Chromebook-CB315-3H-C7HM-Ordinateur-Portable/dp/B0CN9RLR3D",
+    "pictureUrl": "/images/I/31yA7gg43UL._SR480,440_.jpg",
+    "price": {
+      "current": 249.99
+    },
+    "slug": "acer-chromebook-cb315-3h-c7hm-ordinateur-portable",
+    "description": "Chromebook compact avec écran HD, processeur Intel Celeron, mémoire RAM de 4 Go et stockage eMMC de 128 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "MEDION - E14223 (MD62560), PC Portable 14\" - Intel Celeron N4120, 4 Go RAM, SSD 128 Go, Carte Graphique Intel HD Graphics, Windows 11 Home S Mode 64 Bit",
+    "link": "/MEDION-MD62560-Portable-Graphique-Graphics/dp/B0C7CQDKNK",
+    "pictureUrl": "/images/I/41GJUJiizML._SR480,440_.jpg",
+    "price": {
+      "current": 149
+    },
+    "slug": "medion-md62560-portable-graphique-graphics",
+    "description": "PC portable léger avec écran de 14 pouces, processeur Intel Celeron, 4 Go de RAM et SSD de 128 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "Acer Aspire 3 A317-53-70HD Ordinateur Portable 17,3'' Full HD IPS, PC Portable (Intel Core i7-1165G7, RAM 16 Go, SSD 512 Go, Intel Iris Xe Graphics, Windows 11)- Clavier AZERTY (Français), Laptop Gris",
+    "link": "/Acer-A317-53-70HD-Ordinateur-Portable-i7-1165G7/dp/B0C78J4PR3",
+    "pictureUrl": "/images/I/41MiFHcjKWS._SR480,440_.jpg",
+    "price": {
+      "current": 699.99
+    },
+    "slug": "acer-a317-53-70hd-ordinateur-portable-i7-1165g7",
+    "description": "PC portable grand format avec écran Full HD IPS, processeur Intel Core i7, mémoire RAM de 16 Go et SSD de 512 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "Microsoft Surface Go 2 Ordinateur Portable (Windows 10, écran 10\", 4Go RAM, 64Go eMMC, Intel Pentium Gold) compact & polyvalent",
+    "link": "/Microsoft-Surface-Tablette-Pentium-m%C3%A9moire/dp/B086NBKQMR",
+    "pictureUrl": "/images/I/31FnojSUP-L._SR480,440_.jpg",
+    "price": {
+      "current": 279.99
+    },
+    "slug": "microsoft-surface-tablette-pentium-memoire",
+    "description": "PC portable compact et polyvalent avec écran de 10 pouces, 4 Go de RAM, 64 Go de stockage eMMC et processeur Intel Pentium Gold.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "Acer Nitro 5 AN515-58-54PH Ordinateur Portable Gaming 15,6'' Full HD IPS 144 Hz, PC Portable Gamer (Intel Core i5-12450H, NVIDIA GeForce RTX 4060, RAM 16 Go, 512 Go SSD, Windows 11) - pc gaming Noir",
+    "link": "/Acer-AN515-58-54PH-Ordinateur-Portable-i5-12450H/dp/B0C1KPKNGF",
+    "pictureUrl": "/images/I/51zpB4tb90L._SR480,440_.jpg",
+    "price": {
+      "current": 999.99
+    },
+    "slug": "acer-an515-58-54ph-ordinateur-portable-i5-12450h",
+    "description": "PC portable gaming avec écran Full HD IPS 144 Hz, processeur Intel Core i5, carte graphique NVIDIA GeForce RTX 4060, 16 Go de RAM et SSD de 512 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "HP Envy 17-cw0000sf PC Portable 17.3\" FHD (Intel Core i5-13500H, RAM 16 Go, SSD 512 Go, AZERTY, Windows 11 Famille) Gris",
+    "link": "/HP-Envy-17-cw0000sf-Portable-i5-13500H/dp/B0CH8R1VHB",
+    "pictureUrl": "/images/I/41PiaTMIgOL._SR480,440_.jpg",
+    "price": {
+      "current": 699
+    },
+    "slug": "hp-envy-17-cw0000sf-portable-i5-13500h",
+    "description": "PC portable élégant avec grand écran FHD de 17.3 pouces, processeur Intel Core i5, 16 Go de RAM et SSD de 512 Go.",
+    "category": "ordinateurs-portables"
+  },
+  {
+    "title": "ARZOPA Ecran Portable, 15.6 Pouces, 1920x1080 FHD, Moniteur Portable IPS avec HDMI/Type-C/USB-C, écran Portable de Jeu Eye Care,pour Ordinateur Portable/PC/Mac/PS4 /Xbox",
+    "link": "/Portable-ARZOPA-1920x1080-Ordinateur-T%C3%A9l%C3%A9phone/dp/B092KKLH93",
+    "pictureUrl": "/images/I/41-8XE25ahL._SR480,440_.jpg",
+    "price": {
+      "current": 95.24
+    },
+    "slug": "portable-arzopa-1920x1080-ordinateur-telephone",
+    "description": "Écran portable de 15.6 pouces avec résolution FHD, compatible avec divers appareils tels que les ordinateurs portables, PC, Mac, PS4 et Xbox.",
+    "category": "écrans-portables"
+  },
+  {
+    "title": "KOORUI Écran PC 24 Pouces Full HD (1920x1080), 75Hz, 5ms, Mode Faible lumière Bleue, 250 Nits, sRGB 99%, VGA et HDMI, Noir",
+    "link": "/KOORUI-Pouces-1920x1080-Faible-lumi%C3%A8re/dp/B09VD9P2Q3",
+    "pictureUrl": "/images/I/51JusdAd1cL._SR480,440_.jpg",
+    "price": {
+      "current": 84.99
+    },
+    "slug": "koorui-pouces-1920x1080-faible-lumiere",
+    "description": "Écran PC de 24 pouces avec résolution Full HD, taux de rafraîchissement de 75Hz, temps de réponse de 5ms et technologie de protection oculaire contre la lumière bleue.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "ASUS TUF Gaming VG249QM1A - Ecran PC Gamer Esport 23,8\" FHD - Dalle IPS - 270Hz - 1ms - 16:9-1920x1080 - Display Port et HDMI - Haut-parleurs - AMD FreeSync - Compatible G-Sync - ELMB - 99% sRGB",
+    "link": "/ASUS-TUF-Gaming-VG249QM1A-Haut-parleurs/dp/B0B8NSFTMT",
+    "pictureUrl": "/images/I/41UuodaDh+L._SR480,440_.jpg",
+    "price": {
+      "current": 212
+    },
+    "slug": "asus-tuf-gaming-vg249qm1a-haut-parleurs",
+    "description": "Écran PC gamer de 23.8 pouces avec résolution FHD, taux de rafraîchissement de 270Hz, temps de réponse de 1ms et technologies AMD FreeSync et G-Sync.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "AOC Écran gaming C27G2ZE 68 cm (27 pouces) (FHD, HDMI, DisplayPort, hub USB, FreeSync, temps de réponse 0,5 ms (MPRT), 240 Hz, 1920 x 1080) noir/rouge",
+    "link": "/AOC-C27G2ZE-BK-Ecran-Noir/dp/B08897N6HB",
+    "pictureUrl": "/images/I/41sKPFq8BXL._SR480,440_.jpg",
+    "price": {
+      "current": 198.9
+    },
+    "slug": "aoc-c27g2ze-bk-ecran-noir",
+    "description": "Écran de gaming de 27 pouces avec résolution FHD, taux de rafraîchissement de 240Hz, temps de réponse de 0,5ms et technologies FreeSync pour une expérience de jeu fluide.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "MSI G272QPF Écran PC Gaming 27\" WQHD - Dalle Rapid IPS, 2560x1440, 170Hz / 1ms, 16:9, G-Sync Compatible - DisplayPort 1.2a, HDMI 2.0b",
+    "link": "/MSI-G272QPF-%C3%89cran-Gaming-WQHD/dp/B09XTQSHWY",
+    "pictureUrl": "/images/I/412xCOftQvL._SR480,440_.jpg",
+    "price": {
+      "current": 231.99
+    },
+    "slug": "msi-g272qpf-ecran-gaming-wqhd",
+    "description": "Écran PC gaming de 27 pouces avec résolution WQHD, taux de rafraîchissement de 170Hz, temps de réponse de 1ms et compatibilité G-Sync pour des graphismes fluides.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "AOC Écran 24B2XH 60,5 cm (23,8 pouces) (VGA, HDMI, résolution 1920 x 1080, 75 Hz, temps de réponse 7 ms) noir",
+    "link": "/AOC-24B2XH-23-8pcs-Frameless-Compatible/dp/B0845VVRQ1",
+    "pictureUrl": "/images/I/41sSsvkDVuL._SR480,440_.jpg",
+    "price": {
+      "current": 74.9
+    },
+    "slug": "aoc-24b2xh-23-8pcs-frameless-compatible",
+    "description": "Écran PC de 23.8 pouces avec résolution Full HD, taux de rafraîchissement de 75Hz et temps de réponse de 7ms, idéal pour une utilisation polyvalente.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "KOORUI Écran PC Gamer 24 Pouces - FHD (1920 x 1080), VA, 165Hz, 1ms MPRT, DCI-P3 85%, AdaptiveSync Technologie, Angle de Vision de 178°, Displayport 1.2 et HDMI X2, Noir",
+    "link": "/KOORUI-%C3%89cran-Gamer-Pouces-Displayport/dp/B0B14J2RJ3",
+    "pictureUrl": "/images/I/513C2AGuZvL._SR480,440_.jpg",
+    "price": {
+      "current": 123
+    },
+    "slug": "koorui-ecran-gamer-pouces-displayport",
+    "description": "Écran PC gamer de 24 pouces avec résolution FHD, taux de rafraîchissement de 165Hz, temps de réponse de 1ms et technologie AdaptiveSync pour des images fluides.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "Minifire Écran PC 24 Pouces 100Hz,IPS, FreeSync, FHD 1080P avec HDMI VGA Ports, Mode Faible lumière Bleue & Flickerless, Angle de Vision de 178°,Moniteur de bureau(MF24X3AL câble HDMI Inclus)",
+    "link": "/Minifire-FreeSync-Flickerless-Moniteur-MF24X3AL/dp/B0CFL7LXCR",
+    "pictureUrl": "/images/I/41alZvtJ0oL._SR480,440_.jpg",
+    "price": {
+      "current": 85.49
+    },
+    "slug": "minifire-freesync-flickerless-moniteur-mf24x3al",
+    "description": "Écran de bureau de 24 pouces avec résolution FHD, taux de rafraîchissement de 100Hz, technologie FreeSync et protection oculaire contre la lumière bleue.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "Dell SE2422HX 24\" Full HD (1920x1080) Écran PC, 75Hz, VA, 5ms, AMD FreeSync, HDMI, VGA, Garantie 3 ans, Noir",
+    "link": "/Dell-SE2422HX-%C3%89cran-r%C3%A9tro%C3%A9clairage-FreeSync/dp/B0957LFHTM",
+    "pictureUrl": "/images/I/51Y5ErhFZYL._SR480,440_.jpg",
+    "price": {
+      "current": 105
+    },
+    "slug": "dell-se2422hx-ecran-retroeclairage-freesync",
+    "description": "Écran PC de 24 pouces avec résolution Full HD, taux de rafraîchissement de 75Hz, temps de réponse de 5ms et technologie AMD FreeSync pour des images fluides.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "LG UltraWide 29WP500-B Moniteur 29\", format 21:9 ultra-large, dalle IPS résolution UWFHD (2560x1080), 5ms GtG 75Hz, HDR 10, sRGB 99%, AMD FreeSync, inclinable",
+    "link": "/LG-UltraWide-29WP500-W-Moniteur-ultra/dp/B08VJCF57L",
+    "pictureUrl": "/images/I/41en5xuOIjL._SR480,440_.jpg",
+    "price": {
+      "current": 169.99
+    },
+    "slug": "lg-ultrawide-29wp500-w-moniteur-ultra",
+    "description": "Moniteur UltraWide de 29 pouces avec résolution UWFHD, HDR 10, technologie AMD FreeSync et inclinable pour un confort visuel optimal.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "Lenovo , Ordinateur pc de Bureau Intel i5, ram 16 Go, 512 Go de Disque SSD, Windows 11 Pro, wi FI, Pc Fixe (Reconditionné)",
+    "link": "/Lenovo-Ordinateur-Bureau-Windows-Reconditionn%C3%A9/dp/B0BBSFYYRZ",
+    "pictureUrl": "/images/I/3134g3I-jtL._SR480,440_.jpg",
+    "price": {
+      "current": 148.88
+    },
+    "slug": "lenovo-ordinateur-bureau-windows-reconditionne",
+    "description": "Ordinateur de bureau reconditionné avec processeur Intel Core i5, 16 Go de RAM, SSD de 512 Go, Windows 11 Pro et connectivité Wi-Fi.",
+    "category": "ordinateurs-fixes"
+  },
+  {
+    "title": "KOORUI Ecran Gaming 27 Pouces QHD 144 Hz, 1ms, DCI-P3 90% Ecran Gamer, Adaptive Sync G-Sync écrans PC, 2560x1440, HDMI, DisplayPort",
+    "link": "/KOORUI-Gaming-Adaptive-2560x1440-DisplayPort/dp/B0CKVPBJYW",
+    "pictureUrl": "/images/I/51t0qLyOyrL._SR480,440_.jpg",
+    "price": {
+      "current": 179
+    },
+    "slug": "koorui-gaming-adaptive-2560x1440-displayport",
+    "description": "Écran gaming de 27 pouces avec résolution QHD, taux de rafraîchissement de 144Hz, temps de réponse de 1ms et compatibilité G-Sync pour une expérience de jeu immersive.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "Gawfolk Moniteur Gaming courbé de 27 Pouces, 100Hz, 1ms, Full HD (1920 x 1080), 1800R sans Cadre, Technologie Eye Care et FreeSync, supporte VESA - l'écran PC idéal!",
+    "link": "/Gawfolk-dordinateur-FreeSync-Technologie-supporte/dp/B0C1SC6N8L",
+    "pictureUrl": "/images/I/51pxZwoyqlL._SR480,440_.jpg",
+    "price": {
+      "current": 125.99
+    },
+    "slug": "gawfolk-dordinateur-freesync-technologie-supporte",
+    "description": "Moniteur gaming courbé de 27 pouces avec résolution Full HD, taux de rafraîchissement de 100Hz, temps de réponse de 1ms et technologie FreeSync pour des parties fluides.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "KOORUI Écran PC Gaming 27 Pouces, FHD (1920 x 1080), VA, 1ms, 165Hz, Adaptive Sync, Grand Angle de Vue 178°, Displayport (1.4) et 2X HDMI (2.0), VESA 75x75mm, DCI-P3 90%, Eye-Care",
+    "link": "/KOORUI-Adaptive-Displayport-75x75mm-Eye-Care/dp/B0CHFJNKSX",
+    "pictureUrl": "/images/I/51UcAV8vKiL._SR480,440_.jpg",
+    "price": {
+      "current": 149.99
+    },
+    "slug": "koorui-adaptive-displayport-75x75mm-eye-care",
+    "description": "Écran PC gaming de 27 pouces avec résolution FHD, taux de rafraîchissement de 165Hz, temps de réponse de 1ms, technologie Adaptive Sync et large angle de vue pour une immersion totale.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "iiyama Ecran 34 Pouces Ultra WQHD 34\" LED-G-Master Ultra Wide VA Incurvé 165Hz Hub",
+    "link": "/iiyama-G-Master-GB3467WQSU-B5-Curved-WQHD/dp/B0BNLCJBDG",
+    "pictureUrl": "/images/I/41U-Avj0qXL._SR480,440_.jpg",
+    "price": {
+      "current": 359.95
+    },
+    "slug": "iiyama-g-master-gb3467wqsu-b5-curved-wqhd",
+    "description": "Écran ultra large de 34 pouces avec résolution Ultra WQHD, courbure pour une immersion maximale, taux de rafraîchissement de 165Hz et hub intégré pour une connectivité simplifiée.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "Samsung Écran PC Professionnel S36C 24\" 75Hz - 4ms, Dalle VA Incurvé 1800R, FHD (1920 x 1080),1000:1,250 cd/㎡, Eye Saver Mode, AMD FreeSync, Inclinable, HDMI, VGA",
+    "link": "/Samsung-S24C366EAU-Ecran-Incurv%C3%A9-R%C3%A9solution/dp/B0BQWD9VDS",
+    "pictureUrl": "/images/I/41zKpds3ZAL._SR480,440_.jpg",
+    "price": {
+      "current": 109
+    },
+    "slug": "samsung-s24c366eau-ecran-incurve-resolution",
+    "description": "Écran professionnel de 24 pouces avec dalle VA incurvée pour un confort visuel accru, résolution FHD, technologie AMD FreeSync et modes de protection oculaire.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "Caixun Moniteur PC Gamer 27 Pouces 100Hz，IPS，Ecran PC FHD 1080P avec Haut-parleurs intégrés，avec HDMI DP Type-C Ports，pour Le Bureau à Domicile Gaming (CM27X3 câble Type-C et câble HDMI Inclus)",
+    "link": "/Caixun-100Hz%EF%BC%8CIPS%EF%BC%8CEcran-Haut-parleurs-int%C3%A9gr%C3%A9s%EF%BC%8Cavec-Ports%EF%BC%8Cpour/dp/B0BTHS1B69",
+    "pictureUrl": "/images/I/51sPCnvnmzL._SR480,440_.jpg",
+    "price": {
+      "current": 129.99
+    },
+    "slug": "caixun-100hzipsecran-haut-parleurs-integresavec-portspour",
+    "description": "Moniteur PC gamer de 27 pouces avec résolution FHD, taux de rafraîchissement de 100Hz, haut-parleurs intégrés et ports HDMI, DP et Type-C pour une connectivité polyvalente.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "KOORUI Ecran PC Gamer 24 Pouces, 165Hz 1080p 1ms IPS, Adaptive Sync, Moniteur PC HDMI, Angle de Vision de 178°, Montage Mural VESA (FHD 1920x1080, DisplayPort) Noir",
+    "link": "/KOORUI-FreeSync-Compatible-1920x1080-DisplayPort/dp/B0BQ1WCQT2",
+    "pictureUrl": "/images/I/417GA0wIWXL._SR480,440_.jpg",
+    "price": {
+      "current": 149.99
+    },
+    "slug": "koorui-freesync-compatible-1920x1080-displayport",
+    "description": "Écran PC gamer de 24 pouces avec résolution FHD, taux de rafraîchissement de 165Hz, temps de réponse de 1ms, technologie Adaptive Sync et angle de vision large pour des images fluides.",
+    "category": "écrans-pc"
+  },
+  {
+    "title": "Apple AirPods Pro (2ᵉ génération) avec Boîtier de Charge MagSafe (USB‑C) ​​​​​​​",
+    "link": "/Apple-AirPods-g%C3%A9n%C3%A9ration-Bo%C3%AEtier-MagSafe/dp/B0CHWZ9TZS",
+    "pictureUrl": "/images/I/2110TEYPKnL._SR480,440_.jpg",
+    "price": {
+      "current": 245
+    },
+    "slug": "apple-airpods-generation-boitier-magsafe",
+    "description": "casques-et-écouteurs sans fil avec réduction active du bruit, design ergonomique et boîtier de charge MagSafe pour une expérience audio immersive.",
+    "category": "casques-et-écouteurs"
+  },
+  {
+    "title": "Apple AirTag",
+    "link": "/Apple-MX532ZMA-Nouveau-AirTag/dp/B0935DN1BN",
+    "pictureUrl": "/images/I/318ulj8mOHS._SR480,440_.jpg",
+    "price": {
+      "current": 29.99
+    },
+    "slug": "apple-mx532zma-nouveau-airtag",
+    "description": "Dispositif de suivi Bluetooth conçu pour retrouver facilement vos objets perdus via l'application Find My d'Apple.",
+    "category": "accessoires"
+  },
+  {
+    "title": "Apple AirPods avec boîtier de Charge Filaire (2ᵉ génération)",
+    "link": "/Apple-AirPods-bo%C3%AEtier-charge-Dernier/dp/B07PZR3PVB",
+    "pictureUrl": "/images/I/21n8sBwgS-L._SR480,440_.jpg",
+    "price": {
+      "current": 119
+    },
+    "slug": "apple-airpods-boitier-charge-dernier",
+    "description": "casques-et-écouteurs sans fil avec boîtier de charge filaire, technologie audio de pointe et intégration transparente avec les appareils Apple.",
+    "category": "casques-et-écouteurs"
+  },
+  {
+    "title": "Apple iPhone 15 (128 Go) - Noir",
+    "link": "/Apple-iPhone-15-128-Go/dp/B0CHXFCYCR",
+    "pictureUrl": "/images/I/31jlnEYZNlL._SR480,440_.jpg",
+    "price": {
+      "current": 859
+    },
+    "slug": "apple-iphone-15-128-go",
+    "description": "Smartphone haut de gamme avec écran OLED, triple appareil photo de qualité professionnelle, puce A16 Bionic et capacités 5G avancées.",
+    "category": "smartphones"
+  },
+  {
+    "title": "Samsung Galaxy A14 4G 64GB Black",
+    "link": "/Samsung-Galaxy-A14-64GB-Black/dp/B0BYWB6R4N",
+    "pictureUrl": "/images/I/41f8PeVI9zL._SR480,440_.jpg",
+    "price": {
+      "current": 131.42
+    },
+    "slug": "samsung-galaxy-a14-64gb-black",
+    "description": "Smartphone abordable avec écran HD+, caméra principale de 48 MP, batterie longue durée et performance fluide.",
+    "category": "smartphones"
+  },
+  {
+    "title": "Xiaomi Smartphone REDMI Note 12 4G 4Gb 128Gb Gris",
+    "link": "/Xiaomi-Redmi-Note-Smartphone-professionnelle/dp/B0BXDMWW2T",
+    "pictureUrl": "/images/I/41dhLkNDXNL._SR480,440_.jpg",
+    "price": {
+      "current": 138.14
+    },
+    "slug": "xiaomi-redmi-note-smartphone-professionnelle",
+    "description": "Smartphone Redmi Note 12 avec-large, dalle IPS résolution UWFHD (2560x1080), 5ms GtG 75Hz, HDR 10, sRGB 99%, AMD FreeSync, inclinable",
+    "category": "smartphones"
+  },
+  {
+    "title": "INIU Batterie Externe, 22.5W 10000mAh Power Bank, Batterie Portable USB C Input & Output PD3.0 QC4.0 Charge Rapide Power Bank Compatible avec iPhone 15 14 13 12 Pro Max Mini Plus Samsung iPad Pro etc",
+    "link": "/INIU-Batterie-10500mAh-Chargeur-T%C3%A9l%C3%A9phone/dp/B08JTQ66K7",
+    "pictureUrl": "/images/I/31VtCg7drNL._SR480,440_.jpg",
+    "price": {
+      "current": 21.64
+    },
+    "slug": "iniu-batterie-10500mah-chargeur-telephone",
+    "description": "Batterie externe compacte de 10000mAh avec ports USB-C et USB-A, compatible avec une large gamme d'appareils pour une charge rapide et pratique.",
+    "category": "accessoires"
+  },
+  {
+    "title": "Xiaomi REDMI Note 13 Pro 5G Midnight Black, Ecran 6.67'', Smartphone Débloqué, Batterie mAh 5100, Mémoire ROM 256GO,RAM 8GO, Android 13, Snapdragon 7s Gen 2, Gravure en 4nm, 8-Coeurs Jusqu’à 2,4GHz",
+    "link": "/Xiaomi-Midnight-Smartphone-D%C3%A9bloqu%C3%A9-Snapdragon/dp/B0CP8B1D6J",
+    "pictureUrl": "/images/I/41Il7REMGWL._SR480,440_.jpg",
+    "price": {
+      "current": 284.2
+    },
+    "slug": "xiaomi-midnight-smartphone-debloque-snapdragon",
+    "description": "Smartphone 5G avec écran AMOLED de 6,67 pouces, batterie de 5100 mAh, processeur Snapdragon 7s Gen 2 et système de caméra avancé pour des performances exceptionnelles.",
+    "category": "smartphones"
+  },
+  {
+    "title": "Samsung A546B Galaxy A54 5G 128 GB (Awesome Graphite) ohne Simlock, ohne Branding",
+    "link": "/Samsung-Awesome-Graphite-Simlock-Branding/dp/B0BYMPCWHN",
+    "pictureUrl": "/images/I/31s5KTYEI9L._SR480,440_.jpg",
+    "price": {
+      "current": 305.53
+    },
+    "slug": "samsung-awesome-graphite-simlock-branding",
+    "description": "Smartphone Galaxy A54 5G avec écran Infinity-O de 6,5 pouces, processeur octa-core, quadruple caméra polyvalente et compatibilité 5G pour une connectivité rapide.",
+    "category": "smartphones"
+  },
+  {
+    "title": "Apple AirPods (3ᵉ génération) avec Boîtier de Charge MagSafe ​​​​​​​(2021)",
+    "link": "/Apple-MME73ZM-A-AirPods-3%E1%B5%89-g%C3%A9n%C3%A9ration/dp/B09JQQDLXF",
+    "pictureUrl": "/images/I/311Ow8OxLrL._SR480,440_.jpg",
+    "price": {
+      "current": 180.5
+    },
+    "slug": "apple-mme73zm-a-airpods-3-generation",
+    "description": "Nouvelle génération des célèbres AirPods d'Apple avec conception ergonomique, qualité audio améliorée et boîtier de charge MagSafe pour une recharge sans fil pratique.",
+    "category": "casques-et-écouteurs"
+  },
+  {
+    "title": "XIAOMI REDMI NOTE 13 4G, Ecran 6.67'', Batterie mAh 5000, Mémoire ROM 256GO,RAM 8GO, Android 13, Snapdragon®685, Midnight Black",
+    "link": "/13-Batterie-Snapdragon%C2%AE685-Midnight-Black/dp/B0CPT8SK6H",
+    "pictureUrl": "/images/I/41kZzrwix2L._SR480,440_.jpg",
+    "price": {
+      "current": 181.7
+    },
+    "slug": "13-batterie-snapdragon685-midnight-black",
+    "description": "Smartphone Redmi Note 13 avec écran Full HD+ de 6,67 pouces, batterie de 5000 mAh, processeur Snapdragon 685 et configuration RAM/ROM généreuse pour une expérience fluide.",
+    "category": "smartphones"
+  },
+  {
+    "title": "XIAOMI REDMI NOTE 13 8/256G 4G Blue, Ecran 6.67'', Smartphone Débloqué, Batterie mAh 5000, Mémoire ROM 256GO,RAM 8GO, Android 13, Processeur Snapdragon® 685, Gravure en 6nm, huit-coeurs jusqu’à 2,8GHz",
+    "link": "/Smartphone-D%C3%A9bloqu%C3%A9-Processeur-Snapdragon%C2%AE-huit-coeurs/dp/B0CPT9XDS7",
+    "pictureUrl": "/images/I/41ujPIzz2+L._SR480,440_.jpg",
+    "price": {
+      "current": 197.99
+    },
+    "slug": "smartphone-debloque-processeur-snapdragon-huit-coeurs",
+    "description": "Smartphone Redmi Note 13 avec écran Full HD+ de 6,67 pouces, batterie de 5000 mAh, processeur Snapdragon 685 et configuration généreuse pour une expérience mobile performante.",
+    "category": "smartphones"
+  },
+  {
+    "title": "Samsung Galaxy A14 16,8 cm (6.6\") SIM Doble 4G USB Tipo C 4 GB 128 GB 5000 mAh Negro",
+    "link": "/Samsung-Galaxy-Doble-Tipo-Negro/dp/B0BZM3VXJC",
+    "pictureUrl": "/images/I/41g6Gnl5MnL._SR480,440_.jpg",
+    "price": {
+      "current": 141.99
+    },
+    "slug": "samsung-galaxy-doble-tipo-negro",
+    "description": "Smartphone Galaxy A14 avec grand écran HD+ de 6,6 pouces, batterie de 5000 mAh, caméra polyvalente et mémoire extensible pour répondre à tous vos besoins quotidiens.",
+    "category": "smartphones"
+  },
+  {
+    "title": "Sony WH1000XM4| Casque Bluetooth à réduction de bruit sans fil, 30 heures d'autonomie, avec micro pour appels téléphoniques, optimisé pour Amazon Alexa et Google assistant, Noir",
+    "link": "/Sony-WH1000XM4-Bluetooth-dautonomie-t%C3%A9l%C3%A9phoniques/dp/B08C7KG5LP",
+    "pictureUrl": "/images/I/31ful7zF5kL._SR480,440_.jpg",
+    "price": {
+      "current": 249
+    },
+    "slug": "sony-wh1000xm4-bluetooth-dautonomie-telephoniques",
+    "description": "Casque Bluetooth haut de gamme avec réduction de bruit active, microphone intégré et compatibilité avec les assistants vocaux pour une expérience audio immersive et pratique.",
+    "category": "casques-et-écouteurs"
+  },
+  {
+    "title": "Xiaomi Redmi Note 13 Pro+ 5G 8 Go RAM 256 Go ROM Midnight Black",
+    "link": "/Xiaomi-Redmi-Note-Midnight-Black/dp/B0CPPZRQJK",
+    "pictureUrl": "/images/I/41Ucga2X4TL._SR480,440_.jpg",
+    "price": {
+      "current": 324.55
+    },
+    "slug": "xiaomi-redmi-note-midnight-black",
+    "description": "Smartphone Redmi Note 13 Pro+ avec écran AMOLED de 6,67 pouces, processeur Snapdragon 7s Gen 2, caméra quadricapteur et connectivité 5G pour des performances exceptionnelles.",
+    "category": "smartphones"
+  },
+  {
+    "title": "Xiaomi Redmi 12 Noir 4GO + 128GO [Version Globale]",
+    "link": "/Xiaomi-Smartphone-Redmi-Double-Nano/dp/B0C6FDCPB1",
+    "pictureUrl": "/images/I/41a9lmSYr2L._SR480,440_.jpg",
+    "price": {
+      "current": 126
+    },
+    "slug": "xiaomi-smartphone-redmi-double-nano",
+    "description": "Smartphone Redmi 12 avec écran HD+ de 6,53 pouces, processeur MediaTek Helio G35, caméra quadruple et batterie longue durée pour une expérience mobile polyvalente.",
+    "category": "smartphones"
+  },
+  {
+    "title": "NiPoGi AM16 Mini PC AMD Ryzen 5 Pro 5675U(Max 4.3GHz,6C/12T,Beats 5500U),32Go RAM/512Go SSD,Mini Ordinateur de Bureau Étude,WiFi 6/BT 5.2/4K Triple Display/VESA Supporté",
+    "link": "/NiPoGi-AM16-Ordinateur-Display-Support%C3%A9/dp/B0CQ4PPB8Z",
+    "pictureUrl": "/images/I/31TW7aBlkEL._SR480,440_.jpg",
+    "price": {
+      "current": 341.99
+    },
+    "slug": "nipogi-am16-ordinateur-display-supporte",
+    "description": "Mini PC équipé du processeur AMD Ryzen 5 Pro 5675U, avec 32 Go de RAM, SSD de 512 Go, prise en charge du Wi-Fi 6 et Bluetooth 5.2, et capacité de triple affichage 4K pour une productivité accrue.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "Mini PC AMD Ryzen 7 5700U (jusqu'à 4,3 GHz) | 32Go DDR4 512 Go SSD | WiFi 6 | Bluetooth 5.2 | Radeon RX Vega 8 | RGB Micro Ordinateur Bureau 【Mode Réglable Auto/Silencieux Eco/Performance】",
+    "link": "/Bluetooth-Ordinateur-R%C3%A9glable-Silencieux-Performance%E3%80%91/dp/B0CP21T2CZ",
+    "pictureUrl": "/images/I/41lBZudzeNL._SR480,440_.jpg",
+    "price": {
+      "current": 469
+    },
+    "slug": "bluetooth-ordinateur-reglable-silencieux-performance",
+    "description": "Mini PC compact avec processeur AMD Ryzen 7 5700U, 32 Go de RAM, SSD de 512 Go, Wi-Fi 6, Bluetooth 5.2, carte graphique Radeon RX Vega 8 et options de mode de performance pour s'adapter à vos besoins.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "Intel® Core™ i5-14500, processeur pour PC de bureau, 14 cœurs (6 P-cores + 8 E-cores) jusqu'à 5 GHz",
+    "link": "/Intel%C2%AE-CoreTM-i5-14500-processeur-P-cores/dp/B0CQ2XT4RT",
+    "pictureUrl": "/images/I/3132lwgrfqL._SR480,440_.jpg",
+    "price": {
+      "current": 285.19
+    },
+    "slug": "intel-coretm-i5-14500-processeur-p-cores",
+    "description": "Processeur Intel® Core™ i5 de 14e génération pour PC de bureau, avec 14 cœurs (6 P-cores + 8 E-cores) offrant des performances élevées jusqu'à 5 GHz pour une expérience informatique fluide.",
+    "category": "processeurs"
+  },
+  {
+    "title": "MINIX Z100 Fanless PC, Intel N100, 16GB DDR4, 512GB PCIe 3.0 x 4 SSD Windows 11 Pro Desktop Computer, 4K Dual Display/2.5G LAN/USB3.2/USB-C/WiFi 6/BT5.2/Vesa Mount/Auto Power on (16GB+512GB)",
+    "link": "/MINIX-Fanless-512GB-Windows-Computer/dp/B0CPLQWN73",
+    "pictureUrl": "/images/I/41PLV1TkwTL._SR480,440_.jpg",
+    "price": {
+      "current": 263.42
+    },
+    "slug": "minix-fanless-512gb-windows-computer",
+    "description": "Mini PC fanless avec processeur Intel N100, 16 Go de RAM DDR4, SSD de 512 Go PCIe 3.0 x 4, Windows 11 Pro, double affichage 4K, connectivité étendue et montage VESA pour une utilisation polyvalente.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "Mini PC Computer avec AMD Ryzen 9 7940hs(8 Cores/16 Threads,jusqu'à 5,2 GHz)Windows 11 Pro 32GB DDR5 1TB M2 SSD Gaming PC Prend en Charge 4K Triple Affichage WiFi 6/Bluetooth 5.2/RJ45 Gigabit Ethernet",
+    "link": "/Mini-PC-AMD-Ryzen-1TB/dp/B0CT5WBC4B",
+    "pictureUrl": "/images/I/31c3GBmdnhL._SR480,440_.jpg",
+    "price": {
+      "current": 699.99
+    },
+    "slug": "mini-pc-amd-ryzen-1tb",
+    "description": "Mini PC puissant avec processeur AMD Ryzen 9 7940hs, 32 Go de RAM DDR5, SSD M.2 de 1 To, Windows 11 Pro, compatibilité 4K triple affichage, Wi-Fi 6, Bluetooth 5.2 et Ethernet Gigabit pour des performances exceptionnelles.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "NiPoGi Mini PC 32Go RAM, AMD Ryzen 5 5500U (6C/12T, jusqu'à 4,0 GHz), Mini Ordinateur SSD M.2 512 Go, PC de Bureau AM06 Pro avec Double LAN, HDMI+DP+Type-C 4K UHD Triple écran/WiFi 5 pour Bureau/HTPC",
+    "link": "/NiPoGi-jusqu%C3%A0-Ordinateur-Bureau-Double/dp/B0CQ2N6CQ5",
+    "pictureUrl": "/images/I/41U3xvI7njL._SR480,440_.jpg",
+    "price": {
+      "current": 339
+    },
+    "slug": "nipogi-jusqua-ordinateur-bureau-double",
+    "description": "Mini PC compact équipé du processeur AMD Ryzen 5 5500U, 32 Go de RAM, SSD M.2 de 512 Go, double LAN, connectivité étendue et prise en charge de triple affichage 4K UHD pour une variété d'applications de bureau et HTPC.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "Intel® Core™ i7-14700, processeur pour PC de bureau, 20 cœurs (8 P-cores + 12 E-cores) jusqu'à 5,4 GHz",
+    "link": "/Intel%C2%AE-CoreTM-i7-14700-processeur-P-cores/dp/B0CQ2YMZ8X",
+    "pictureUrl": "/images/I/314xYIis9EL._SR480,440_.jpg",
+    "price": {
+      "current": 438.21
+    },
+    "slug": "intel-coretm-i7-14700-processeur-p-cores",
+    "description": "Processeur Intel® Core™ i7 de 14e génération pour PC de bureau, avec 20 cœurs (8 P-cores + 12 E-cores) offrant des performances élevées jusqu'à 5,4 GHz pour une expérience informatique haut de gamme.",
+    "category": "processeurs"
+  },
+  {
+    "title": "Mini PC Alder Lake-N95 (jusqu'à 3,4 GHz) Intel 12ème génération 16 Go LPDDR5 512 Go ROM M.2 SSD Mini Ordinateur de Bureau Double RJ45 Gigabit Ethernet 4K Triple Display Dual-Band WiFi 3*USB3.1",
+    "link": "/Mini-Alder-Lake-N95-g%C3%A9n%C3%A9ration-Ordinateur/dp/B0CRH8SFX7",
+    "pictureUrl": "/images/I/41xzcZKmorL._SR480,440_.jpg",
+    "price": {
+      "current": 245
+    },
+    "slug": "mini-alder-lake-n95-generation-ordinateur",
+    "description": "Mini PC compact alimenté par le processeur Intel Alder Lake-N95 de 12e génération, avec 16 Go de RAM LPDDR5, SSD M.2 de 512 Go, prise en charge de triple affichage 4K, connectivité Ethernet Gigabit double RJ45 et Wi-Fi dual-band pour une expérience informatique puissante et polyvalente.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "ACEMAGIC S1 Mini PC Windows 11 avec LCD Écran Tour PC Vertical Intel Alder Lake-N95(Max 3.4GHz) 16Go DDR4 3200MHz/1To M.2 NVMe SSD Ordinateur de Bureau,4K@60HZ UHD Dual Display/WiFi 6/BT5.2/RJ45",
+    "link": "/ACEMAGIC-S1-Vertical-Lake-N95-Ordinateur/dp/B0CS66M1PB",
+    "pictureUrl": "/images/I/41BnAk6+ykL._SR480,440_.jpg",
+    "price": {
+      "current": 249.99
+    },
+    "slug": "acemagic-s1-vertical-lake-n95-ordinateur",
+    "description": "Mini PC de bureau avec écran LCD intégré, alimenté par le processeur Intel Alder Lake-N95, avec 16 Go de RAM DDR4 3200MHz, SSD M.2 NVMe de 1 To, prise en charge de double affichage 4K@60Hz, Wi-Fi 6, Bluetooth 5.2 et RJ45 pour des performances fiables et une connectivité étendue.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "Greed®MK2 Plus - High End PC Gamer - Intel Core i7 11700F + Nvidia Geforce RTX 4060 8 GB- Ordinateur RGB Ultra Rapide + PC Gaming 4K Raytracing avec 4,9 GHZ - 32 GB DDR4 RAM - 1TB SSD - WLAN + W11 Pro",
+    "link": "/Greed%C2%AEMK2-Plus-Geforce-Ordinateur-Raytracing/dp/B0CX5F2QFX",
+    "pictureUrl": "/images/I/41ljJE0ni-L._SR480,440_.jpg",
+    "price": {
+      "current": 999.9
+    },
+    "slug": "greedmk2-plus-geforce-ordinateur-raytracing",
+    "description": "PC gamer haut de gamme avec processeur Intel Core i7 11700F, carte graphique Nvidia Geforce RTX 4060 8 Go, 32 Go de RAM DDR4, SSD de 1 To, système de refroidissement efficace et connectivité Wi-Fi, offrant des performances exceptionnelles pour le jeu 4K avec ray tracing.",
+    "category": "pc-gamer"
+  },
+  {
+    "title": "FUNYET Mini PC Windows 11 Pro, 16Go DDR4 1TB SSD Mini Ordinateur Processeur Alder Lake N95, Quad Core (jusqu'à 3,4 GHz) Mini Computer 4K,Dual Display, WiFi",
+    "link": "/FUNYET-Windows-Ordinateur-Processeur-Computer/dp/B0CRYRWHJZ",
+    "pictureUrl": "/images/I/31whlRMlFML._SR480,440_.jpg",
+    "price": {
+      "current": 229.99
+    },
+    "slug": "funyet-windows-ordinateur-processeur-computer",
+    "description": "Mini PC compact avec processeur Alder Lake N95, 16 Go de RAM DDR4, SSD de 1 To, prise en charge de double affichage 4K, Wi-Fi et Windows 11 Pro pour une expérience informatique puissante dans un format compact.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "PCSpecialist Prism PC Gamer - Intel Core i5-12400F 2.50 GHz 6-Core, 16 Go RAM, 8 Go GEFORCE RTX 4060, 1To M.2 SSD",
+    "link": "/PCSpecialist-Prism-PC-Gamer-i5-12400F/dp/B0CN3CQ8NH",
+    "pictureUrl": "/images/I/41WCm5No+FL._SR480,440_.jpg",
+    "price": {
+      "current": 999
+    },
+    "slug": "pcspecialist-prism-pc-gamer-i5-12400f",
+    "description": "PC gaming de PC Specialist équipé du processeur Intel Core i5-12400F, de la carte graphique Nvidia GeForce RTX 4060 de 8 Go, de 16 Go de RAM et d'un SSD M.2 de 1 To, offrant des performances gaming exceptionnelles et une expérience immersive.",
+    "category": "pc-gamer"
+  },
+  {
+    "title": "TRIGKEY G4 Mini PC 12è Gén Intel Alder Lake-N100 CPU(Jusqu'à 3,40 GHz) PC 16 Go DDR4 3200 MHz 500 Go M.2 PCIe SSD, Double HDMI, WiFi 6, BT 5.2, USB 3.2 Gen2",
+    "link": "/TRIGKEY-G4-Lake-N100-Jusqu%C3%A0-Double/dp/B0CRYWGFWM",
+    "pictureUrl": "/images/I/31Ekql4QcWL._SR480,440_.jpg",
+    "price": {
+      "current": 215
+    },
+    "slug": "trigkey-g4-lake-n100-jusqua-double",
+    "description": "Mini PC compact alimenté par le processeur Intel Alder Lake-N100 de 12e génération, avec 16 Go de RAM DDR4 3200 MHz, SSD M.2 PCIe de 500 Go, double HDMI, Wi-Fi 6, Bluetooth 5.2 et USB 3.2 Gen2 pour une connectivité rapide et polyvalente.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "ACEMAGIC S1 Mini PC LCD, Intel Alder Lake-N97 (jusqu'à 3,6 GHz), 16Go DDR4 512Go M.2 SSD Mini Ordinateur de Bureau Vertical, Mini Tour PC avec RGB/WiFi 6/BT 5.2/4K UHD/Double LAN pour Maison/Bureau.",
+    "link": "/ACEMAGIC-Lake-N97-Ordinateur-Vertical-Bureau/dp/B0CQLBFVH7",
+    "pictureUrl": "/images/I/41+uESAwXWL._SR480,440_.jpg",
+    "price": {
+      "current": 329
+    },
+    "slug": "acemagic-lake-n97-ordinateur-vertical-bureau",
+    "description": "Mini PC de bureau avec écran LCD intégré, alimenté par le processeur Intel Alder Lake-N97, avec 16 Go de RAM DDR4, SSD M.2 de 512 Go, connectivité Wi-Fi 6, Bluetooth 5.2, double LAN et prise en charge de l'affichage 4K UHD pour une expérience informatique optimale à domicile ou au bureau.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "Dell Ordinateur de Bureau RGB Gaming PC, Intel Quad Core I5 jusqu'à 3.6GHz, Radeon RX 550 4Go GDDR5, RAM 16Go, SSD 512Go, WiFi 600 M, Bluetooth 5.0, W10P64 (renouvelé)",
+    "link": "/Dell-Ordinateur-Bureau-Bluetooth-renouvel%C3%A9/dp/B0CRZ9Q4DG",
+    "pictureUrl": "/images/I/51vp4isDRbL._SR480,440_.jpg",
+    "price": {
+      "current": 319.99
+    },
+    "slug": "dell-ordinateur-bureau-bluetooth-renouvele",
+    "description": "PC gaming Dell avec processeur Intel Quad Core i5, carte graphique Radeon RX 550 4Go GDDR5, 16Go de RAM, SSD de 512Go, connectivité Wi-Fi rapide et Bluetooth 5.0, offrant des performances gaming fluides et une expérience visuelle immersive avec éclairage RGB.",
+    "category": "pc-gamer"
+  },
+  {
+    "title": "MeLE Quieter4C Mini PC sans Ventilateur 12è Alder Lake N100 (jusqu'à 3,4GHz, 4C/4T) 8Go LPDDR4x 128Go Ordinateur de Bureau Windows 11 Pro 4K Triple Affichage Double HDMI WiFi 5 BT5.1 Ethernet",
+    "link": "/MeLE-Quieter4C-Ventilateur-Ordinateur-Affichage/dp/B0CP3DC75C",
+    "pictureUrl": "/images/I/418+Z8cmBqL._SR480,440_.jpg",
+    "price": {
+      "current": 221.65
+    },
+    "slug": "mele-quieter4c-ventilateur-ordinateur-affichage",
+    "description": "Mini PC sans ventilateur MeLE Quieter4C, alimenté par le processeur Alder Lake N100 de 12e génération, avec 8Go de RAM LPDDR4x, 128Go de stockage, prise en charge de triple affichage 4K, Wi-Fi 5, Bluetooth 5.1 et Ethernet pour des performances fiables et une expérience de bureau silencieuse.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "BOSGAME P1 Mini PC Ryzen 7 5700U, 32 Go de RAM, 1 to SSD, W11OS, Capable Trois écrans 4K à 60Hz. Mini-Ordinateur Deux Ports HDMI et Un Port Type-C, WiFi 6E et Le BT5.2. Les Jeux PS3 Via RPCS3",
+    "link": "/BOSGAME-Capable-%C3%A9crans-Mini-Ordinateur-Type-C/dp/B0CSCZXVCT",
+    "pictureUrl": "/images/I/41juuuXo3ZL._SR480,440_.jpg",
+    "price": {
+      "current": 419
+    },
+    "slug": "bosgame-capable-ecrans-mini-ordinateur-type-c",
+    "description": "Mini PC BOSGAME P1 équipé du processeur Ryzen 7 5700U, 32 Go de RAM, SSD de 1 To, prise en charge de trois écrans 4K à 60Hz, connectivité Wi-Fi 6E, Bluetooth 5.2 et ports HDMI/Type-C pour une expérience informatique polyvalente et immersive, y compris la possibilité de jouer à des jeux PS3 via RPCS3.",
+    "category": "mini-pc"
+  },
+  {
+    "title": "Lenovo Tab M11 - Tablette Tactile 11'' WUXGA (Processeur MediaTek Helio G88, 8Coeurs, 4 Go de RAM, eMMC 128 Go, Lenovo Tab Pen, Android 13, WiFi + Bluetooth) - Luna Gris",
+    "link": "/Lenovo-Tab-M11-Processeur-Bluetooth/dp/B0CS6TWPGR",
+    "pictureUrl": "/images/I/410RQQ8gJFL._SR480,440_.jpg",
+    "price": {
+      "current": 189.9
+    },
+    "slug": "lenovo-tab-m11-processeur-bluetooth",
+    "description": "La tablette Lenovo Tab M11 est équipée d'un écran WUXGA de 11 pouces et d'un processeur MediaTek Helio G88 octa-core, avec 4 Go de RAM, 128 Go de stockage eMMC, un stylet Lenovo Tab inclus et fonctionne sous Android 13, offrant une expérience tablette polyvalente pour diverses tâches et divertissements.",
+    "category": "tablettes"
+  },
+  {
+    "title": "Tablette 11 Pouces Android 13, 16Go + 256Go (1To TF), 2K 2000 x 1200 IPS + 4 Intervenants, Chargement Rapide 18W, Tablette Tactile avec GPS, 5G Wi-Fi, 8600mAh, 3 Caméras, avec Clavier + Souris, Café",
+    "link": "/Tablette-Android-Intervenants-Chargement-Tactile/dp/B0CCJS4FK5",
+    "pictureUrl": "/images/I/51HE6SxnSHL._SR480,440_.jpg",
+    "price": {
+      "current": 149.99
+    },
+    "slug": "tablette-android-intervenants-chargement-tactile",
+    "description": "Tablette Android 13 de 11 pouces avec 16Go de RAM et 256Go de stockage, écran 2K IPS, chargement rapide 18W, connectivité 5G Wi-Fi, GPS, batterie de 8600mAh, trois caméras, livrée avec un clavier et une souris pour une productivité accrue et une expérience de divertissement améliorée.",
+    "category": "tablettes"
+  },
+  {
+    "title": "Samsung Galaxy Tab A7 Lite SM-T220N 32 Go 22,1 cm (8.7\") Mediatek 3 Go Wi-FI 5 (802.11ac) Gris",
+    "link": "/Samsung-Galaxy-SM-T220N-Mediatek-802-11ac/dp/B0937KH98W",
+    "pictureUrl": "/images/I/41h8zIKvLWL._SR480,440_.jpg",
+    "price": {
+      "current": 132.77
+    },
+    "slug": "samsung-galaxy-sm-t220n-mediatek-802-11ac",
+    "description": "La Samsung Galaxy Tab A7 Lite est une tablette compacte avec un écran de 8,7 pouces, alimentée par un processeur Mediatek, avec 3 Go de RAM, 32 Go de stockage, Wi-Fi 5 et une conception légère et portable, idéale pour une utilisation quotidienne et le divertissement mobile.",
+    "category": "tablettes"
+  }
+]
