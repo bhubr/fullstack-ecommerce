@@ -1,3 +1,4 @@
+import { useContext, useMemo } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -9,7 +10,15 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import CartContext from '../contexts/CartContext';
+
 const TopNavbar = () => {
+  const { items } = useContext(CartContext);
+  const itemsTotal = useMemo(
+    () =>
+      items.reduce((total, { quantity }) => total + quantity, 0),
+    [items]
+  );
   return (
     <Navbar color="light" light expand="lg">
       <Container>
@@ -19,7 +28,9 @@ const TopNavbar = () => {
           </NavbarBrand>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink tag={Link} to="/a-propos">À propos</NavLink>
+              <NavLink tag={Link} to="/a-propos">
+                À propos
+              </NavLink>
             </NavItem>
           </Nav>
           <div className="d-flex">
@@ -36,7 +47,7 @@ const TopNavbar = () => {
                 <i className="bi-cart-fill me-1"></i>
                 Panier
                 <Badge color="dark" className="ms-1 rounded-pill">
-                  0
+                  {itemsTotal}
                 </Badge>
               </button>
             </form>

@@ -24,3 +24,8 @@ export interface ICategory {
 }
 
 export type SortOrder = 'price-asc' | 'price-desc' | 'date-desc';
+
+export interface ICartItem {
+  product: IProduct;
+  quantity: number;
+}
