@@ -63,3 +63,16 @@ export const readOneProduct = async (id: number) => {
   const res = await api.get(`/products/${id}`);
   return res.data;
 };
+
+export const updateCart = async (
+  items: { productId: number; quantity: number }[]
+) => {
+  const res = await api.put(
+    '/cart',
+    { items },
+    {
+      withCredentials: true,
+    }
+  );
+  return res.data;
+};

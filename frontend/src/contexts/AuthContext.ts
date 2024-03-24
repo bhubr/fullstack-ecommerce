@@ -1,9 +1,9 @@
 import { createContext } from 'react';
-import { IUser } from '../types';
+import { IUserWithCart } from '../types';
 
 const AuthContext = createContext<{
-  user: IUser | null;
-  setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
+  user: IUserWithCart | null;
+  setUser: React.Dispatch<React.SetStateAction<IUserWithCart | null>>;
 }>({
   user: null,
   setUser: () => {},

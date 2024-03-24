@@ -107,9 +107,8 @@ const sqlite3db: SQLite3DatabaseEngine = {
     table: string,
     payload: Record<string, Scalar>
   ): Promise<T & { id: number }> {
-    const typedPayload = payload as Record<string, Scalar>;
-    const columns = Object.keys(typedPayload);
-    const values = Object.values(typedPayload);
+    const columns = Object.keys(payload);
+    const values = Object.values(payload);
     const placeholders = new Array(columns.length).fill('?');
     const sql = `INSERT INTO ${table}
         (${columns.join(', ')})
@@ -121,6 +120,29 @@ const sqlite3db: SQLite3DatabaseEngine = {
     const [{ id }] = rows;
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     return { id, ...payload } as T & { id: number };
+  },
+
+  /**
+   * Update in table
+   * @param table
+   * @param whereField
+   * @param whereValue
+   * @param payload
+   * @returns
+   */
+  async updateTable<T>(
+    table: string,
+    whereField: string,
+    whereValue: Scalar,
+    payload: Record<string, Scalar>
+  ): Promise<void> {
+    const columns = Object.keys(payload);
+    const values = Object.values(payload);
+    const sql = `UPDATE ${table}
+      SET ${columns.map((column) => `${column} = ?`).join(', ')}
+      WHERE ${whereField} = ?`;
+    const args = [...values, whereValue];
+    await this.query(sql, args);
   },
 
   /**

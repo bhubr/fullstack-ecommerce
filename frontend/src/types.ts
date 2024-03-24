@@ -36,3 +36,10 @@ export interface ICartItem {
   product: IProduct;
   quantity: number;
 }
+
+export interface IUserWithCart {
+  user: IUser;
+  cart: {
+    items: ICartItem[];
+  };
+}

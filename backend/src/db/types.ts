@@ -1,4 +1,3 @@
-
 export type Scalar = string | number | boolean | null;
 
 type PredicateOperator =
@@ -27,9 +26,25 @@ export interface IGetAllFromTableResult<T> {
 export interface DatabaseEngine {
   initialize(fileOrUrl: string): Promise<void>;
   query<T>(sql: string, args: Scalar[]): Promise<T>;
-  getAllFromTable<T>(table: string, options?: IGetAllFromTableOptions): Promise<IGetAllFromTableResult<T>>;
-  getOneFromTableByField<T>(table: string, field: string, value: Scalar): Promise<T>;
-  insertIntoTable<T>(table: string, values: Record<string, Scalar>): Promise<T & { id: number }>;
+  getAllFromTable<T>(
+    table: string,
+    options?: IGetAllFromTableOptions
+  ): Promise<IGetAllFromTableResult<T>>;
+  getOneFromTableByField<T>(
+    table: string,
+    field: string,
+    value: Scalar
+  ): Promise<T>;
+  insertIntoTable<T>(
+    table: string,
+    values: Record<string, Scalar>
+  ): Promise<T & { id: number }>;
+  updateTable(
+    table: string,
+    whereField: string,
+    whereValue: Scalar,
+    payload: Record<string, Scalar>
+  ): Promise<void>;
 }
 
 export type DatabaseEngineModule = {
@@ -54,7 +69,9 @@ export type ConfigWithDriver<T extends Record<string, any>> = {
 };
 
 // Define the type for the entire configuration object
-export type DbMigrateConfig = ConfigWithDriver<Record<string, DatabaseConfigBase>>;
+export type DbMigrateConfig = ConfigWithDriver<
+  Record<string, DatabaseConfigBase>
+>;
 
 export interface DbMigrateConfigWrapper {
   dbConfig: DatabaseConfigBase;

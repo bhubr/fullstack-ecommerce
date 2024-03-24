@@ -1,10 +1,10 @@
 import { ReactNode, useEffect, useState } from 'react';
-import { IUser } from '../types';
+import { IUserWithCart } from '../types';
 import AuthContext from '../contexts/AuthContext';
 import { readUser } from '../api';
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<IUser | null>(null);
+  const [user, setUser] = useState<IUserWithCart | null>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     readUser()

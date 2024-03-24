@@ -1,18 +1,18 @@
 import { createContext } from 'react';
-import { IProduct } from '../types';
+import { ICartItem, IProduct } from '../types';
 
 export interface ICartContext {
   items: ICartItem[];
-  addItem(product: IProduct): void;
-  removeItem(product: IProduct): void;
-  setItemQuantity(product: IProduct, quantity: number): void;
+  addItem(product: IProduct): Promise<void>;
+  removeItem(product: IProduct): Promise<void>;
+  setItemQuantity(product: IProduct, quantity: number): Promise<void>;
 }
 
 const CartContext = createContext<ICartContext>({
   items: [],
-  addItem: () => {},
-  removeItem: () => {},
-  setItemQuantity: () => {},
+  addItem: async () => {},
+  removeItem: async () => {},
+  setItemQuantity: async () => {},
 });
 
 export default CartContext;

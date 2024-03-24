@@ -36,6 +36,7 @@ const SigninForm = () => {
     setLoading(true);
     try {
       await signin(email, password);
+      navigate('/');
     } catch (err) {
       setErrorMessage(
         ((err as AxiosError).response?.data as { error: string })?.error ||

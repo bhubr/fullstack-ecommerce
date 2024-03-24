@@ -5,13 +5,9 @@ import jwt from 'jsonwebtoken';
 import isEmpty from '../helpers/is-empty';
 import { jwtSecret } from '../settings';
 import checkJwt from '../middlewares/check-jwt';
-import {
-  getCartByUserId,
-  getUserByEmail,
-  getUserById,
-  insertUser,
-} from '../models/user';
-import { get } from 'node:http';
+import { getUserByEmail, getUserById, insertUser } from '../models/user';
+import { getCartByUserId } from '../models/cart';
+import type { AuthRequest } from '../app-types';
 
 const authRouter = express.Router();
 
@@ -78,12 +74,6 @@ authRouter.post('/signin', async (req, res) => {
     return res.status(400).json({ error: message });
   }
 });
-
-interface AuthRequest extends Request {
-  auth?: {
-    userId: number;
-  };
-}
 
 authRouter.get('/me', checkJwt, async (req: AuthRequest, res) => {
   if (req.auth === undefined) {
