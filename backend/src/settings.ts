@@ -5,7 +5,7 @@ dotenv.config();
 
 export const port = process.env.PORT ?? 5000;
 
-export const dbFileOrUrl = process.env.DATABASE_URL ?? 'mypad-dev.sqlite3';
+export const dbFileOrUrl = process.env.DATABASE_URL ?? 'app-development.sqlite3';
 
 export const jwtSecret = process.env.JWT_SECRET ?? 'secret';
 
