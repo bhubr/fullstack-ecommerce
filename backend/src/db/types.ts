@@ -26,8 +26,8 @@ export interface DatabaseEngine {
   initialize(fileOrUrl: string): Promise<void>;
   query<T>(sql: string, args: Scalar[]): Promise<T>;
   getAllFromTable<T>(table: string, options?: IGetAllFromTableOptions): Promise<IGetAllFromTableResult<T>;
-  getOneFromTableByField<T>(table: string, field: string, value: Scalar): Promise<T[]>;
-  insertIntoTable<T>(table: string, values: Record<string, Scalar>): Promise<T>;
+  getOneFromTableByField<T>(table: string, field: string, value: Scalar): Promise<T>;
+  insertIntoTable<T>(table: string, values: Record<string, Scalar>): Promise<T & { id: number }>;
 }
 
 export type DatabaseEngineModule = {

@@ -15,3 +15,6 @@ console.log('Environment:', environment);
 export const isProduction = environment === 'production';
 
 export const staticImagesParent = resolve(__dirname, '..', 'tools');
+
+// Onlly relevant in development
+export const clientOrigin = process.env.CLIENT_ORIGIN ?? 'http://localhost:5173';

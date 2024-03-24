@@ -97,7 +97,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
   async insertIntoTable<T>(
     table: string,
     payload: Record<string, Scalar>
-  ): Promise<T> {
+  ): Promise<T & { id: number }> {
     const typedPayload = payload as Record<string, Scalar>;
     const columns = Object.keys(typedPayload);
     const values = Object.values(typedPayload);
@@ -111,8 +111,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
     const rows = await this.query('SELECT last_insert_rowid() as id', []);
     const [{ id }] = rows;
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    const record = { id, ...payload } as T;
-    return record;
+    return { id, ...payload } as T & { id: number };
   },
 
   /**
@@ -122,7 +121,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
     table: string,
     field: string,
     value: Scalar
-  ): Promise<T> {
+  ): Promise<undefined | T> {
     const [record] = await this.query(
       `SELECT * FROM ${table} WHERE ${field} = ?`,
       [value]

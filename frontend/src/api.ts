@@ -10,18 +10,19 @@ const api = axios.create({
   // withCredentials: true,
 });
 
-// export const readUser = async () => {
-//   const res = await api.get('/auth/me');
-//   return res.data;
-// };
+export const readUser = async () => {
+  const res = await api.get('/auth/me', { withCredentials: true });
+  return res.data;
+};
 
-// export const signin = async (email: string, password: string) => {
-//   const res = await api.post(
-//     '/auth/signin',
-//     { email, password },
-//   );
-//   return res.data;
-// };
+export const signin = async (email: string, password: string) => {
+  const res = await api.post(
+    '/auth/signin',
+    { email, password },
+    { withCredentials: true }
+  );
+  return res.data;
+};
 
 // export const signup = async (email: string, password: string) => {
 //   const res = await api.post(

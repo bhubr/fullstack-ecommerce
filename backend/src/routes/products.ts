@@ -19,11 +19,11 @@ async function getProducts({
     limit: npp,
   };
   if (categorySlug !== undefined) {
-    const category = await db.getOneFromTableByField(
+    const category = await db.getOneFromTableByField<{ id: number }>(
       'category',
       'slug',
       categorySlug
-    ) as unknown as { id: number };
+    );
     options.where = [['categoryId', '=', category.id]];
   }
   const { records: products, count } = await db.getAllFromTable(

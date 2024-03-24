@@ -22,7 +22,7 @@ const SortDropdown = ({
 }: ISortDropdownProps) => {
   return (
     <Dropdown isOpen={isOpen} toggle={toggle}>
-      <DropdownToggle caret>Trier par</DropdownToggle>
+      <DropdownToggle outline caret>Trier par</DropdownToggle>
       <DropdownMenu>
         <DropdownItem
           active={sortOrder === 'price-asc'}

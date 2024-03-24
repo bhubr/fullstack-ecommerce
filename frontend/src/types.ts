@@ -23,6 +23,13 @@ export interface ICategory {
   slug: string;
 }
 
+export interface IUser {
+  id: number;
+  email: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export type SortOrder = 'price-asc' | 'price-desc' | 'date-desc';
 
 export interface ICartItem {

@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -9,10 +9,13 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import CartContext from '../contexts/CartContext';
 import CartDropdown from './CartDropdown';
+import AccountDropdown from './AccountDropdown';
+import AuthContext from '../contexts/AuthContext';
+import UserAccountNavbarLink from './UserAccountNavbarLink';
 
 const TopNavbar = () => {
+  const { user } = useContext(AuthContext);
   return (
     <Navbar color="light" light expand="lg">
       <Container>
@@ -28,14 +31,7 @@ const TopNavbar = () => {
             </NavItem>
           </Nav>
           <div className="d-flex">
-            <Nav className="me-2" navbar>
-              <NavItem>
-                <NavLink href="#!">
-                  <i className="bi-person-fill me-1"></i>
-                  Compte
-                </NavLink>
-              </NavItem>
-            </Nav>
+            {user ? <UserAccountNavbarLink user={user} /> : <AccountDropdown />}
             <CartDropdown />
           </div>
         </div>

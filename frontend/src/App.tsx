@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import TopNavbar from './components/TopNavbar';
 import Footer from './components/Footer';
 import HomeContainer from './pages/Home.container';
+import SigninForm from './components/SigninForm';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomeContainer />} />
         <Route path="/categories/:categorySlug" element={<HomeContainer />} />
+        <Route path="/compte/connexion" element={<SigninForm />} />
       </Routes>
 
       <Footer />

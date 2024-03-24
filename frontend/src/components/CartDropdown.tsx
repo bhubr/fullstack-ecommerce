@@ -8,13 +8,16 @@ import {
   DropdownItem,
 } from 'reactstrap';
 import CartContext from '../contexts/CartContext';
-import { formatName } from '../helpers';
+import { formatName, formatPrice } from '../helpers';
 
 const CartDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { items: cartItems, removeItem } = useContext(CartContext);
   const itemsTotal = useMemo(
-    () => cartItems.reduce((total, { quantity }) => total + quantity, 0),
+    () => cartItems.reduce((total, { product, quantity }) => ({
+      quantity: total.quantity + quantity,
+      price: total.price + quantity * product.price
+    }), { price: 0, quantity: 0 }),
     [cartItems]
   );
 
@@ -24,11 +27,11 @@ const CartDropdown = () => {
 
   return (
     <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
-      <DropdownToggle caret>
+      <DropdownToggle outline caret>
         <i className="bi-cart-fill me-1"></i>
-        Cart
+        Panier
         <Badge color="dark" className="ms-1 rounded-pill">
-          {itemsTotal}
+          {itemsTotal.quantity}
         </Badge>
       </DropdownToggle>
       <DropdownMenu>
@@ -43,13 +46,15 @@ const CartDropdown = () => {
                 outline
                 size="sm"
                 className="ms-2"
-                onClick={() => removeItem(item.product.id)}
+                onClick={() => removeItem(item.product)}
               >
                 Supprimer
               </Button>
             </DropdownItem>
           ))
         )}
+        <DropdownItem divider />
+        <DropdownItem>Total : {formatPrice(itemsTotal.price)}</DropdownItem>
         <DropdownItem divider />
         <DropdownItem>Panier</DropdownItem>
         <DropdownItem>Acheter</DropdownItem>
