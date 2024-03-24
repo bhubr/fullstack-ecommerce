@@ -79,7 +79,6 @@ exports.up = function (db, callback) {
         ),
     ],
     (err, results) => {
-      console.log(err, results);
       callback(err, results);
     }
   );

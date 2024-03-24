@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import Chance from 'chance';
 import { createUser } from '../src/models/user';
 
 // take email from command line
@@ -56,7 +57,10 @@ const generatePassword = (len = 10): string => {
 
 async function main(): Promise<void> {
   const password = generatePassword(passwordLen);
-  const { id } = await createUser(email, password);
+  // create name with chance
+  const chance = new Chance();
+  const fullName = chance.name();
+  const { id } = await createUser(fullName, email, password);
   console.log(`Inserted user with id ${id} and password ${password}`);
 }
 

@@ -19,8 +19,21 @@ exports.up = function (db, callback) {
     'user',
     {
       id: { type: 'int', primaryKey: true, autoIncrement: true },
-      email: 'string',
-      passwordHash: 'string',
+      fullName: {
+        type: 'string',
+        length: 100,
+        notNull: true,
+      },
+      email: {
+        type: 'string',
+        length: 100,
+        notNull: true,
+      },
+      passwordHash: {
+        type: 'string',
+        length: 100,
+        notNull: true,
+      },
       createdAt: 'string',
       updatedAt: 'string',
     },

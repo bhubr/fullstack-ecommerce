@@ -1,4 +1,4 @@
-import express, { Request } from 'express';
+import express from 'express';
 import argon2 from 'argon2';
 import jwt from 'jsonwebtoken';
 
@@ -63,6 +63,7 @@ authRouter.post('/signin', async (req, res) => {
     const jwtExpiresAt = Date.now() + 3600000;
     const jwt = createJwt(user.id);
     res.cookie('jwt', jwt, { httpOnly: true });
+    console.log(user);
     return res.status(200).json({
       id: user.id,
       email: user.email,
@@ -73,6 +74,11 @@ authRouter.post('/signin', async (req, res) => {
     const message = (err as Error).message;
     return res.status(400).json({ error: message });
   }
+});
+
+authRouter.post('/signout', async (req, res) => {
+  res.clearCookie('jwt');
+  return res.status(200).json({ message: 'Vous êtes déconnecté' });
 });
 
 authRouter.get('/me', checkJwt, async (req: AuthRequest, res) => {

@@ -20,6 +20,7 @@
     "@types/node": "^20.11.30",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
+    "chance": "^1.1.11",
     "db-migrate": "^0.11.14",
     "db-migrate-pg": "^1.5.2",
     "db-migrate-sqlite3": "^0.5.0",

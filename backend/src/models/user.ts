@@ -38,13 +38,14 @@ export async function insertUser(
 }
 
 export async function createUser(
+  fullName: string,
   email: string,
   password: string
 ): Promise<IUser> {
   const passwordHash = await argon2.hash(password);
   const createdAt = new Date().toISOString();
   const updatedAt = createdAt;
-  const payload = { email, passwordHash, createdAt, updatedAt };
+  const payload = { fullName, email, passwordHash, createdAt, updatedAt };
   const user = await insertUser(payload);
   return user;
 }
