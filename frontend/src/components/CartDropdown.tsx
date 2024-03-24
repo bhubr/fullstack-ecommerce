@@ -42,16 +42,21 @@ const CartDropdown = () => {
       </DropdownToggle>
       <DropdownMenu>
         {cartItems.length === 0 ? (
-          <DropdownItem disabled>No items in cart</DropdownItem>
+          <DropdownItem disabled>Panier vide</DropdownItem>
         ) : (
           cartItems.map((item) => (
-            <DropdownItem key={item.product.id}>
-              {formatName(item.product.name, 20)} x {item.quantity}
+            <DropdownItem
+              key={item.product.id}
+              className="d-flex justify-content-between"
+            >
+              <span>
+                {formatName(item.product.name, 20)} x {item.quantity}
+              </span>
               <Button
                 color="danger"
                 outline
                 size="sm"
-                className="ms-2"
+                className="ms-3"
                 onClick={() => removeItem(item.product)}
               >
                 Supprimer
@@ -65,8 +70,12 @@ const CartDropdown = () => {
         <DropdownItem>
           <Link to="/panier">Panier</Link>
         </DropdownItem>
-        <DropdownItem>
-          <Link to="/commande">Commander</Link>
+        <DropdownItem disabled={cartItems.length === 0}>
+          {cartItems.length === 0 ? (
+            <span>Commander</span>
+          ) : (
+            <Link to="/commande">Commander</Link>
+          )}
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

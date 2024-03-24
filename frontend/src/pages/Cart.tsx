@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Button, Container, Col, Row } from 'reactstrap';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import type { ICartItem } from '../types';
 import { serverUrl } from '../settings';
@@ -87,6 +87,24 @@ const OrderButton = ({ size }: { size: 'sm' | 'lg' }) => (
 
 const Cart = () => {
   const { items } = useContext(CartContext);
+
+  if (items.length === 0) {
+    return (
+      <Container className="my-5" style={{ minHeight: '70vh' }}>
+        <h1 className="flex-grow-1">Panier vide</h1>
+        <div className="my-3">
+          <img
+            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmZvdWNlZDhyejBncHZwZWc5dzQxM3ZxYmx0N3d2c3llYW51Y2ZpYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1Zbeweu52ZaQE/giphy.gif"
+            alt="Panier vide"
+          />
+        </div>
+        <p>
+          Votre panier est vide&hellip; mais vous pouvez le remplir{' '}
+          <Link to="/">ici</Link> ! 😊
+        </p>
+      </Container>
+    );
+  }
 
   return (
     <Container className="my-5">
