@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts",
-    "test": "NODE_ENV=test db-migrate up -e test && jest"
+    "test": "NODE_ENV=test db-migrate up -e test && jest",
+    "reseed-db": "rm app-development.sqlite3 && db-migrate up -e development && ts-node tools/seed-products.ts"
   },
   "keywords": [],
   "author": "",

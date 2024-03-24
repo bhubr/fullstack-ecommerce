@@ -163,12 +163,19 @@ async function insertProducts(
     const pictureUrl = `/images/${product.slug}.jpg`;
     const createdAt = new Date().toISOString();
     const updatedAt = createdAt;
-    const categoryId = categoryRecords.find(
+    const category = categoryRecords.find(
       ({ slug }) => slug === slugify(product.category)
-    ).id;
+    );
+    if ( category === undefined) {
+      console.log(">> failed to find category id for category", product.category);
+      console.log(">> all categories", categoryRecords);
+      throw new Error(
+        `Could not find category id for category ${product.category}`
+      );
+    }
     console.log(
       'Inserting product',
-      categoryId,
+      category.id,
       product.title,
       product.description,
       product.price.current,
@@ -178,7 +185,7 @@ async function insertProducts(
       updatedAt
     );
     await db.insertIntoTable('product', {
-      categoryId,
+      categoryId: category.id,
       name: product.title,
       description: product.description,
       price: product.price.current,
@@ -196,7 +203,9 @@ async function main() {
   console.log('>> categories', categories.length);
 
   await insertCategories(categories);
-  const categoryRecords = await (await DatabaseService.getInstance())
+  const { records: categoryRecords } = await (
+    await DatabaseService.getInstance()
+  )
     .getDB()
     .getAllFromTable<CategoryRecord>('category');
   await insertProducts(products, categoryRecords);

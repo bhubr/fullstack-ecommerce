@@ -61,7 +61,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
     table: string,
     options: IGetAllFromTableOptions = {}
   ): Promise<IGetAllFromTableResult<T>> {
-    const { offset = 0, limit = 10, where = [] } = options;
+    const { offset, limit, where = [] } = options;
     let query = `SELECT * FROM ${table}`;
     const args: Scalar[] = [];
     let whereClause = '';
@@ -72,8 +72,11 @@ const sqlite3db: SQLite3DatabaseEngine = {
       query += ` WHERE ${whereClause}`;
       args.push(...where.map(([, , value]) => value));
     }
-    query += ` LIMIT ? OFFSET ?`;
-    const allArgs = [...args, limit, offset];
+    let allArgs = [...args];
+    if (limit !== undefined && offset !== undefined) {
+      query += ` LIMIT ? OFFSET ?`;
+      allArgs = [...args, limit, offset];
+    }
     // Get all records matching the query between the offset and limit
     console.log('>> query', query);
     const records = await this.query(query, allArgs);

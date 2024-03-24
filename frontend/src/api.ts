@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { serverUrl } from './settings';
-import { IProduct } from './types';
+import { ICategory, IProduct } from './types';
 
 const api = axios.create({
   baseURL: `${serverUrl}/api`,
@@ -35,6 +35,9 @@ interface IReadProductsRes {
   records: IProduct[];
   count: number;
 }
+
+export const readCategories = async (): Promise<ICategory[]> =>
+  api.get('/categories').then((res) => res.data as ICategory[]);
 
 export const readProducts = async (): Promise<IReadProductsRes> => {
   const res = await api.get('/products');
