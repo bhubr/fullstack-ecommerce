@@ -6,7 +6,7 @@
 // 4. If an image exists in folder `images` with name `<oldslug>.<ext>`, rename it to `<newslug>.<ext>`
 // 5. Append theses items to a new array, omitting items that might have already been inserted from reading
 //    previous files (based on the `link.relative` property)
-// 6. Write the new array of items to a new JSON file in the current folder, named `products-all-${Date.now()}.json`
+// 6. Write the new array of items to a new JSON file in the current folder, named `products-all.json`
 const fs = require("fs").promises;
 const path = require("path");
 const slug = require("slug");
@@ -45,7 +45,7 @@ async function concatProducts() {
       allItems.push(item);
     }
   }
-  const newFilename = `products-all-${Date.now()}.json`;
+  const newFilename = 'products-all.json';
   await fs.writeFile(newFilename, JSON.stringify(allItems, null, 2));
   console.log(`Wrote ${allItems.length} items to ${newFilename}`);
 }
