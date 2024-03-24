@@ -30,8 +30,12 @@ describe('Products routes', () => {
     it('should return a list of products', async () => {
       const db = (await DatabaseService.getInstance()).getDB();
       const productPayloads = [1, 2].map(makeProductPayload);
+      const cat = await db.insertIntoTable('category', {
+        name: 'Sample Category',
+        slug: 'sample-category',
+      });
       for (const payload of productPayloads) {
-        await db.insertIntoTable('product', payload);
+        await db.insertIntoTable('product', { ...payload, categoryId: cat.id });
       }
       const response = await request(app).get('/api/products');
       expect(response.status).toBe(200);
@@ -41,9 +45,11 @@ describe('Products routes', () => {
           slug: 'sample-product-1',
           price: 109.99,
         }),
-        expect.objectContaining({ name: 'Sample Product 2',
-        slug: 'sample-product-2',
-        price: 119.99, }),
+        expect.objectContaining({
+          name: 'Sample Product 2',
+          slug: 'sample-product-2',
+          price: 119.99,
+        }),
       ]);
     });
   });
