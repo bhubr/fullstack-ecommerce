@@ -7,17 +7,23 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-import CartContext from '../contexts/CartContext';
+import { Link } from 'react-router-dom';
+
 import { formatName, formatPrice } from '../helpers';
+import CartContext from '../contexts/CartContext';
 
 const CartDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { items: cartItems, removeItem } = useContext(CartContext);
   const itemsTotal = useMemo(
-    () => cartItems.reduce((total, { product, quantity }) => ({
-      quantity: total.quantity + quantity,
-      price: total.price + quantity * product.price
-    }), { price: 0, quantity: 0 }),
+    () =>
+      cartItems.reduce(
+        (total, { product, quantity }) => ({
+          quantity: total.quantity + quantity,
+          price: total.price + quantity * product.price,
+        }),
+        { price: 0, quantity: 0 }
+      ),
     [cartItems]
   );
 
@@ -56,7 +62,9 @@ const CartDropdown = () => {
         <DropdownItem divider />
         <DropdownItem>Total : {formatPrice(itemsTotal.price)}</DropdownItem>
         <DropdownItem divider />
-        <DropdownItem>Panier</DropdownItem>
+        <DropdownItem>
+          <Link to="/panier">Panier</Link>
+        </DropdownItem>
         <DropdownItem>Acheter</DropdownItem>
       </DropdownMenu>
     </Dropdown>

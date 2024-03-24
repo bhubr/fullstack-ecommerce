@@ -3,6 +3,7 @@ import TopNavbar from './components/TopNavbar';
 import Footer from './components/Footer';
 import HomeContainer from './pages/Home.container';
 import SigninForm from './components/SigninForm';
+import Cart from './components/Cart';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<HomeContainer />} />
+        <Route path="/panier" element={<Cart />} />
         <Route path="/categories/:categorySlug" element={<HomeContainer />} />
         <Route path="/compte/connexion" element={<SigninForm />} />
       </Routes>
