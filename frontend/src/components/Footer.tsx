@@ -4,7 +4,7 @@ const Footer = () => (
 <footer className="py-5 bg-dark">
   <Container>
     <p className="m-0 text-center text-white">
-      Copyright &copy; Your Website 2023
+      Tous droits réservés &copy; E-shop 2023
     </p>
   </Container>
 </footer>

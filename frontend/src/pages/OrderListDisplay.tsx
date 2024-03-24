@@ -20,7 +20,7 @@ const OrderListDisplay = ({ orders, error }) => {
               <tr>
                 <th>Date</th>
                 <th>Référence</th>
-                <th>Total Amount</th>
+                <th>Montant total</th>
               </tr>
             </thead>
             <tbody>
