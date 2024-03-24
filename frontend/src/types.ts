@@ -22,3 +22,5 @@ export interface ICategory {
   name: string;
   slug: string;
 }
+
+export type SortOrder = 'price-asc' | 'price-desc' | 'date-desc';

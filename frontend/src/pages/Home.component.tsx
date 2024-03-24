@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { Alert, Container, Col, Row } from 'reactstrap';
 import { AxiosError } from 'axios';
 
-import type { ICategory, IProduct } from '../types';
+import type { ICategory, IProduct, SortOrder } from '../types';
 import ProductCardList from '../components/ProductCardList';
 import CategorySidebar from '../components/CategorySidebar';
 import SortDropdown from '../components/SortDropdown';
@@ -14,6 +14,8 @@ interface IHomeProps {
   error: null | AxiosError;
   dropdownOpen: boolean;
   toggleDropdown: () => void;
+  sortOrder: SortOrder;
+  setSortOrder: React.Dispatch<React.SetStateAction<SortOrder>>;
 }
 
 const Home = ({
@@ -23,6 +25,8 @@ const Home = ({
   error,
   dropdownOpen,
   toggleDropdown,
+  sortOrder,
+  setSortOrder
 }: IHomeProps) => {
   let element: undefined | ReactNode;
   if (loading) {
@@ -44,8 +48,13 @@ const Home = ({
           </Col>
           <Col md="9">
             <Row className="my-2">
-              <Col md="12" >
-                <SortDropdown toggle={toggleDropdown} isOpen={dropdownOpen} />
+              <Col md="12">
+                <SortDropdown
+                  toggle={toggleDropdown}
+                  isOpen={dropdownOpen}
+                  sortOrder={sortOrder}
+                  setSortOrder={setSortOrder}
+                />
               </Col>
             </Row>
             <ProductCardList products={products} />
