@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { serverUrl } from './settings';
+import { IProduct } from './types';
 
 const api = axios.create({
   baseURL: `${serverUrl}/api`,
@@ -30,9 +31,16 @@ const api = axios.create({
 //   return res.data;
 // };
 
-export const readProducts = async () => {
+interface IReadProductsRes {
+  records: IProduct[];
+  count: number;
+}
+
+export const readProducts = async (): Promise<IReadProductsRes> => {
   const res = await api.get('/products');
-  return res.data;
+  // Get count from header
+  const count = Number(res.headers['x-total-count']);
+  return { records: res.data, count };
 };
 
 export const readOneProduct = async (id: number) => {

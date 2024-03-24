@@ -1,12 +1,24 @@
 import express from 'express';
 import DatabaseService from '../services/database-service';
+import { IGetAllFromTableOptions } from '../db/types';
 
 const productsRouter = express.Router();
 
 productsRouter.get('/', async (req, res) => {
+  const { page: pageStr = '1', categoryId } = req.query;
+  const page = Number(pageStr);
+  const npp = 12;
+  const offset = (page - 1) * npp;
   const db = (await DatabaseService.getInstance()).getDB();
-  const products = await db.getAllFromTable('product');
-  res.json(products);
+  const options: IGetAllFromTableOptions = {
+    offset,
+    limit: npp,
+  };
+  if (categoryId !== undefined) {
+    options.where = [['categoryId', '=', Number(categoryId as string)]];
+  }
+  const { records: products, count } = await db.getAllFromTable('product');
+  res.set('X-Total-Count', String(count)).json(products);
 });
 
 productsRouter.post('/', async (req, res) => {

@@ -1,5 +1,10 @@
 import sqlite3 from 'sqlite3';
-import { DatabaseEngine, Scalar } from './types';
+import {
+  DatabaseEngine,
+  IGetAllFromTableOptions,
+  IGetAllFromTableResult,
+  Scalar,
+} from './types';
 
 interface SQLite3DatabaseEngine extends DatabaseEngine {
   db?: sqlite3.Database;
@@ -17,7 +22,8 @@ const sqlite3db: SQLite3DatabaseEngine = {
    */
   async initialize(file: string): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.db = new sqlite3.Database(file, (err) => {
+      const sqlite3m = sqlite3.verbose();
+      this.db = new sqlite3m.Database(file, (err) => {
         if (err instanceof Error) {
           reject(err);
         } else {
@@ -51,8 +57,35 @@ const sqlite3db: SQLite3DatabaseEngine = {
   /**
    * Get all from table
    */
-  async getAllFromTable<T>(table: string): Promise<T[]> {
-    return this.query(`SELECT * FROM ${table}`, []);
+  async getAllFromTable<T>(
+    table: string,
+    options: IGetAllFromTableOptions = {}
+  ): Promise<IGetAllFromTableResult<T>> {
+    const { offset = 0, limit = 10, where = [] } = options;
+    let query = `SELECT * FROM ${table}`;
+    const args: Scalar[] = [];
+    let whereClause = '';
+    if (where.length > 0) {
+      whereClause = where
+        .map(([field, operator]) => `${field} ${operator} ?`)
+        .join(' AND ');
+      query += ` WHERE ${whereClause}`;
+      args.push(...where.map(([, , value]) => value));
+    }
+    query += ` LIMIT ? OFFSET ?`;
+    const allArgs = [...args, limit, offset];
+    // Get all records matching the query between the offset and limit
+    console.log('>> query', query);
+    const records = await this.query(query, allArgs);
+    // Fire another query to get the total count of records matching the where clause
+    let countQuery = `SELECT COUNT(*) as count FROM ${table}`;
+    if (where.length > 0) {
+      countQuery += ` WHERE ${whereClause}`;
+    }
+    console.log('>> countQuery', countQuery);
+    const [{ count }] = await this.query(countQuery, args);
+    // Return the records and the total count
+    return { records, count };
   },
 
   /**
@@ -72,9 +105,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
         (${placeholders.join(', ')})`;
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     await this.query(sql, values);
-    const rows = await this.query(
-      'SELECT last_insert_rowid() as id', []
-    );
+    const rows = await this.query('SELECT last_insert_rowid() as id', []);
     const [{ id }] = rows;
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     const record = { id, ...payload } as T;
@@ -87,15 +118,17 @@ const sqlite3db: SQLite3DatabaseEngine = {
   async getOneFromTableByField<T>(
     table: string,
     field: string,
-    value: Scalar): Promise<T> {
-    const [record] = await this.query(`SELECT * FROM ${table} WHERE ${field} = ?`, [value]);
-    return record
-  }
+    value: Scalar
+  ): Promise<T> {
+    const [record] = await this.query(
+      `SELECT * FROM ${table} WHERE ${field} = ?`,
+      [value]
+    );
+    return record;
+  },
 };
 
 export default sqlite3db;
-
-
 
 // export async function getFromTableByField<T>(
 //   table: string,

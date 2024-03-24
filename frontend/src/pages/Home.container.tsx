@@ -12,8 +12,8 @@ const HomeContainer = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await readProducts();
-        setProducts(res);
+        const { records, count } = await readProducts();
+        setProducts(records);
         setLoading(false);
       } catch (err) {
         setError(err as AxiosError);
