@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AxiosError } from 'axios';
+import { useParams } from 'react-router-dom';
 
 import type { ICategory, IProductWithCategory } from '../types';
 import { readCategories, readProducts } from '../api';
@@ -11,18 +12,24 @@ const HomeContainer = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<null | AxiosError>(null);
+  const { categorySlug, page = '1' } = useParams();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const categoryRecords = await readCategories();
         setCategories(categoryRecords);
-        const { records: productRecords, count } = await readProducts();
+        const { records: productRecords, count } = await readProducts({
+          categorySlug,
+          page: Number(page),
+        });
         const productsWithCats = productRecords.map((product) => ({
           ...product,
           // Seems like a bold guess, but we're actually sure that the category exists,
           // since there are not many categories and we request them all at once
-          category: categoryRecords.find((category) => category.id === product.categoryId) as ICategory,
+          category: categoryRecords.find(
+            (category) => category.id === product.categoryId
+          ) as ICategory,
         }));
         setProducts(productsWithCats);
         setLoading(false);
@@ -32,7 +39,7 @@ const HomeContainer = () => {
       }
     };
     fetchProducts();
-  }, []);
+  }, [page, categorySlug]);
 
   return (
     <Home

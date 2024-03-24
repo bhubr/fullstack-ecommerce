@@ -21,6 +21,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<HomeContainer />} />
+        <Route path="/categories/:categorySlug" element={<HomeContainer />} />
       </Routes>
 
       <Footer />

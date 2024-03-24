@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App.tsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './startbootstrap-ecommerce.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Router>
-    <App />
+      <App />
     </Router>
   </React.StrictMode>
 );

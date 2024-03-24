@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Alert, Col, Row } from 'reactstrap';
+import { Alert, Container, Col, Row } from 'reactstrap';
 import { AxiosError } from 'axios';
 
 import type { ICategory, IProduct } from '../types';
@@ -16,7 +16,14 @@ interface IHomeProps {
   toggleDropdown: () => void;
 }
 
-const Home = ({ products, categories, loading, error, dropdownOpen, toggleDropdown }: IHomeProps) => {
+const Home = ({
+  products,
+  categories,
+  loading,
+  error,
+  dropdownOpen,
+  toggleDropdown,
+}: IHomeProps) => {
   let element: undefined | ReactNode;
   if (loading) {
     element = <div>Loading...</div>;
@@ -30,17 +37,21 @@ const Home = ({ products, categories, loading, error, dropdownOpen, toggleDropdo
   }
   if (products !== null && categories !== null) {
     element = (
-      <Row>
-        <Col md="3">
-          <CategorySidebar categories={categories} />
-        </Col>
-        <Col md="9">
-          <div className="d-flex justify-content-end">
-            <SortDropdown toggle={toggleDropdown} isOpen={dropdownOpen} />
-          </div>
-          <ProductCardList products={products} />
-        </Col>
-      </Row>
+      <Container>
+        <Row>
+          <Col md="3">
+            <CategorySidebar categories={categories} />
+          </Col>
+          <Col md="9">
+            <Row className="my-2">
+              <Col md="12" >
+                <SortDropdown toggle={toggleDropdown} isOpen={dropdownOpen} />
+              </Col>
+            </Row>
+            <ProductCardList products={products} />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 

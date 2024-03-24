@@ -36,11 +36,23 @@ interface IReadProductsRes {
   count: number;
 }
 
+interface IReadProductsParams {
+  categorySlug?: string;
+  page: number;
+}
+
 export const readCategories = async (): Promise<ICategory[]> =>
   api.get('/categories').then((res) => res.data as ICategory[]);
 
-export const readProducts = async (): Promise<IReadProductsRes> => {
-  const res = await api.get('/products');
+export const readProducts = async ({
+  page = 1,
+  categorySlug,
+}: IReadProductsParams): Promise<IReadProductsRes> => {
+  let url = `/products?page=${page}`;
+  if (categorySlug !== undefined) {
+    url += `&categorySlug=${categorySlug}`;
+  }
+  const res = await api.get(url);
   // Get count from header
   const count = Number(res.headers['x-total-count']);
   return { records: res.data, count };
