@@ -7,47 +7,66 @@ import DatabaseService from '../services/database-service';
 
 const ordersRouter = express.Router();
 
+const isExpiryDateValid = (expiry: string): [true] | [false, string] => {
+  const [month, year] = expiry.split('/');
+  if (!/^\d{2}$/.test(month) || !/^\d{2}$/.test(year)) {
+    return [false, "Format de date d'expiration invalide"];
+  }
+  const currentYear = new Date().getFullYear() - 2000;
+  const currentMonth = new Date().getMonth() + 1;
+  console.log(currentYear, currentMonth);
+  if (parseInt(year) < currentYear) {
+    return [false, 'Date d\'expiration dépassée'];
+  }
+  if (parseInt(year) === currentYear && parseInt(month) < currentMonth) {
+    return [false, 'Date d\'expiration dépassée'];
+  }
+  return [true];
+}
+
 ordersRouter.post('/', checkJwt, async (req: AuthRequest, res) => {
   const { address, payment } = req.body as ISubmitOrderDTO;
   const { userId } = req.auth;
-  // build payload, below are fields
-  /*
-  userId
-  addrStreet
-  addrCity
-  addrPostCode
-  addrPhone
-  reference
-  status
-  createdAt
-  updatedAt
-  */
+
   const { addrStreet, addrCity, addrPostCode, addrPhone } = address;
-  console.log('>> address:', addrStreet, addrCity, addrPostCode, addrPhone);
+  if (!addrStreet || !addrCity || !addrPostCode || !addrPhone) {
+    return res.status(400).json({ error: "L'adresse complète est requise" });
+  }
+  const { cardNumber, cardExpiry, cardCvc } = payment;
+  const sanitizedCardNumber = cardNumber.replace(/\s/g, '');
+  // valid number is 16 digits
+  if (!/^\d{16}$/.test(sanitizedCardNumber)) {
+    return res.status(400).json({ error: 'Format de numéro de carte incorrect' });
+  }
+  // only valid number is 1234123412341234
+  if (sanitizedCardNumber !== '1234123412341234') {
+    return res.status(400).json({ error: 'Numéro de carte invalide' });
+  }
+  // only valid CVS is 123
+  if (cardCvc !== '123') {
+    return res.status(400).json({ error: 'Cryptogramme de sécurité invalide' });
+  }
+  const [expiryValid, expiryError] = isExpiryDateValid(cardExpiry);
+  if (!expiryValid) {
+    return res.status(400).json({ error: expiryError });
+  }
+  // valid expiry is MM/YY (should be in the future)
   const reference = await createOrderReference();
   const status = 'paid'; // can be 'paid', 'shipped', 'delivered'
   const createdAt = new Date().toISOString();
   const updatedAt = createdAt;
-  console.log('>> payment:', payment);
-  console.log('>> other info:', reference, status, createdAt, updatedAt);
 
   try {
+    const { id: cartId, items } = await getCartByUserId(userId);
+    // compute total price
+    const subTotal = items.reduce(
+      (acc, item) => acc + item.quantity * item.product.price,
+      0
+    );
+    const shippingCost = subTotal > 50 ? 0 : 10;
+
     // create order
     const db = (await DatabaseService.getInstance()).getDB();
-    // await db.query(
-    //   `INSERT INTO \`order\` (userId, addrStreet, addrCity, addrPostCode, addrPhone, reference, status, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    //   [
-    //     userId,
-    //     addrStreet,
-    //     addrCity,
-    //     addrPostCode,
-    //     addrPhone,
-    //     reference,
-    //     status,
-    //     createdAt,
-    //     updatedAt,
-    //   ]
-    // );
     const order = await db.insertIntoTable('order', {
       userId,
       addrStreet,
@@ -55,36 +74,29 @@ ordersRouter.post('/', checkJwt, async (req: AuthRequest, res) => {
       addrPostCode,
       addrPhone,
       reference,
+      subTotal,
+      shippingCost,
       status,
       createdAt,
       updatedAt,
     });
 
-    // create order items
-    const { id: cartId, items } = await getCartByUserId(userId);
-    // turn cart items to { orderId, productId, quantity, price }
-    // console.log('>>> Order items:', items);
+    // create order_product items payloads
     const orderItems = items.map((item) => ({
       orderId: order.id,
       productId: item.product.id,
       quantity: item.quantity,
       price: item.product.price,
     }));
+    // insert order_product items
     for (const item of orderItems) {
-      // await db.query(
-      //   `INSERT INTO order_item (orderId, productId, quantity, price) VALUES (?, ?, ?, ?)`,
-      //   [item.orderId, item.productId, item.quantity, item.price]
-      // );
       await db.insertIntoTable('order_product', item);
     }
 
     // clear cart
-    await db.updateTable(
-      'cart',
-      'id',
-      cartId,
-      { checkedOutAt: new Date().toISOString() },
-    );
+    await db.updateTable('cart', 'id', cartId, {
+      checkedOutAt: new Date().toISOString(),
+    });
 
     return res.status(200).json({ message: 'Order submitted' });
   } catch (err) {

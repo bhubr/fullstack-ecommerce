@@ -36,6 +36,8 @@ exports.up = function (db, callback) {
                 mapping: 'id',
               },
             },
+            subTotal: { type: 'int', notNull: true },
+            shippingCost: { type: 'int', notNull: true },
             reference: { type: 'string', notNull: true },
             addrStreet: { type: 'string', notNull: true },
             addrCity: { type: 'string', notNull: true },
@@ -97,7 +99,6 @@ exports.down = function (db, callback) {
       (cb) => db.dropTable('order_product', cb),
     ],
     (err, results) => {
-      console.log(err, results);
       callback(err, results);
     }
   );

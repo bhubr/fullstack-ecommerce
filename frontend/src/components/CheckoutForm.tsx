@@ -1,5 +1,16 @@
 import { useState } from 'react';
-import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import {
+  Row,
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  FormText,
+  Label,
+  Input,
+} from 'reactstrap';
+import { AxiosError } from 'axios';
+
 import { submitOrder } from '../api';
 
 const CheckoutForm = () => {
@@ -13,6 +24,7 @@ const CheckoutForm = () => {
     cvv: '',
     expiration: '',
   });
+  const [error, setError] = useState<AxiosError | null>(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,26 +33,39 @@ const CheckoutForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    await submitOrder({
-      address: {
-        addrStreet: formData.address,
-        addrCity: formData.city,
-        addrPostCode: formData.postalCode,
-        addrPhone: formData.phone,
-      },
-      payment: {
-        cardHolder: formData.cardHolder,
-        cardNumber: formData.cardNumber,
-        cardExpiry: formData.expiration,
-        cardCvc: formData.cvv,
-      }
-    })
+
+    try {
+      await submitOrder({
+        address: {
+          addrStreet: formData.address,
+          addrCity: formData.city,
+          addrPostCode: formData.postalCode,
+          addrPhone: formData.phone,
+        },
+        payment: {
+          cardHolder: formData.cardHolder,
+          cardNumber: formData.cardNumber,
+          cardExpiry: formData.expiration,
+          cardCvc: formData.cvv,
+        },
+      });
+    } catch (err) {
+      setError(
+        err as AxiosError
+        // (err as unknown as AxiosError).response?.data.error || 'Erreur inconnue'
+      );
+    }
   };
 
   return (
     <Row>
       <Col>
+        {error && (
+          <div className="alert alert-danger" role="alert">
+            {(error.response?.data as { error: string }).error ||
+              'Erreur inconnue'}
+          </div>
+        )}
         <h4>Informations de Livraison</h4>
         <Form onSubmit={handleSubmit}>
           <FormGroup>
@@ -123,9 +148,13 @@ const CheckoutForm = () => {
                   value={formData.cardNumber}
                   onChange={handleChange}
                 />
+                <FormText color="muted">
+                  Numéro de carte pour les tests : 1234 1234
+                  1234 1234
+                </FormText>
               </FormGroup>
             </Col>
-            <Col xs="6">
+            <Col xs="7">
               <FormGroup>
                 <Label for="cvv">CVV</Label>
                 <Input
@@ -136,9 +165,12 @@ const CheckoutForm = () => {
                   value={formData.cvv}
                   onChange={handleChange}
                 />
+                <FormText color="muted">
+                  Cryptogramme pour les tests : 123
+                </FormText>
               </FormGroup>
             </Col>
-            <Col xs="6">
+            <Col xs="5">
               <FormGroup>
                 <Label for="expiration">Date d'expiration</Label>
                 <Input

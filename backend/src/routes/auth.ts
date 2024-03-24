@@ -13,7 +13,7 @@ const authRouter = express.Router();
 
 const createJwt = (userId: number): string =>
   jwt.sign({ userId }, jwtSecret, {
-    expiresIn: '1h',
+    expiresIn: '1d',
   });
 
 authRouter.post('/signup', async (req, res) => {
