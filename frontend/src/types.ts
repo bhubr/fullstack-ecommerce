@@ -43,3 +43,22 @@ export interface IUserWithCart extends IUser {
     items: ICartItem[];
   };
 }
+
+export interface IAddressInformation {
+  addrStreet: string;
+  addrCity: string;
+  addrPostCode: string;
+  addrPhone: string;
+}
+
+export interface IPaymentInformation {
+  cardHolder: string;
+  cardNumber: string;
+  cardExpiry: string;
+  cardCvc: string;
+}
+
+export interface ISubmitOrderDTO {
+  address: IAddressInformation;
+  payment: IPaymentInformation;
+}

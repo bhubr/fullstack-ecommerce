@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { serverUrl } from './settings';
-import { ICategory, IProduct } from './types';
+import type { ICategory, IProduct, ISubmitOrderDTO } from './types';
 
 const api = axios.create({
   baseURL: `${serverUrl}/api`,
@@ -79,5 +79,10 @@ export const updateCart = async (
       withCredentials: true,
     }
   );
+  return res.data;
+};
+
+export const submitOrder = async (payload: ISubmitOrderDTO) => {
+  const res = await api.post('/orders', payload, { withCredentials: true });
   return res.data;
 };

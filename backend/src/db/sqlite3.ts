@@ -110,7 +110,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
     const columns = Object.keys(payload);
     const values = Object.values(payload);
     const placeholders = new Array(columns.length).fill('?');
-    const sql = `INSERT INTO ${table}
+    const sql = `INSERT INTO \`${table}\`
         (${columns.join(', ')})
       VALUES
         (${placeholders.join(', ')})`;

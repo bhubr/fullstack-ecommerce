@@ -1,14 +1,6 @@
 import { useState } from 'react';
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-} from 'reactstrap';
+import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { submitOrder } from '../api';
 
 const CheckoutForm = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +8,7 @@ const CheckoutForm = () => {
     postalCode: '',
     city: '',
     phone: '',
+    cardHolder: '',
     cardNumber: '',
     cvv: '',
     expiration: '',
@@ -26,9 +19,23 @@ const CheckoutForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Ajoutez ici la logique pour envoyer les données au backend, par exemple pour traiter le paiement.
+    
+    await submitOrder({
+      address: {
+        addrStreet: formData.address,
+        addrCity: formData.city,
+        addrPostCode: formData.postalCode,
+        addrPhone: formData.phone,
+      },
+      payment: {
+        cardHolder: formData.cardHolder,
+        cardNumber: formData.cardNumber,
+        cardExpiry: formData.expiration,
+        cardCvc: formData.cvv,
+      }
+    })
   };
 
   return (
@@ -91,6 +98,19 @@ const CheckoutForm = () => {
                 <br />
                 (elles ne seront pas stockées, de toute façon)
               </p>
+            </Col>
+            <Col xs="12">
+              <FormGroup>
+                <Label for="cardHolder">Nom sur la Carte de Crédit</Label>
+                <Input
+                  type="text"
+                  name="cardHolder"
+                  id="cardHolder"
+                  placeholder="Leia Organa"
+                  value={formData.cardHolder}
+                  onChange={handleChange}
+                />
+              </FormGroup>
             </Col>
             <Col xs="12">
               <FormGroup>
