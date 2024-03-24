@@ -1,31 +1,26 @@
 import { Routes, Route } from 'react-router-dom';
+
+import HomeContainer from './pages/Home.container';
+import Cart from './pages/Cart';
+import SigninForm from './pages/SigninForm';
+import SubmitOrder from './pages/SubmitOrder';
 import TopNavbar from './components/TopNavbar';
 import Footer from './components/Footer';
-import HomeContainer from './pages/Home.container';
-import SigninForm from './components/SigninForm';
-import Cart from './components/Cart';
+import NotFound from './components/NotFound';
 
 const App = () => {
   return (
     <div>
       <TopNavbar />
 
-      {/* <header className="bg-dark py-5">
-        <Container>
-          <div className="text-center text-white">
-            <h1 className="display-4 fw-bolder">Shop in style</h1>
-            <p className="lead fw-normal text-white-50 mb-0">
-              With this shop homepage template
-            </p>
-          </div>
-        </Container>
-      </header> */}
-
       <Routes>
         <Route path="/" element={<HomeContainer />} />
         <Route path="/panier" element={<Cart />} />
+        <Route path="/commande" element={<SubmitOrder />} />
         <Route path="/categories/:categorySlug" element={<HomeContainer />} />
         <Route path="/compte/connexion" element={<SigninForm />} />
+        
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer />

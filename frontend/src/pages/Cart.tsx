@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Button, Container, Col, Row } from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 import type { ICartItem } from '../types';
 import { serverUrl } from '../settings';
@@ -76,6 +77,14 @@ const Total = ({ items }: { items: ICartItem[] }) => (
   </>
 );
 
+const OrderButton = ({ size }: { size: 'sm' | 'lg' }) => (
+  <Link to="/commande">
+    <Button size={size} color="primary" className="me-2">
+      Commander
+    </Button>
+  </Link>
+);
+
 const Cart = () => {
   const { items } = useContext(CartContext);
 
@@ -87,9 +96,7 @@ const Cart = () => {
           <span className="mx-2">
             <Total items={items} />
           </span>
-          <Button size="sm" color="primary" className="me-2">
-            Commander
-          </Button>
+          <OrderButton size="sm" />
         </div>
       </div>
       {items.map((item) => (
@@ -103,9 +110,7 @@ const Cart = () => {
               Total : <Total items={items} />
             </strong>
           </div>
-          <Button size="lg" color="primary" className="me-2">
-            Commander
-          </Button>
+          <OrderButton size="lg" />
         </Col>
       </Row>
     </Container>

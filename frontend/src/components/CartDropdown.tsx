@@ -65,7 +65,9 @@ const CartDropdown = () => {
         <DropdownItem>
           <Link to="/panier">Panier</Link>
         </DropdownItem>
-        <DropdownItem>Acheter</DropdownItem>
+        <DropdownItem>
+          <Link to="/commande">Commander</Link>
+        </DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );
