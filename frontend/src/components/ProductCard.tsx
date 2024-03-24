@@ -1,16 +1,10 @@
+import { useContext } from 'react';
 import { Button, Card, CardImg, CardBody, CardFooter } from 'reactstrap';
 
 import type { IProduct } from '../types';
 import { serverUrl } from '../settings';
-import { useContext } from 'react';
+import { formatName, formatPrice } from '../helpers';
 import CartContext from '../contexts/CartContext';
-
-// Truncate the title to 45 characters
-const formatName = (title: string) =>
-  title.length > 45 ? title.slice(0, 45) + '...' : title;
-
-const formatPrice = (price: number) =>
-  price.toFixed(2).replace('.', ',') + ' €';
 
 const ProductCard = ({ product }: { product: IProduct }) => {
   const { addItem } = useContext(CartContext);

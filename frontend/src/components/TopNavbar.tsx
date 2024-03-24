@@ -5,20 +5,14 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Badge,
   Container,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import CartContext from '../contexts/CartContext';
+import CartDropdown from './CartDropdown';
 
 const TopNavbar = () => {
-  const { items } = useContext(CartContext);
-  const itemsTotal = useMemo(
-    () =>
-      items.reduce((total, { quantity }) => total + quantity, 0),
-    [items]
-  );
   return (
     <Navbar color="light" light expand="lg">
       <Container>
@@ -42,15 +36,7 @@ const TopNavbar = () => {
                 </NavLink>
               </NavItem>
             </Nav>
-            <form className="d-flex">
-              <button className="btn btn-outline-dark" type="submit">
-                <i className="bi-cart-fill me-1"></i>
-                Panier
-                <Badge color="dark" className="ms-1 rounded-pill">
-                  {itemsTotal}
-                </Badge>
-              </button>
-            </form>
+            <CartDropdown />
           </div>
         </div>
       </Container>
