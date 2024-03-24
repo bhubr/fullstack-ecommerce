@@ -24,6 +24,11 @@ export const signin = async (email: string, password: string) => {
   return res.data;
 };
 
+export const signout = async () => {
+  const res = await api.post('/auth/signout', {}, { withCredentials: true });
+  return res.data;
+};
+
 // export const signup = async (email: string, password: string) => {
 //   const res = await api.post(
 //     '/auth/signup',

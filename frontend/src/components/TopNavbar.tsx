@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import CartDropdown from './CartDropdown';
 import AccountDropdown from './AccountDropdown';
 import AuthContext from '../contexts/AuthContext';
-import UserAccountNavbarLink from './UserAccountNavbarLink';
+import UserAccountNavbarDropdown from './UserAccountNavbarDropdown';
 
 const TopNavbar = () => {
   const { user } = useContext(AuthContext);
@@ -31,7 +31,7 @@ const TopNavbar = () => {
             </NavItem>
           </Nav>
           <div className="d-flex">
-            {user ? <UserAccountNavbarLink user={user} /> : <AccountDropdown />}
+          {user ? <UserAccountNavbarDropdown user={user} /> : <AccountDropdown />}
             <CartDropdown />
           </div>
         </div>

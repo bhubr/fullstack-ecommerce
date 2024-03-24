@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { IUserWithCart } from '../types';
 import AuthContext from '../contexts/AuthContext';
-import { readUser } from '../api';
+import { readUser, signout } from '../api';
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<IUserWithCart | null>(null);
@@ -13,8 +13,14 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         setLoading(false);
       });
   }, []);
+
+  const signoutUser = async () => {
+    await signout();
+    setUser(null);
+  };
+  
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, signout: signoutUser }}>
       {!loading && children}
     </AuthContext.Provider>
   );

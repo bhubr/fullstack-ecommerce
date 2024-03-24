@@ -25,6 +25,7 @@ export interface ICategory {
 
 export interface IUser {
   id: number;
+  fullName: string;
   email: string;
   createdAt: string;
   updatedAt: string;
@@ -37,8 +38,7 @@ export interface ICartItem {
   quantity: number;
 }
 
-export interface IUserWithCart {
-  user: IUser;
+export interface IUserWithCart extends IUser {
   cart: {
     items: ICartItem[];
   };
