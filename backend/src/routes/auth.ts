@@ -40,15 +40,13 @@ authRouter.post('/signup', async (req, res) => {
     const jwt = createJwt(user.id);
     const jwtExpiresAt = Date.now() + 3600000;
     res.cookie('jwt', jwt, { httpOnly: true });
-    return res
-      .status(201)
-      .json({
-        id: user.id,
-        email: user.email,
-        fullName: user.fullName,
-        jwt,
-        jwtExpiresAt,
-      });
+    return res.status(201).json({
+      id: user.id,
+      email: user.email,
+      fullName: user.fullName,
+      jwt,
+      jwtExpiresAt,
+    });
   } catch (err) {
     const message = (err as Error).message;
     return res.status(400).json({ error: message });
@@ -102,11 +100,16 @@ authRouter.get('/me', checkJwt, async (req: AuthRequest, res) => {
   if (req.auth === undefined) {
     return res.status(401).json({ message: 'Unauthorized' });
   }
-  const { userId } = req.auth;
-  const user = await getUserById(userId);
-  const cart = await getCartByUserId(userId);
-  console.log('>> user/cart', user, cart);
-  return res.status(200).json({ ...user, cart });
+  try {
+    const { userId } = req.auth;
+    const user = await getUserById(userId);
+    const cart = await getCartByUserId(userId);
+    console.log('>> user/cart', user, cart);
+    return res.status(200).json({ ...user, cart });
+  } catch (err) {
+    const message = (err as Error).message;
+    return res.status(500).json({ error: message });
+  }
 });
 
 export default authRouter;
