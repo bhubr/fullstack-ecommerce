@@ -107,7 +107,7 @@ const SignupForm = () => {
             </FormGroup>
 
             <Button color="primary" disabled={loading}>
-              Connexion
+              Inscription
             </Button>
           </Form>
         </Col>
