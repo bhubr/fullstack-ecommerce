@@ -25,7 +25,7 @@ export interface IGetAllFromTableResult<T> {
 
 export interface DatabaseEngine {
   initialize(fileOrUrl: string): Promise<void>;
-  query<T>(sql: string, args: Scalar[]): Promise<T>;
+  query<T>(sql: string, args?: Scalar[]): Promise<T>;
   getAllFromTable<T>(
     table: string,
     options?: IGetAllFromTableOptions

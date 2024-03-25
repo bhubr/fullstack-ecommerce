@@ -34,6 +34,7 @@ export interface IProduct {
   description: string;
   pictureUrl: string;
   price: number;
+  stock: number;
   createdAt: string;
   updatedAt: string;
 }

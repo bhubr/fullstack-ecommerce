@@ -8,6 +8,10 @@ import CartContext from '../contexts/CartContext';
 
 const ProductCard = ({ product }: { product: IProduct }) => {
   const { addItem } = useContext(CartContext);
+  const isOutOfStock = product.stock === 0;
+  const buttonProps = isOutOfStock
+    ? { color: 'secondary', disabled: true, label: 'Épuisé' }
+    : { color: 'primary', disabled: false, label: 'Panier' };
   return (
     <Card className="h-100">
       {/* {product.sale && (
@@ -39,8 +43,13 @@ const ProductCard = ({ product }: { product: IProduct }) => {
       </CardBody>
       <CardFooter className="p-4 pt-0 border-top-0 bg-transparent">
         <div className="text-center">
-          <Button color="primary" outline onClick={() => addItem(product)}>
-            Panier
+          <Button
+            color={buttonProps.color}
+            outline
+            onClick={() => addItem(product)}
+            disabled={buttonProps.disabled}
+          >
+            {buttonProps.label}
           </Button>
         </div>
       </CardFooter>

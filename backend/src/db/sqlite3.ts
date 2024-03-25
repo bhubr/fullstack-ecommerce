@@ -39,7 +39,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
    * @param args The arguments to pass to the query
    * @returns The result of the query
    */
-  async query<T>(sql: string, args: Scalar[]): Promise<T> {
+  async query<T>(sql: string, args: Scalar[] = []): Promise<T> {
     return new Promise((resolve, reject) => {
       // We trust that this.db is defined because
       // it's the first thing we do when we initialize the app
