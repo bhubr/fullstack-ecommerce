@@ -14,7 +14,9 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
       productId: it.product.id,
       quantity: it.quantity,
     }));
-    await updateCart(updateCartPayload);
+    if (user) {
+      await updateCart(updateCartPayload);
+    }
     setCart(updatedCart);
   }
 

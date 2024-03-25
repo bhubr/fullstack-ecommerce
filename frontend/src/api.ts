@@ -7,6 +7,7 @@ import type {
   ISubmitOrderDTO,
   IOrder,
   IStockInformation,
+  IUserWithCart,
 } from './types';
 
 const api = axios.create({
@@ -14,11 +15,10 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  // withCredentials: true,
 });
 
-export const readUser = async () => {
-  const res = await api.get('/auth/me', { withCredentials: true });
+export const readUser = async (): Promise<IUserWithCart> => {
+  const res = await api.get<IUserWithCart>('/auth/me', { withCredentials: true });
   return res.data;
 };
 

@@ -14,6 +14,18 @@ export interface IProduct {
   // sale?: boolean;
 }
 
+export interface IPartialProduct {
+  id: number;
+  name: string;
+  price: number;
+  stock: number;
+}
+
+export interface IPartialCartItem {
+  product: IPartialProduct;
+  quantity: number;
+}
+
 export interface IProductWithCategory extends IProduct {
   category: ICategory;
 }
@@ -32,18 +44,34 @@ export interface IUser {
   updatedAt: string;
 }
 
-export type SortOrder = 'price-asc' | 'price-desc' | 'date-desc';
-
 export interface ICartItem {
   product: IProduct;
   quantity: number;
 }
 
-export interface IUserWithCart extends IUser {
-  cart: {
-    items: ICartItem[];
-  };
+export interface ICart {
+  id: number;
+  userId: number;
+  checkedOutAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+  items: ICartItem[];
 }
+
+export interface IPartialCart {
+  id: number;
+  userId: number;
+  checkedOutAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+  items: IPartialCartItem[];
+}
+
+export interface IUserWithCart extends IUser {
+  cart: ICart;
+}
+
+export type SortOrder = 'price-asc' | 'price-desc' | 'date-desc';
 
 export interface IAddressInformation {
   addrStreet: string;
