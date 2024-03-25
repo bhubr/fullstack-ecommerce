@@ -37,6 +37,8 @@ interface CategoryRecord {
   updatedAt: string;
 }
 
+const randomizeStock = () => Math.floor(Math.random() * 12);
+
 async function readAndProcessProductFiles(): Promise<{
   products: Product[];
   categories: string[];
@@ -196,6 +198,7 @@ async function insertProducts(
       price: product.price.current,
       pictureUrl,
       slug: product.slug,
+      stock: randomizeStock(),
       createdAt,
       updatedAt,
     });

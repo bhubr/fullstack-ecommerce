@@ -135,6 +135,14 @@ ordersRouter.post('/', checkJwt, async (req: AuthRequest, res) => {
       }
     }
 
+    // Re-iterate over items to update stock
+    const db = (await DatabaseService.getInstance()).getDB();
+    for (const item of items) {
+      await db.updateTable('product', 'id', item.product.id, {
+        stock: item.product.stock - item.quantity,
+      });
+    }
+
     // compute total price
     const subTotal = items.reduce(
       (acc, item) => acc + item.quantity * item.product.price,
@@ -143,7 +151,6 @@ ordersRouter.post('/', checkJwt, async (req: AuthRequest, res) => {
     const shippingCost = subTotal > 50 ? 0 : 10;
 
     // create order
-    const db = (await DatabaseService.getInstance()).getDB();
     const order = await db.insertIntoTable('order', {
       userId,
       addrStreet,
