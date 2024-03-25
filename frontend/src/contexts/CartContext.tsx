@@ -6,7 +6,7 @@ export interface ICartContext {
   addItem(product: IProduct): Promise<void>;
   removeItem(product: IProduct): Promise<void>;
   setItemQuantity(product: IProduct, quantity: number): Promise<void>;
-  clearLocal(): Promise<void>;
+  clearLocal(): void;
 }
 
 const CartContext = createContext<ICartContext>({
@@ -14,7 +14,7 @@ const CartContext = createContext<ICartContext>({
   addItem: async () => {},
   removeItem: async () => {},
   setItemQuantity: async () => {},
-  async clearLocal() {},
+  clearLocal() {},
 });
 
 export default CartContext;

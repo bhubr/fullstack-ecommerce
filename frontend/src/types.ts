@@ -74,4 +74,6 @@ export interface IOrder {
   subTotal: number;
   shippingCost: number;
   items: { product: IProduct; price: number; quantity: number }[];
+  createdAt: string;
+  updatedAt: string;
 }

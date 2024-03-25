@@ -8,7 +8,9 @@ import OrderListDisplay from './OrderListDisplay'; // Importing the OrderDisplay
 const OrderListContainer = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<null | AxiosError>(null);
+  const [error, setError] = useState<AxiosError<{ error: string }> | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +18,7 @@ const OrderListContainer = () => {
         const fetchedOrders = await readOrders(); // Call the readOrders function
         setOrders(fetchedOrders);
       } catch (err) {
-        setError(err as AxiosError);
+        setError(err as AxiosError<{ error: string }>);
       } finally {
         setLoading(false);
       }
@@ -27,7 +29,11 @@ const OrderListContainer = () => {
 
   return (
     <div>
-      {loading ? <p>Loading...</p> : <OrderListDisplay error={error} orders={orders} />}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <OrderListDisplay error={error} orders={orders} />
+      )}
     </div>
   );
 };

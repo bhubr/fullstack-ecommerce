@@ -40,6 +40,7 @@ const HomeContainer = () => {
           categorySlug,
           page,
         });
+        console.log('total count', count);
         const productsWithCats = productRecords.map((product) => ({
           ...product,
           // Seems like a bold guess, but we're actually sure that the category exists,

@@ -30,7 +30,7 @@ const CheckoutForm = () => {
   const { clearLocal } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -54,7 +54,7 @@ const CheckoutForm = () => {
         },
       });
       clearLocal();
-      navigate(`/commandes/${order.reference}?success=true`)
+      navigate(`/commandes/${order.reference}?success=true`);
     } catch (err) {
       setError(
         err as AxiosError
@@ -155,8 +155,7 @@ const CheckoutForm = () => {
                   onChange={handleChange}
                 />
                 <FormText color="muted">
-                  Numéro de carte pour les tests : 1234 1234
-                  1234 1234
+                  Numéro de carte pour les tests : 1234 1234 1234 1234
                 </FormText>
               </FormGroup>
             </Col>

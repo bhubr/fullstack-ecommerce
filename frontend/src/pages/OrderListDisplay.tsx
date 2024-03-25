@@ -1,9 +1,17 @@
 // OrderListDisplay.tsx
 import { Alert, Container, Row, Col, Table } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { formatDate, formatPrice } from '../helpers';
+import type { AxiosError } from 'axios';
 
-const OrderListDisplay = ({ orders, error }) => {
+import { formatDate, formatPrice } from '../helpers';
+import { IOrder } from '../types';
+
+interface OrderListDisplayProps {
+  orders: IOrder[];
+  error: AxiosError<{ error: string }> | null;
+}
+
+const OrderListDisplay = ({ orders, error }: OrderListDisplayProps) => {
   return (
     <Container className="my-5">
       <Row>
@@ -24,7 +32,7 @@ const OrderListDisplay = ({ orders, error }) => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order, index) => (
+              {orders.map((order) => (
                 <tr key={order.id}>
                   <td>{formatDate(order.createdAt)}</td>
                   <td><Link to={`/commandes/${order.reference}`}>{order.reference}</Link></td>
