@@ -88,7 +88,7 @@ const SigninForm = () => {
               />
             </FormGroup>
 
-            <Button color="primary" disabled={loading}>
+            <Button type="submit" color="primary" disabled={loading}>
               Connexion
             </Button>
           </Form>

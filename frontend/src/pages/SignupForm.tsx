@@ -106,7 +106,7 @@ const SignupForm = () => {
               />
             </FormGroup>
 
-            <Button color="primary" disabled={loading}>
+            <Button type="submit" color="primary" disabled={loading}>
               Inscription
             </Button>
           </Form>
