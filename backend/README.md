@@ -16,6 +16,10 @@ pnpm i
 
 ### Populate database files
 
+Download the product images archive (ZIP) at <https://drive.google.com/file/d/1P1I2qjsxSBzJ7U6gZWSeVGcCGctut_PM/view>.
+
+Uncompress it in `static/` folder.
+
 ## Initialize project
 
 ### Create `package.json`
