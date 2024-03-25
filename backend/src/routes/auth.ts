@@ -19,12 +19,12 @@ const createJwt = (userId: number): string =>
 authRouter.post('/signup', async (req, res) => {
   const { fullName, email, password } = req.body;
   if (isEmpty(fullName)) {
-    return res.status(400).json({ message: 'Le nom est requis' });
+    return res.status(400).json({ error: 'Le nom est requis' });
   }
   if (isEmpty(email) || isEmpty(password)) {
     return res
       .status(400)
-      .json({ message: "L'e-mail et le mot de passe sont requis" });
+      .json({ error: "L'e-mail et le mot de passe sont requis" });
   }
   try {
     const passwordHash = await argon2.hash(password as string);
@@ -98,7 +98,7 @@ authRouter.post('/signout', async (req, res) => {
 
 authRouter.get('/me', checkJwt, async (req: AuthRequest, res) => {
   if (req.auth === undefined) {
-    return res.status(401).json({ message: 'Unauthorized' });
+    return res.status(401).json({ error: 'Unauthorized' });
   }
   try {
     const { userId } = req.auth;
