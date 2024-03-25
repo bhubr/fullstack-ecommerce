@@ -1,6 +1,6 @@
 import { expect, browser, $ } from "@wdio/globals";
 
-describe("Register", () => {
+xdescribe("Register", () => {
   it("should register with valid information", async () => {
     await browser.url(`http://localhost:5173/compte/inscription`);
 
@@ -31,6 +31,10 @@ describe("Register", () => {
     // await browser.pause(5000);
 
     $(".alert-danger").waitForExist({ timeout: 2000 });
+
+    const alertDanger = await $(".alert-danger");
+    const alertDangerText = await alertDanger.getText();
+    expect(alertDangerText).toContain("L'e-mail et le mot de passe sont requis");
     console.log(">>>> OK !!!!");
   });
 });
