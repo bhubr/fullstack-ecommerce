@@ -1,4 +1,4 @@
-# App e-commerce Node.js
+# App e-commerce Node.js / React
 
 ## Forker puis cloner
 
