@@ -3,7 +3,7 @@ import { Button, Card, CardImg, CardBody, CardFooter } from 'reactstrap';
 
 import type { IProduct } from '../types';
 import { serverUrl } from '../settings';
-import { formatName, formatPrice } from '../helpers';
+import { formatName, formatPrice } from '../helpers/formatters';
 import CartContext from '../contexts/CartContext';
 
 import './ProductCard.css';

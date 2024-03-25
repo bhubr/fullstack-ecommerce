@@ -4,7 +4,7 @@ import { Container, Col, Row } from 'reactstrap';
 import type { ICartItem } from '../types';
 import { serverUrl } from '../settings';
 import CartContext from '../contexts/CartContext';
-import { formatPrice } from '../helpers';
+import { formatPrice } from '../helpers/formatters';
 import CheckoutForm from '../components/CheckoutForm';
 
 import './SubmitOrder.css';

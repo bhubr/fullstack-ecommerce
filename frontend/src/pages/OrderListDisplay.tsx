@@ -3,7 +3,7 @@ import { Alert, Container, Row, Col, Table } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import type { AxiosError } from 'axios';
 
-import { formatDate, formatPrice } from '../helpers';
+import { formatDate, formatPrice } from '../helpers/formatters';
 import { IOrder } from '../types';
 
 interface OrderListDisplayProps {

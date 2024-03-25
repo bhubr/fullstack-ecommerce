@@ -3,7 +3,7 @@ import { Alert, Container, Row, Col } from 'reactstrap';
 import { useSearchParams } from 'react-router-dom';
 
 import type { IOrder } from '../types';
-import { formatPrice } from '../helpers';
+import { formatPrice } from '../helpers/formatters';
 
 interface IOrderDetailsDisplayProps {
   order: IOrder;

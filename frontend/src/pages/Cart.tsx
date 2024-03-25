@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import type { ICartItem, IStockInformation } from '../types';
 import { serverUrl } from '../settings';
 import CartContext from '../contexts/CartContext';
-import { formatPrice } from '../helpers';
+import { formatPrice } from '../helpers/formatters';
 import { checkCartAvailability } from '../api';
 
 interface IQuantityDropdownProps {

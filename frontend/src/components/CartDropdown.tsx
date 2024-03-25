@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { formatName, formatPrice } from '../helpers';
+import { formatName, formatPrice } from '../helpers/formatters';
 import CartContext from '../contexts/CartContext';
 
 const CartDropdown = () => {
