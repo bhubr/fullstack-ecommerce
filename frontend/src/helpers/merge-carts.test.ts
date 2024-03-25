@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import type { IPartialCart, IPartialCartItem, IProduct } from '../types';
+import type { IPartialCart, IPartialCartItem } from '../types';
 import mergeCarts from './merge-carts';
 
 
@@ -62,9 +62,7 @@ describe('Helpers: merge-carts', () => {
     const actualCart = mergeCarts(localCart, remoteCart);
     const { items: actualItems, ...actualRest } = actualCart;
     const { items: expectedItems, ...expectedRest } = expectedCart;
-    // expect(actualCart).toEqual(expectedCart);
     expect(actualRest).toEqual(expectedRest);
-    // Use arrayContaining or arrayContainingInAnyOrder to compare arrays
     expect(actualItems).toEqual(expect.arrayContaining(expectedItems));
   });
 });

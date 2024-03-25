@@ -1,10 +1,10 @@
-import type { IPartialCart, IPartialCartItem } from '../types';
+import type { ICart, ICartItem, IPartialCart, IPartialCartItem } from '../types';
 
 export default function mergeCarts(
-  localCart: IPartialCartItem[],
-  remoteCart: IPartialCart
-): IPartialCart {
-  const mergedItems: IPartialCartItem[] = [];
+  localCart: ICartItem[],
+  remoteCart: ICart
+): ICart {
+  const mergedItems: ICartItem[] = [];
 
   // Add all items from the local cart
   localCart.forEach((localItem) => {
@@ -19,7 +19,7 @@ export default function mergeCarts(
   });
 
   // Add all items from the remote cart
-  remoteCart.items.forEach((remoteItem: IPartialCartItem) => {
+  remoteCart.items.forEach((remoteItem: ICartItem) => {
     const existing = mergedItems.find(
       (it) => it.product.id === remoteItem.product.id
     );

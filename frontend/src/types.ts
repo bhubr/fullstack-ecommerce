@@ -9,9 +9,6 @@ export interface IProduct {
   stock: number;
   createdAt: string;
   updatedAt: string;
-  // oldPrice?: string;
-  // reviews?: number;
-  // sale?: boolean;
 }
 
 export interface IPartialProduct {

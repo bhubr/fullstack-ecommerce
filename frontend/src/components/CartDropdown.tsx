@@ -54,15 +54,13 @@ const CartDropdown = () => {
               <span>
                 {formatName(item.product.name, 20)} x {item.quantity}
               </span>
-              <Button
-                color="danger"
-                outline
-                size="sm"
-                className="ms-3"
+              <span
+                role="button"
+                className="btn btn-outline-danger btn-sm ms-3"
                 onClick={() => removeItem(item.product)}
               >
                 Supprimer
-              </Button>
+              </span>
             </DropdownItem>
           ))
         )}

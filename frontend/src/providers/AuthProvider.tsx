@@ -5,6 +5,7 @@ import { readUser, signout } from '../api';
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<IUserWithCart | null>(null);
+  const [prevUser, setPrevUser] = useState(user);
   const [loading, setLoading] = useState(true);
 
   const refreshUser = async (): Promise<void> =>
@@ -18,13 +19,17 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     refreshUser();
   }, []);
 
+  useEffect(() => {
+    setPrevUser(user);
+  }, [user]);
+
   const signoutUser = async () => {
     await signout();
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, refreshUser, signout: signoutUser }}>
+    <AuthContext.Provider value={{ prevUser, user, setUser, refreshUser, signout: signoutUser }}>
       {!loading && children}
     </AuthContext.Provider>
   );
