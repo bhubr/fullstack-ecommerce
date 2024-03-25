@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts",
     "test": "NODE_ENV=test db-migrate up -e test && jest",
-    "reseed-db": "rm app-development.sqlite3 && db-migrate up -e development && ts-node tools/seed-products.ts"
+    "reseed-db": "touch app-development.sqlite3 && rm app-development.sqlite3 && db-migrate up -e development && ts-node tools/seed-products.ts"
   },
   "keywords": [],
   "author": "",
@@ -45,6 +45,7 @@
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "pg": "^8.11.3",
+    "slug": "^9.0.0",
     "sqlite3": "^5.1.7"
   }
 }

@@ -7,7 +7,6 @@ import { updateCart } from '../api';
 
 const CartProvider = ({ children }: { children: ReactNode }) => {
   const { user } = useContext(AuthContext);
-  console.log('>>> user cart', user?.cart?.items);
   const [cart, setCart] = useState<ICartItem[]>(user?.cart.items ?? []);
 
   async function updateLocalAndRemoteCart(updatedCart: ICartItem[]) {
@@ -59,6 +58,10 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     await updateLocalAndRemoteCart(updatedCart);
   };
 
+  const clearLocal = () => {
+    setCart([]);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -66,6 +69,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
         addItem,
         removeItem,
         setItemQuantity,
+        clearLocal,
       }}
     >
       {children}

@@ -41,55 +41,60 @@ async function readAndProcessProductFiles(): Promise<{
   products: Product[];
   categories: string[];
 }> {
-  const allProducts = JSON.parse(
-    await fs.readFile(path.join(__dirname, './products-all.json'), 'utf-8')
-  );
-  const productsWithCatsAndDesc = JSON.parse(
-    await fs.readFile(
-      path.join(__dirname, './products-with-descriptions.json'),
-      'utf-8'
-    )
-  );
+  // const allProducts = JSON.parse(
+  //   await fs.readFile(path.join(__dirname, './products-all.json'), 'utf-8')
+  // );
+  // const productsWithCatsAndDesc = JSON.parse(
+  //   await fs.readFile(
+  //     path.join(__dirname, './products-with-descriptions.json'),
+  //     'utf-8'
+  //   )
+  // );
 
   // console.log(products.length, productsWithCatsAndDesc.length);
   // products will be: allProducts where we find a corresponding title in productsWithCatsAndDesc - we'll get description and category from there
   // and all the other fields from allProducts
-  const products = allProducts.reduce((acc, product) => {
-    const productWithCatAndDesc = productsWithCatsAndDesc.find(
-      (p) => p.title === product.title
-    );
-    if (!productWithCatAndDesc) {
-      console.error(
-        `Could not find product with title ${product.title} in productsWithCatsAndDesc`
-      );
-      return acc;
-    }
-    if (!productWithCatAndDesc.category) {
-      throw new Error(
-        `Product with title ${product.title} is missing category in productsWithCatsAndDesc`
-      );
-    }
-    const theDevil = 'amazon';
-    return [
-      ...acc,
-      {
-        ...product,
-        link: product.link.relative,
-        pictureUrl: product.pictureUrl.replace(
-          `https://m.media-${theDevil}.com`,
-          ''
-        ),
-        description: productWithCatAndDesc.description,
-        category: productWithCatAndDesc.category,
-      },
-    ];
-  }, []);
+  // const products = allProducts.reduce((acc, product) => {
+  //   const productWithCatAndDesc = productsWithCatsAndDesc.find(
+  //     (p) => p.title === product.title
+  //   );
+  //   if (!productWithCatAndDesc) {
+  //     console.error(
+  //       `Could not find product with title ${product.title} in productsWithCatsAndDesc`
+  //     );
+  //     return acc;
+  //   }
+  //   if (!productWithCatAndDesc.category) {
+  //     throw new Error(
+  //       `Product with title ${product.title} is missing category in productsWithCatsAndDesc`
+  //     );
+  //   }
+  //   const theDevil = 'amazon';
+  //   return [
+  //     ...acc,
+  //     {
+  //       ...product,
+  //       link: product.link.relative,
+  //       pictureUrl: product.pictureUrl.replace(
+  //         `https://m.media-${theDevil}.com`,
+  //         ''
+  //       ),
+  //       description: productWithCatAndDesc.description,
+  //       category: productWithCatAndDesc.category,
+  //     },
+  //   ];
+  // }, []);
 
-  // Save products as products-seed.json
-  await fs.writeFile(
+  // // Save products as products-seed.json
+  // await fs.writeFile(
+  //   path.join(__dirname, './products-seed.json'),
+  //   JSON.stringify(products, null, 2)
+  // );
+  const productsJSON = await fs.readFile(
     path.join(__dirname, './products-seed.json'),
-    JSON.stringify(products, null, 2)
-  );
+    'utf-8'
+  )
+  const products = JSON.parse(productsJSON)
 
   // Get unique category slugs
   const categories = products.reduce((acc, item) => {

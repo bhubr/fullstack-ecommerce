@@ -17,8 +17,10 @@ const createJwt = (userId: number): string =>
   });
 
 authRouter.post('/signup', async (req, res) => {
-  const { email, password } = req.body;
-  console.log(req.body, isEmpty(email), isEmpty(password));
+  const { fullName, email, password } = req.body;
+  if (isEmpty(fullName)) {
+    return res.status(400).json({ message: 'Le nom est requis' });
+  }
   if (isEmpty(email) || isEmpty(password)) {
     return res
       .status(400)
@@ -27,11 +29,26 @@ authRouter.post('/signup', async (req, res) => {
   try {
     const passwordHash = await argon2.hash(password as string);
     const createdAt = new Date().toISOString();
-    const payload = { email, passwordHash, createdAt, updatedAt: createdAt };
+    const payload = {
+      fullName,
+      email,
+      passwordHash,
+      createdAt,
+      updatedAt: createdAt,
+    };
     const user = await insertUser(payload);
     const jwt = createJwt(user.id);
+    const jwtExpiresAt = Date.now() + 3600000;
     res.cookie('jwt', jwt, { httpOnly: true });
-    return res.status(201).json({ id: user.id, email: user.email });
+    return res
+      .status(201)
+      .json({
+        id: user.id,
+        email: user.email,
+        fullName: user.fullName,
+        jwt,
+        jwtExpiresAt,
+      });
   } catch (err) {
     const message = (err as Error).message;
     return res.status(400).json({ error: message });
@@ -66,6 +83,7 @@ authRouter.post('/signin', async (req, res) => {
     return res.status(200).json({
       id: user.id,
       email: user.email,
+      fullName: user.fullName,
       jwt,
       jwtExpiresAt,
     });

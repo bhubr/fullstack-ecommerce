@@ -38,6 +38,9 @@ dependencies:
   pg:
     specifier: ^8.11.3
     version: 8.11.3
+  slug:
+    specifier: ^9.0.0
+    version: 9.0.0
   sqlite3:
     specifier: ^5.1.7
     version: 5.1.7(bluebird@3.7.2)
@@ -4472,6 +4475,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /slug@9.0.0:
+    resolution: {integrity: sha512-ixytnHlpHPWM56heaGgYe/M8tDAcpJcsg/zBuyElbFDOORzMGOeP3Te6iJBRVYu3WQEiWLQPb70Gh9ig/sZgGQ==}
+    hasBin: true
+    dev: false
+
   /smart-buffer@4.2.0:
     resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
@@ -4527,6 +4535,9 @@ packages:
   /sqlite3@5.1.7(bluebird@3.7.2):
     resolution: {integrity: sha512-GGIyOiFaG+TUra3JIfkI/zGP8yZYLPQ0pl1bH+ODjiX57sPhrLU5sQJn1y9bDKZUFYkX1crlrPfSYt0BKKdkog==}
     requiresBuild: true
+    peerDependenciesMeta:
+      node-gyp:
+        optional: true
     dependencies:
       bindings: 1.5.0
       node-addon-api: 7.1.0

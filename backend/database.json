@@ -5,7 +5,7 @@
   },
   "development": {
     "driver": "sqlite3",
-    "filename": { "ENV": "SQLITE3_DATABASE" }
+    "filename": "app-development.sqlite3"
   },
   "production": {
     "driver": "pg",

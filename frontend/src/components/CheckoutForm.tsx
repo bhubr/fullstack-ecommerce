@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {
   Row,
   Col,
@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import type { AxiosError } from 'axios';
 
 import { submitOrder } from '../api';
+import CartContext from '../contexts/CartContext';
 
 const CheckoutForm = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +27,7 @@ const CheckoutForm = () => {
     expiration: '',
   });
   const [error, setError] = useState<AxiosError | null>(null);
+  const { clearLocal } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -51,6 +53,7 @@ const CheckoutForm = () => {
           cardCvc: formData.cvv,
         },
       });
+      clearLocal();
       navigate(`/commandes/${order.reference}?success=true`)
     } catch (err) {
       setError(

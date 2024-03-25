@@ -30,13 +30,18 @@ export const signout = async () => {
   return res.data;
 };
 
-// export const signup = async (email: string, password: string) => {
-//   const res = await api.post(
-//     '/auth/signup',
-//     { email, password },
-//   );
-//   return res.data;
-// };
+export const signup = async (
+  fullName: string,
+  email: string,
+  password: string
+) => {
+  const res = await api.post(
+    '/auth/signup',
+    { fullName, email, password },
+    { withCredentials: true }
+  );
+  return res.data;
+};
 
 interface IReadProductsRes {
   records: IProduct[];
@@ -98,9 +103,13 @@ export const readOrders = async () => {
   }
 };
 
-export const readOrderByReference = async (reference: string): Promise<IOrder> => {
+export const readOrderByReference = async (
+  reference: string
+): Promise<IOrder> => {
   try {
-    const response = await api.get<IOrder>(`/orders/${reference}`, { withCredentials: true });
+    const response = await api.get<IOrder>(`/orders/${reference}`, {
+      withCredentials: true,
+    });
     return response.data;
   } catch (error) {
     throw error as AxiosError<{ error: string }>; // Propagate the error

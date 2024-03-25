@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 import OrderListContainer from './pages/OrderListContainer';
 import OrderDetailsContainer from './pages/OrderDetailsContainer';
+import SignupForm from './pages/SignupForm';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/commandes/:reference" element={<OrderDetailsContainer />} />
         <Route path="/categories/:categorySlug" element={<HomeContainer />} />
         <Route path="/compte/connexion" element={<SigninForm />} />
+        <Route path="/compte/inscription" element={<SignupForm />} />
         
         <Route path="*" element={<NotFound />} />
       </Routes>

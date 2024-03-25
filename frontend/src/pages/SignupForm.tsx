@@ -13,10 +13,11 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
 
-import { signin } from '../api';
+import { signup } from '../api';
 import AuthContext from '../contexts/AuthContext';
 
-const SigninForm = () => {
+const SignupForm = () => {
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -35,9 +36,8 @@ const SigninForm = () => {
     setErrorMessage('');
     setLoading(true);
     try {
-      await signin(email, password);
+      await signup(fullName, email, password);
       await refreshUser();
-      // redundant with useEffect
       // navigate('/');
     } catch (err) {
       setErrorMessage(
@@ -68,6 +68,20 @@ const SigninForm = () => {
               </div>
             )}
             <FormGroup className="mb-3">
+              <Label for="inputFullName">Nom complet (prénom et nom)</Label>
+              <Input
+                type="text"
+                name="fullName"
+                id="inputFullName"
+                placeholder="Leia Organa"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
+              <FormText>
+                Nous ne partagerons <em>jamais</em> votre e-mail.
+              </FormText>
+            </FormGroup>
+            <FormGroup className="mb-3">
               <Label for="inputEmail">Adresse e-mail</Label>
               <Input
                 type="email"
@@ -77,6 +91,9 @@ const SigninForm = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <FormText>
+                Nous ne partagerons <em>jamais</em> votre e-mail.
+              </FormText>
             </FormGroup>
             <FormGroup className="mb-3">
               <Label for="inputPassword">Mot de passe</Label>
@@ -99,4 +116,4 @@ const SigninForm = () => {
   );
 };
 
-export default SigninForm;
+export default SignupForm;

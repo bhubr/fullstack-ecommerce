@@ -1,6 +1,7 @@
 import { Request } from 'express';
 
 export interface IUserDTO {
+  fullName: string;
   email: string;
   passwordHash: string;
   createdAt: string;
@@ -9,6 +10,7 @@ export interface IUserDTO {
 
 export interface IUser {
   id: number;
+  fullName: string;
   email: string;
   createdAt: string;
   updatedAt: string;
