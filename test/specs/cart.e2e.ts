@@ -1,18 +1,14 @@
 import { expect, browser, $ } from "@wdio/globals";
+import { registerUser } from "../register-user.ts";
 
 describe("Cart", () => {
   // Ce test comporte plusieurs problèmes
   // 1. bug de l'app qui fait qu'on ne peut ajouter des items au panier que connecté
   // 2. composante aléatoire qui fait qu'on est pas sûr qu'un produit soit dispo
   it("should add items to cart", async () => {
-    // Debut cc -------
-    await browser.url(`http://localhost:5173/compte/inscription`);
-
-    await $("#inputFullName").setValue("John Doe");
-    await $("#inputEmail").setValue("johndoe@" + Date.now() + "example.com");
-    await $("#inputPassword").setValue("Abcd1234!");
-    await $('button[type="submit"]').click();
-    // Fin cc -------
+    // const registerModule = await import("./register-user.ts");
+    // console.log(">> registerModule", registerModule);
+    await registerUser("John Doe", "johndoe@" + Date.now() + "example.com", "Abcd1234!");
 
     // Attente de l'affichage des div .card
     const firstCard = await $(".card");

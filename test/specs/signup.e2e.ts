@@ -1,13 +1,9 @@
 import { expect, browser, $ } from "@wdio/globals";
+import { registerUser } from "../register-user.ts";
 
 describe("Register", () => {
   it("should register with valid information", async () => {
-    await browser.url(`http://localhost:5173/compte/inscription`);
-
-    await $("#inputFullName").setValue("John Doe");
-    await $("#inputEmail").setValue("johndoe@" + Date.now() + "example.com");
-    await $("#inputPassword").setValue("Abcd1234!");
-    await $('button[type="submit"]').click();
+    await registerUser("John Doe", "johndoe@" + Date.now() + "example.com", "Abcd1234!");
 
     await browser.pause(5000);
 
@@ -23,12 +19,7 @@ describe("Register", () => {
   });
 
   it("should not register with invalid information", async () => {
-    await browser.url(`http://localhost:5173/compte/inscription`);
-
-    await $("#inputFullName").setValue("John Doe");
-    await $("#inputPassword").setValue("Abcd1234!");
-
-    await $('button[type="submit"]').click();
+    await registerUser("John Doe", "", "Abcd1234!");
 
     $(".alert-danger").waitForExist({ timeout: 2000 });
 
