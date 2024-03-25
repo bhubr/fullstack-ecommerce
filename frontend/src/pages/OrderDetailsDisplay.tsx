@@ -13,7 +13,7 @@ const OrderDetailsDisplay = ({ order }: IOrderDetailsDisplayProps) => {
   const [searchParams] = useSearchParams();
 
   return (
-    <Container className="my-5">
+    <Container className="my-5" style={{ minHeight: '70vh' }}>
       <Row>
         <Col xs="12">
           <h2>Commande {order.reference}</h2>

@@ -13,7 +13,7 @@ interface OrderListDisplayProps {
 
 const OrderListDisplay = ({ orders, error }: OrderListDisplayProps) => {
   return (
-    <Container className="my-5">
+    <Container className="my-5" style={{ minHeight: '70vh' }}>
       <Row>
         <Col xs="12">
           {error && (
@@ -35,7 +35,11 @@ const OrderListDisplay = ({ orders, error }: OrderListDisplayProps) => {
               {orders.map((order) => (
                 <tr key={order.id}>
                   <td>{formatDate(order.createdAt)}</td>
-                  <td><Link to={`/commandes/${order.reference}`}>{order.reference}</Link></td>
+                  <td>
+                    <Link to={`/commandes/${order.reference}`}>
+                      {order.reference}
+                    </Link>
+                  </td>
                   <td>{formatPrice(order.subTotal + order.shippingCost)}</td>
                 </tr>
               ))}

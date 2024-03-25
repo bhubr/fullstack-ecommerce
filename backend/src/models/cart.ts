@@ -91,15 +91,19 @@ export async function getCartByUserId(userId: number): Promise<ICartWithItems> {
   `, [userId, new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()])) as ICartWithItems[];
   let [cart] = carts;
   if (cart === undefined) {
+    console.log(">> creating cart")
     cart = await createCart(userId);
+    console.log(">> created cart", cart)
   }
 
+  console.log(">> getting items for cart", cart.id)
   const { records: items } = await db.getAllFromTable<ICartProduct>(
     'cart_product',
     {
       where: [['cartId', '=', cart.id]],
     }
   );
+  console.log(">> items in cart", items)
   const whereInClause =
     items.length > 0
       ? `id IN (${items.map((it) => it.productId).join(',')})`

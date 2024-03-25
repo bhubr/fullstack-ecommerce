@@ -120,9 +120,19 @@ ordersRouter.post('/', checkJwt, async (req: AuthRequest, res) => {
 
   try {
     const { id: cartId, items } = await getCartByUserId(userId);
+
     // Fail if cart is empty
     if (items.length === 0) {
       return res.status(400).json({ error: 'Le panier est vide' });
+    }
+
+    // Iterate over items to check if all products are available
+    for (const item of items) {
+      if (item.quantity > item.product.stock) {
+        return res.status(400).json({
+          error: `Stock insuffisant pour ${item.product.name}`,
+        });
+      }
     }
 
     // compute total price

@@ -7,7 +7,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { formatName, formatPrice } from '../helpers';
 import CartContext from '../contexts/CartContext';
@@ -15,6 +15,7 @@ import CartContext from '../contexts/CartContext';
 const CartDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { items: cartItems, removeItem } = useContext(CartContext);
+  const navigate = useNavigate();
   const itemsTotal = useMemo(
     () =>
       cartItems.reduce(
@@ -26,6 +27,7 @@ const CartDropdown = () => {
       ),
     [cartItems]
   );
+  const canOrder = cartItems.length > 0;
 
   const toggleDropdown = () => {
     setDropdownOpen((prevState) => !prevState);
@@ -67,15 +69,14 @@ const CartDropdown = () => {
         <DropdownItem divider />
         <DropdownItem>Total : {formatPrice(itemsTotal.price)}</DropdownItem>
         <DropdownItem divider />
-        <DropdownItem>
-          <Link to="/panier">Panier</Link>
-        </DropdownItem>
-        <DropdownItem disabled={cartItems.length === 0}>
-          {cartItems.length === 0 ? (
-            <span>Commander</span>
-          ) : (
-            <Link to="/commande">Commander</Link>
-          )}
+        <DropdownItem onClick={() => navigate('/panier')}>Panier</DropdownItem>
+        <DropdownItem
+          disabled={!canOrder}
+          onClick={() => navigate('/commande')}
+        >
+          <span className={`text-${canOrder ? 'primary' : 'secondary'}`}>
+            Commander
+          </span>
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
