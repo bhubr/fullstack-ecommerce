@@ -25,27 +25,15 @@ const UserAccountNavbarDropdown = ({ user }: { user: IUser }) => {
         <span>{user.fullName}</span>
       </DropdownToggle>
       <DropdownMenu>
-        {/* <DropdownItem>{user.fullName}</DropdownItem>
-           <DropdownItem divider /> */}
         <DropdownItem>
           <Link to="/commandes">Commandes</Link>
         </DropdownItem>
-        <DropdownItem>
-          <Link to="#" onClick={signout}>
+        <DropdownItem className="signout-btn" onClick={signout}>
             Déconnexion
-          </Link>
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );
 };
-// <Nav>
-//   <NavLink tag={Link} to="/compte" className="me-2">
-//     {user.email}
-//   </NavLink>
-//   <NavLink tag={Link} to="/deconnexion">
-//     Déconnexion
-//   </NavLink>
-// </Nav>
 
 export default UserAccountNavbarDropdown;
