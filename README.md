@@ -33,8 +33,15 @@ Décompresser l'archive et copier le dossier `images` sous `backend/static` dans
 
 **Lancer les commandes (dans le dossier `backend`) :**
 
-- `npx db-migrate up -e development`
-- `npx ts-node tools/seed-products.ts`
-- `npx ts-node tools/create-user.ts user@test.com` (ou n'importe quel email)
+- `npx db-migrate up -e development` (crée la base de données SQLite3 locale et les tables)
+- `npx ts-node tools/seed-products.ts` (insère des produits dans la base SQLite3)
+- **Optionnel** : `npx ts-node tools/create-user.ts user@test.com` (crée un utilisateur avec l'email `user@test.com` - vous pouvez le changer)
 
-    - cette commande créera un compte utilisateur sur l'appli, et imprimera à l'écran un mot de passe aléatoire : notez la paire e-mail/mot de passe, pour pouvoir vous connecter à l'application.
+  - cette commande créera un compte utilisateur sur l'appli, et imprimera à l'écran un mot de passe aléatoire : notez la paire e-mail/mot de passe, pour pouvoir vous connecter à l'application.
+  - vous pouvez, plus simplement, créer un compte sur l'application via "Inscription"
+
+## Lancer les apps
+
+Avoir deux terminaux ouverts, l'un dans `backend`, l'autre dans `frontend`, et dans chacun d'eux : `pnpm dev` ou `npm run dev`.
+
+> __&rarr; Vous pouvez alors visiter <http://localhost:5173> pour accéder au frontend de l'application.__
