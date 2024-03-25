@@ -32,7 +32,7 @@ export async function insertUser(
     payload.email
   );
   if (existingUser !== undefined) {
-    throw new Error('User with this email already exists');
+    throw new Error('Un utilisateur avec cet e-mail existe déjà');
   }
   return db.insertIntoTable<IUserDTO>('user', payload);
 }
