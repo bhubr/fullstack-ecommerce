@@ -1,11 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { Button, Container, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import type { ICartItem } from '../types';
+import type { ICartItem, IStockInformation } from '../types';
 import { serverUrl } from '../settings';
 import CartContext from '../contexts/CartContext';
 import { formatPrice } from '../helpers';
+import { checkCartAvailability } from '../api';
 
 interface IQuantityDropdownProps {
   quantity: number;
@@ -27,7 +28,13 @@ const QuantityDropdown = ({ quantity, onChange }: IQuantityDropdownProps) => (
   </select>
 );
 
-const CartItem = ({ item }: { item: ICartItem }) => {
+const CartItem = ({
+  item,
+  availabilityInfo,
+}: {
+  item: ICartItem;
+  availabilityInfo: IStockInformation;
+}) => {
   const { removeItem, setItemQuantity } = useContext(CartContext);
   return (
     <Row>
@@ -42,6 +49,13 @@ const CartItem = ({ item }: { item: ICartItem }) => {
         <div className="py-5">
           <p>{item.product.name}</p>
           <p>{item.product.description}</p>
+          {availabilityInfo &&
+          availabilityInfo.currentStock < availabilityInfo.requestedQuantity ? (
+            <p className="text-danger">
+              Stock insuffisant (quantité disponible :{' '}
+              {availabilityInfo.currentStock}) &mdash; Modifiez la quantité.
+            </p>
+          ) : null}
           <p>
             Quantité :{' '}
             <QuantityDropdown
@@ -77,16 +91,50 @@ const Total = ({ items }: { items: ICartItem[] }) => (
   </>
 );
 
-const OrderButton = ({ size }: { size: 'sm' | 'lg' }) => (
-  <Link to="/commande">
-    <Button size={size} color="primary" className="me-2">
+const OrderButton = ({
+  size,
+  canCheckout,
+}: {
+  size: 'sm' | 'lg';
+  canCheckout: boolean;
+}) =>
+  canCheckout ? (
+    <Link to="/commande" className={`btn btn-primary btn-${size} me-2`}>
+      Commander
+    </Link>
+  ) : (
+    <Button color="secondary" className={`btn-${size} me-2`} disabled>
       Commander
     </Button>
-  </Link>
-);
+  );
 
 const Cart = () => {
   const { items } = useContext(CartContext);
+  const [cartAvailability, setCartAvailability] = useState<IStockInformation[]>(
+    []
+  );
+  // object with productId as key and IStockInformation item as value
+  const cartAvailabilityPerProduct = useMemo(
+    () =>
+      cartAvailability.reduce(
+        (acc, stockInfo) => ({
+          ...acc,
+          [stockInfo.productId]: stockInfo,
+        }),
+        {} as Record<number, IStockInformation>
+      ),
+    [cartAvailability]
+  );
+  const hasAvailabilityIssues = Object.values(cartAvailabilityPerProduct).some(
+    (stockInfo) => stockInfo.currentStock < stockInfo.requestedQuantity
+  );
+
+  const refreshAvailability = () =>
+    checkCartAvailability().then(setCartAvailability);
+
+  useEffect(() => {
+    refreshAvailability();
+  }, [items]);
 
   if (items.length === 0) {
     return (
@@ -114,11 +162,15 @@ const Cart = () => {
           <span className="mx-2">
             <Total items={items} />
           </span>
-          <OrderButton size="sm" />
+          <OrderButton size="sm" canCheckout={!hasAvailabilityIssues} />
         </div>
       </div>
       {items.map((item) => (
-        <CartItem key={item.product.id} item={item} />
+        <CartItem
+          key={item.product.id}
+          item={item}
+          availabilityInfo={cartAvailabilityPerProduct[item.product.id]}
+        />
       ))}
       <Row className="my-2">
         <Col xs={{ offset: 4, size: 8 }}>
@@ -128,7 +180,7 @@ const Cart = () => {
               Total : <Total items={items} />
             </strong>
           </div>
-          <OrderButton size="lg" />
+          <OrderButton size="lg" canCheckout={!hasAvailabilityIssues} />
         </Col>
       </Row>
     </Container>

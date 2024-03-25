@@ -6,6 +6,8 @@ import { serverUrl } from '../settings';
 import { formatName, formatPrice } from '../helpers';
 import CartContext from '../contexts/CartContext';
 
+import './ProductCard.css';
+
 const ProductCard = ({ product }: { product: IProduct }) => {
   const { addItem } = useContext(CartContext);
   const isOutOfStock = product.stock === 0;
@@ -13,7 +15,12 @@ const ProductCard = ({ product }: { product: IProduct }) => {
     ? { color: 'secondary', disabled: true, label: 'Épuisé' }
     : { color: 'primary', disabled: false, label: 'Panier' };
   return (
-    <Card className="h-100">
+    <Card className="h-100 position-relative">
+      {product.stock <= 3 && (
+        <div className="ribbon">
+          <span>{isOutOfStock ? 'ÉPUISÉ' : 'STOCK BAS'}</span>
+        </div>
+      )}
       {/* {product.sale && (
       <div
         className="badge bg-dark text-white position-absolute"

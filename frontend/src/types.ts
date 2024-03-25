@@ -78,3 +78,9 @@ export interface IOrder {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface IStockInformation {
+  productId: number;
+  currentStock: number;
+  requestedQuantity: number;
+}

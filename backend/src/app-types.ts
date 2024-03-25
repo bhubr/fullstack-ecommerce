@@ -98,3 +98,9 @@ export interface IOrderProduct {
   quantity: number;
   price: number;
 }
+
+export interface IStockInformation {
+  productId: number;
+  currentStock: number;
+  requestedQuantity: number;
+}

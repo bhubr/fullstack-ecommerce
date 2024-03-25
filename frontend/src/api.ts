@@ -1,7 +1,13 @@
 import axios from 'axios';
 import type { AxiosError } from 'axios';
 import { serverUrl } from './settings';
-import type { ICategory, IProduct, ISubmitOrderDTO, IOrder } from './types';
+import type {
+  ICategory,
+  IProduct,
+  ISubmitOrderDTO,
+  IOrder,
+  IStockInformation,
+} from './types';
 
 const api = axios.create({
   baseURL: `${serverUrl}/api`,
@@ -113,5 +119,17 @@ export const readOrderByReference = async (
     return response.data;
   } catch (error) {
     throw error as AxiosError<{ error: string }>; // Propagate the error
+  }
+};
+
+export const checkCartAvailability = async (): Promise<IStockInformation[]> => {
+  try {
+    const response = await api.get<IStockInformation[]>('/cart/availability', {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error checking cart availability:', error);
+    throw error; // Propagate the error
   }
 };
