@@ -1,5 +1,21 @@
 # E-commerce REST API
 
+## Install project
+
+### Install `pnpm`
+
+```
+npm i -g pnpm
+```
+
+### Install dependencies with `pnpm`
+
+```
+pnpm i
+```
+
+### Populate database files
+
 ## Initialize project
 
 ### Create `package.json`
