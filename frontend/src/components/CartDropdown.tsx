@@ -34,7 +34,7 @@ const CartDropdown = () => {
   };
 
   return (
-    <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
+    <Dropdown id="cart-dropdown" isOpen={dropdownOpen} toggle={toggleDropdown}>
       <DropdownToggle outline caret>
         <i className="bi-cart-fill me-1"></i>
         Panier

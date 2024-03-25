@@ -37,7 +37,7 @@ const CartItem = ({
 }) => {
   const { removeItem, setItemQuantity } = useContext(CartContext);
   return (
-    <Row>
+    <Row className="cart-item">
       <Col xs="4">
         <img
           src={`${serverUrl}${item.product.pictureUrl}`}

@@ -15,7 +15,7 @@ const UserAccountNavbarDropdown = ({ user }: { user: IUser }) => {
   const { signout } = useContext(AuthContext);
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <Dropdown isOpen={isOpen} toggle={toggle} className="me-2">
+    <Dropdown id="authenticated-dropdown" isOpen={isOpen} toggle={toggle} className="me-2">
       <DropdownToggle outline caret>
         <Gravatar
           email={user.email}

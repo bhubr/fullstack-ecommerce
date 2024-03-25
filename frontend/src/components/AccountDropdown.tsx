@@ -11,7 +11,7 @@ const AccountDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <Dropdown isOpen={isOpen} toggle={toggle} className="mx-1">
+    <Dropdown id="guest-dropdown" isOpen={isOpen} toggle={toggle} className="mx-1">
       <DropdownToggle outline caret>
         Compte
       </DropdownToggle>
