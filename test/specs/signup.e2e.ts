@@ -1,16 +1,9 @@
-import { expect, browser, $ } from "@wdio/globals";
+import { expect, $ } from "@wdio/globals";
+import registerUser from "../helpers/register-user.ts";
 
 describe("Register", () => {
   it("should register with valid information", async () => {
-    await browser.url(`http://localhost:5173/compte/inscription`);
-
-    const inputFullName = await $("#inputFullName");
-    await inputFullName.waitForDisplayed();
-
-    await $("#inputFullName").setValue("John Doe");
-    await $("#inputEmail").setValue("johndoe@" + Date.now() + "example.com");
-    await $("#inputPassword").setValue("Abcd1234!");
-    await $('button[type="submit"]').click();
+    await registerUser("johndoe@" + Date.now() + "example.com");
 
     // On utilise l'id plutôt que la classe .dropdown
     // pour être sûr de récupérer le dropdown authentifié et pas le "invité"
@@ -35,12 +28,7 @@ describe("Register", () => {
   });
 
   it("should not register with invalid information", async () => {
-    await browser.url(`http://localhost:5173/compte/inscription`);
-
-    await $("#inputFullName").setValue("John Doe");
-    await $("#inputPassword").setValue("Abcd1234!");
-
-    await $('button[type="submit"]').click();
+    await registerUser("");
 
     $(".alert-danger").waitForExist({ timeout: 2000 });
 
