@@ -36,7 +36,27 @@ frontend_job:
 test_job:
   stage: test
   script:
+    # common deps
     - npm i -g pnpm detect-port
+    # backend
+    - echo "test/backend"
+    - cd backend
+    - pnpm install
+    - npx db-migrate up -e development
+    - npx ts-node tools/seed-products.ts
+    - pnpm dev &  # Start backend in the background
+    - sleep 10    # Wait for backend to initialize (adjust as needed)
+    # back to root
+    - cd ..
+    # frontend
+    - echo "build/frontend"
+    - npm i -g pnpm
+    - cd frontend
+    - pnpm install
+    - pnpm dev &  # Start frontend in the background
+    - sleep 10    # Wait for frontend to initialize (adjust as needed)
+    # back to root
+    - cd ..
     - detect 5000
     - detect 5173
     - pnpm install
