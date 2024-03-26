@@ -1,0 +1,42 @@
+stages:
+  - build
+  - test
+  # - deploy
+
+backend_job:
+  stage: build
+  script:
+    - echo "build/backend"
+    - npm i -g pnpm
+    - cd backend
+    - pnpm install
+    - npx db-migrate up -e development
+    - npx ts-node tools/seed-products.ts
+    - pnpm dev &  # Start backend in the background
+    - sleep 10    # Wait for backend to initialize (adjust as needed)
+  artifacts:
+    paths:
+      - backend/logs/*.log  # Capture backend logs
+
+frontend_job:
+  stage: build
+  script:
+    - echo "build/frontend"
+    - npm i -g pnpm
+    - cd frontend
+    - pnpm install
+    - pnpm dev &  # Start frontend in the background
+    - sleep 10    # Wait for frontend to initialize (adjust as needed)
+  artifacts:
+    paths:
+      - frontend/logs/*.log  # Capture frontend logs
+
+test_job:
+  stage: test
+  script:
+    - pnpm wdio
+
+# deploy_job:
+#   stage: deploy
+#   script:
+#     - # Deploy your applications here
