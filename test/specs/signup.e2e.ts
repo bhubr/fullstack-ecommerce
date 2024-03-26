@@ -1,4 +1,4 @@
-import { expect, browser, $ } from "@wdio/globals";
+import { expect, $ } from "@wdio/globals";
 import { registerUser } from "../register-user.ts";
 
 describe("Register", () => {
