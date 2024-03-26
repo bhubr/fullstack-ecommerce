@@ -36,6 +36,9 @@ frontend_job:
 test_job:
   stage: test
   script:
+    - npm i -g pnpm detect-port
+    - detect 5000
+    - detect 5173
     - pnpm wdio
 
 # deploy_job:
