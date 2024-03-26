@@ -1,54 +1,35 @@
 import { expect, browser, $ } from "@wdio/globals";
+import addProductsToCart from "../helpers/add-products-to-cart.ts";
+import registerUser from "../helpers/register-user.ts";
+import waitForProducts from "../helpers/wait-for-products.ts";
+
+// "Flow" passer une commande
+
+// - Se connecter / créer un compte
+// - Ajouter des produits au panier
+// - Cliquer sur dropdown puis sur le dernier bouton du menu, "commander"
+// - Remplir le formulaire
+//   - adresse
+//   - infos de paiement - CB
+// - Cliquer sur "finaliser la commande"
 
 describe("Order", () => {
-  // Ce test comporte plusieurs problèmes
-  // 1. bug de l'app qui fait qu'on ne peut ajouter des items au panier que connecté
-  // 2. composante aléatoire qui fait qu'on est pas sûr qu'un produit soit dispo
   it("should pass an order", async () => {
-    // Debut cc -------
-    await browser.url(`http://localhost:5173/compte/inscription`);
+    // ARRANGE
+    await registerUser("johndoe@" + Date.now() + "example.com");
+    await waitForProducts();
 
-    await $("#inputFullName").setValue("John Doe");
-    await $("#inputEmail").setValue("johndoe@" + Date.now() + "example.com");
-    await $("#inputPassword").setValue("Abcd1234!");
-    await $('button[type="submit"]').click();
-    // Fin cc -------
+    // ACT
+    await addProductsToCart();
 
-    // Attente de l'affichage des div .card
-    const firstCard = await $(".card");
-    await firstCard.waitForDisplayed({ timeout: 1000 });
-
-    // $   => document.querySelector
-    // $$  => document.querySelectorAll
-    // Récupération de toutes les .card
-    const cards = await $$(".card");
-
-    // Pour l'instant on n'a ajouté aucun produit
-    // Variable qui permet de tracer le nombre de produits qu'on a vraiment réussi
-    // à ajouter au panier
-    let numInCart = 0;
-    for (let i = 0; i < 6; i++) {
-      const card = cards[i];
-      const cardButton = await card.$("button");
-      // intercepter une erreur au cas où le produit ne serait pas disponible
-      // bouton Panier désactivé et donc non cliquable
-      try {
-        await cardButton.click();
-        numInCart++;
-        console.log(">> added to cart, now has", numInCart, "items")
-      } catch (err) {
-      }
-    }
-
-    // Cibler le dropdown panier (2ème dropdown);
-    const dropdowns = await $$(".dropdown");
-    const cartDropdown = dropdowns[1];
+    // Cibler le dropdown panier (2ème dropdown)
+    const cartDropdown = await $("#cart-dropdown");
     // Ce que j'avais oublié hier :
     // Il faut cliquer sur le dropdown pour que les éléments à l'intérieur soient visibles !!
     await cartDropdown.click();
-    const cartDropdownButtons = await cartDropdown.$$("button");
+    // await browser.pause(5000);
 
-    // Le dernier bouton est le bouton de commande
+    const cartDropdownButtons = await cartDropdown.$$("button");
     const orderButton = cartDropdownButtons[cartDropdownButtons.length - 1];
     await orderButton.click();
 
@@ -56,15 +37,28 @@ describe("Order", () => {
     await $("#postalCode").setValue("31000");
     await $("#city").setValue("Toulouse");
     await $("#phone").setValue("0612345678");
-    
+
     await $("#cardHolder").setValue("John Doe");
     await $("#cardNumber").setValue("1234 1234 1234 1234");
     await $("#cvv").setValue("123");
     // ATTENTION pourrait ne plus marcher dans le futur
     await $("#expiration").setValue("12/25");
-    
-    const submitBtn = $('button[type="submit"]')
+
+    const submitBtn = $('button[type="submit"]');
     await submitBtn.click();
-    await browser.pause(3000);
+    await browser.pause(1000);
+
+    // ASSERT
+    // Récupérer la "bannière" indiquant que la commande a bien
+    // été passée
+    const alert = await $(".alert-success");
+    await alert.waitForDisplayed();
+    const alertText = await alert.getText();
+    expect(alertText).toBe("Votre commande a été passée avec succès")
+
+    // Cette assertion n'est pas forcément très utile
+    const currentUrl = await browser.getUrl();
+    expect(currentUrl).toMatch(/\/commandes\/\d{6}-\d{5}/);
+    console.log(">>> url after order submit", currentUrl);
   });
 });
