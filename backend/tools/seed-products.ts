@@ -198,7 +198,7 @@ async function insertProducts(
       price: product.price.current,
       pictureUrl,
       slug: product.slug,
-      stock: randomizeStock(),
+      stock: 6,
       createdAt,
       updatedAt,
     });

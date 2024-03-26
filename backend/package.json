@@ -6,7 +6,14 @@
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts",
     "test": "NODE_ENV=test db-migrate up -e test && jest",
-    "reseed-db": "touch app-development.sqlite3 && rm app-development.sqlite3 && db-migrate up -e development && ts-node tools/seed-products.ts"
+    "rm-db:dev": "rimraf app-development.sqlite3",
+    "mig-db:dev": "db-migrate up -e development",
+    "seed-db:dev": "ts-node tools/seed-products.ts",
+    "reseed-db:dev": "npm-run-all rm-db:dev mig-db:dev seed-db:dev",
+    "rm-db:test": "rimraf app-test.sqlite3",
+    "mig-db:test": "db-migrate up -e test",
+    "seed-db:test": "NODE_ENV=test ts-node tools/seed-products.ts",
+    "reseed-db:test": "npm-run-all rm-db:test mig-db:test seed-db:test"
   },
   "keywords": [],
   "author": "",
@@ -44,7 +51,9 @@
     "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
+    "npm-run-all": "^4.1.5",
     "pg": "^8.11.3",
+    "rimraf": "^5.0.5",
     "slug": "^9.0.0",
     "sqlite3": "^5.1.7"
   }
