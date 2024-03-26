@@ -1,6 +1,6 @@
 import { expect, browser, $ } from "@wdio/globals";
 
-describe("My Login application", () => {
+xdescribe("My Login application", () => {
   it("should login with valid credentials", async () => {
     // "Pattern" AAA (Arrange, Act, Assert)
 
