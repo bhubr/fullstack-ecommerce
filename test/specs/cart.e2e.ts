@@ -1,5 +1,5 @@
 import { expect, browser, $ } from "@wdio/globals";
-import { registerUser } from "../register-user.ts";
+import registerUser from "../register-user.ts";
 import addProductsToCart from "../add-products-to-cart.ts";
 
 describe("Cart", () => {

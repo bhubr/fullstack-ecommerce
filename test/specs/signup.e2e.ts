@@ -1,5 +1,5 @@
 import { expect, $ } from "@wdio/globals";
-import { registerUser } from "../register-user.ts";
+import registerUser from "../register-user.ts";
 
 describe("Register", () => {
   it("should register with valid information", async () => {
