@@ -1,3 +1,5 @@
+image: node:lts-alpine
+
 stages:
   - build
   - test
