@@ -10,15 +10,18 @@ import type {
   IUserWithCart,
 } from './types';
 
+const baseURL = `${serverUrl}/api`;
 const api = axios.create({
-  baseURL: `${serverUrl}/api`,
+  baseURL,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 export const readUser = async (): Promise<IUserWithCart> => {
-  const res = await api.get<IUserWithCart>('/auth/me', { withCredentials: true });
+  const res = await api.get<IUserWithCart>('/auth/me', {
+    withCredentials: true,
+  });
   return res.data;
 };
 
@@ -57,6 +60,8 @@ interface IReadProductsRes {
 interface IReadProductsParams {
   categorySlug?: string;
   page: number;
+  orderBy: string;
+  orderDirection: 'asc' | 'desc';
 }
 
 export const readCategories = async (): Promise<ICategory[]> =>
@@ -65,12 +70,17 @@ export const readCategories = async (): Promise<ICategory[]> =>
 export const readProducts = async ({
   page = 1,
   categorySlug,
+  orderBy,
+  orderDirection,
 }: IReadProductsParams): Promise<IReadProductsRes> => {
-  let url = `/products?page=${page}`;
+  const url = new URL('/api/products', serverUrl);
+  url.searchParams.append('page', String(page));
+  url.searchParams.append('orderBy', orderBy);
+  url.searchParams.append('orderDirection', orderDirection);
   if (categorySlug !== undefined) {
-    url += `&categorySlug=${categorySlug}`;
+    url.searchParams.append('categorySlug', categorySlug);
   }
-  const res = await api.get(url);
+  const res = await api.get(url.toString());
   // Get count from header
   const count = Number(res.headers['x-total-count']);
   return { records: res.data, count };

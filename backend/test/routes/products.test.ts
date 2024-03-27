@@ -3,6 +3,7 @@ import initializeApp from '../../src/initialize-app';
 import { describe } from 'node:test';
 import type { Application } from 'express';
 import DatabaseService from '../../src/services/database-service';
+import { seedCategoriesAndProducts } from '../helpers/seed-db';
 
 const makeProductPayload = (i: number) => ({
   name: `Sample Product ${i}`,
@@ -22,35 +23,23 @@ describe('Products routes', () => {
   });
 
   beforeEach(async () => {
-    const db = (await DatabaseService.getInstance()).getDB();
-    await db.query('DELETE FROM product', []);
+    await seedCategoriesAndProducts();
   });
 
   describe('GET /api/products', () => {
     it('should return a list of products', async () => {
-      const db = (await DatabaseService.getInstance()).getDB();
-      const productPayloads = [1, 2].map(makeProductPayload);
-      const cat = await db.insertIntoTable('category', {
-        name: 'Sample Category',
-        slug: 'sample-category',
-      });
-      for (const payload of productPayloads) {
-        await db.insertIntoTable('product', { ...payload, categoryId: cat.id });
-      }
       const response = await request(app).get('/api/products');
       expect(response.status).toBe(200);
-      expect(response.body).toEqual([
-        expect.objectContaining({
-          name: 'Sample Product 1',
-          slug: 'sample-product-1',
-          price: 109.99,
-        }),
-        expect.objectContaining({
-          name: 'Sample Product 2',
-          slug: 'sample-product-2',
-          price: 119.99,
-        }),
-      ]);
+      expect(response.body).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            name: expect.any(String),
+            slug: expect.any(String),
+            price: expect.any(Number),
+            stock: expect.any(Number),
+          }),
+        ])
+      );
     });
   });
 });

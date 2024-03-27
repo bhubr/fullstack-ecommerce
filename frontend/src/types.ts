@@ -68,7 +68,7 @@ export interface IUserWithCart extends IUser {
   cart: ICart;
 }
 
-export type SortOrder = 'price-asc' | 'price-desc' | 'date-desc';
+export type SortOrder = 'price-asc' | 'price-desc' | 'createdAt-desc';
 
 export interface IAddressInformation {
   addrStreet: string;

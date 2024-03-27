@@ -1,42 +1,22 @@
 import express from 'express';
 import DatabaseService from '../services/database-service';
-import { IGetAllFromTableOptions } from '../db/types';
+import { getProducts } from '../models/product';
 
 const productsRouter = express.Router();
 
-async function getProducts({
-  page,
-  categorySlug,
-}: {
-  page: number;
-  categorySlug?: string;
-}) {
-  const npp = 12;
-  const offset = (page - 1) * npp;
-  const db = (await DatabaseService.getInstance()).getDB();
-  const options: IGetAllFromTableOptions = {
-    offset,
-    limit: npp,
-  };
-  if (categorySlug !== undefined) {
-    const category = await db.getOneFromTableByField<{ id: number }>(
-      'category',
-      'slug',
-      categorySlug
-    );
-    options.where = [['categoryId', '=', category.id]];
-  }
-  const { records: products, count } = await db.getAllFromTable(
-    'product',
-    options
-  );
-  return { products, count };
-}
-
 productsRouter.get('/', async (req, res) => {
   const page = Number(req.query.page) || 1;
-  const categorySlug = req.query.categorySlug as string | undefined;
-  const { products, count } = await getProducts({ page, categorySlug });
+  const { categorySlug, orderBy, orderDirection } = req.query as {
+    categorySlug: string;
+    orderBy: string;
+    orderDirection: 'asc' | 'desc';
+  };
+  const { products, count } = await getProducts({
+    page,
+    categorySlug,
+    orderBy,
+    orderDirection,
+  });
   res.set('X-Total-Count', String(count)).json(products);
 });
 

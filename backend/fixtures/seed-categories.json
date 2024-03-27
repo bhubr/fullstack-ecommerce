@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "name": "Ordinateurs Portables",
+    "slug": "ordinateurs-portables",
+    "createdAt": "2024-03-27T14:08:24.392Z",
+    "updatedAt": "2024-03-27T14:08:24.392Z"
+  },
+  {
+    "id": 2,
+    "name": "Écrans Portables",
+    "slug": "ecrans-portables",
+    "createdAt": "2024-03-27T14:08:24.396Z",
+    "updatedAt": "2024-03-27T14:08:24.396Z"
+  },
+  {
+    "id": 3,
+    "name": "Écrans PC",
+    "slug": "ecrans-pc",
+    "createdAt": "2024-03-27T14:08:24.398Z",
+    "updatedAt": "2024-03-27T14:08:24.398Z"
+  },
+  {
+    "id": 4,
+    "name": "Ordinateurs Fixes",
+    "slug": "ordinateurs-fixes",
+    "createdAt": "2024-03-27T14:08:24.400Z",
+    "updatedAt": "2024-03-27T14:08:24.400Z"
+  },
+  {
+    "id": 5,
+    "name": "Casques et Écouteurs",
+    "slug": "casques-et-ecouteurs",
+    "createdAt": "2024-03-27T14:08:24.401Z",
+    "updatedAt": "2024-03-27T14:08:24.401Z"
+  },
+  {
+    "id": 6,
+    "name": "Accessoires",
+    "slug": "accessoires",
+    "createdAt": "2024-03-27T14:08:24.402Z",
+    "updatedAt": "2024-03-27T14:08:24.402Z"
+  },
+  {
+    "id": 7,
+    "name": "Smartphones",
+    "slug": "smartphones",
+    "createdAt": "2024-03-27T14:08:24.404Z",
+    "updatedAt": "2024-03-27T14:08:24.404Z"
+  },
+  {
+    "id": 8,
+    "name": "Mini PC",
+    "slug": "mini-pc",
+    "createdAt": "2024-03-27T14:08:24.405Z",
+    "updatedAt": "2024-03-27T14:08:24.405Z"
+  },
+  {
+    "id": 9,
+    "name": "Processeurs",
+    "slug": "processeurs",
+    "createdAt": "2024-03-27T14:08:24.406Z",
+    "updatedAt": "2024-03-27T14:08:24.406Z"
+  },
+  {
+    "id": 10,
+    "name": "PC Gamer",
+    "slug": "pc-gamer",
+    "createdAt": "2024-03-27T14:08:24.407Z",
+    "updatedAt": "2024-03-27T14:08:24.407Z"
+  },
+  {
+    "id": 11,
+    "name": "Tablettes",
+    "slug": "tablettes",
+    "createdAt": "2024-03-27T14:08:24.408Z",
+    "updatedAt": "2024-03-27T14:08:24.408Z"
+  }
+]
