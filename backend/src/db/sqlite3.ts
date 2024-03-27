@@ -61,7 +61,7 @@ const sqlite3db: SQLite3DatabaseEngine = {
     table: string,
     options: IGetAllFromTableOptions = {}
   ): Promise<IGetAllFromTableResult<T>> {
-    const { offset, limit, where = [] } = options;
+    const { offset, limit, where = [], order } = options;
     let query = `SELECT * FROM \`${table}\``;
     const args: Scalar[] = [];
     let whereClause = '';
@@ -81,7 +81,12 @@ const sqlite3db: SQLite3DatabaseEngine = {
         )
       );
     }
+    
     let allArgs = [...args];
+    if (order !== undefined) {
+      query += ` ORDER BY ${order.field} ${order.direction}`;
+      allArgs.push(order.field, order.direction);
+    }
     if (limit !== undefined && offset !== undefined) {
       query += ` LIMIT ? OFFSET ?`;
       allArgs = [...args, limit, offset];

@@ -12,10 +12,16 @@ type PredicateOperator =
 
 export type WhereItem = [string, PredicateOperator, Scalar?];
 
+export interface IOrderCriteria {
+  field: string;
+  direction: 'ASC' | 'DESC';
+}
+
 export interface IGetAllFromTableOptions {
   offset?: number;
   limit?: number;
   where?: WhereItem[];
+  order?: IOrderCriteria;
 }
 
 export interface IGetAllFromTableResult<T> {
