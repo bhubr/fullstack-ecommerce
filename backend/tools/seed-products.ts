@@ -217,6 +217,16 @@ async function main() {
     .getDB()
     .getAllFromTable<CategoryRecord>('category');
   await insertProducts(products, categoryRecords);
+
+  const db = (await DatabaseService.getInstance()).getDB();
+  const {records:allCategories} = await db.getAllFromTable('category', {});
+  const {records:allProducts} = await db.getAllFromTable('product', {});
+
+  const fixturesDir = path.join(__dirname, '../fixtures');
+  const seedCategoriesPath = path.join(fixturesDir, 'seed-categories.json');
+  await fs.writeFile(seedCategoriesPath, JSON.stringify(allCategories, null, 2));
+  const seedProductsPath = path.join(fixturesDir, 'seed-products.json');
+  await fs.writeFile(seedProductsPath, JSON.stringify(allProducts, null, 2));
 }
 
 main();
