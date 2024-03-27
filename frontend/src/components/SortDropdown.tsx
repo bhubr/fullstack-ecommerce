@@ -39,8 +39,8 @@ const SortDropdown = ({
           Prix décroissant
         </DropdownItem>
         <DropdownItem
-          active={sortOrder === 'date-desc'}
-          onClick={() => setSortOrder('date-desc')}
+          active={sortOrder === 'createdAt-desc'}
+          onClick={() => setSortOrder('createdAt-desc')}
         >
           Nouveauté
         </DropdownItem>

@@ -5,6 +5,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
 import type { ICategory, IProductWithCategory, SortOrder } from '../types';
 import { readCategories, readProducts } from '../api';
 import Home from './Home.component';
+import { a } from 'vitest/dist/suite-a18diDsI.js';
 
 const HomeContainer = () => {
   const [products, setProducts] = useState<null | IProductWithCategory[]>(null);
@@ -16,29 +17,32 @@ const HomeContainer = () => {
   const { categorySlug } = useParams();
   const [searchParams] = useSearchParams();
   const page = Number(searchParams.get('page') || 1);
-  const sortedProducts = useMemo(() => {
-    if (products === null) {
-      return null;
-    }
-    return [...products].sort((a, b) => {
-      if (sortOrder === 'price-asc') {
-        return a.price - b.price;
-      }
-      if (sortOrder === 'price-desc') {
-        return b.price - a.price;
-      }
-      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-    });
-  }, [products, sortOrder]);
+  // const sortedProducts = useMemo(() => {
+  //   if (products === null) {
+  //     return null;
+  //   }
+  //   return [...products].sort((a, b) => {
+  //     if (sortOrder === 'price-asc') {
+  //       return a.price - b.price;
+  //     }
+  //     if (sortOrder === 'price-desc') {
+  //       return b.price - a.price;
+  //     }
+  //     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  //   });
+  // }, [products, sortOrder]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const categoryRecords = await readCategories();
         setCategories(categoryRecords);
+        const [orderBy, orderDirection] = sortOrder.split('-');
         const { records: productRecords, count } = await readProducts({
           categorySlug,
           page,
+          orderBy,
+          orderDirection: orderDirection as 'asc' | 'desc',
         });
         console.log('total count', count);
         const productsWithCats = productRecords.map((product) => ({
@@ -57,11 +61,11 @@ const HomeContainer = () => {
       }
     };
     fetchProducts();
-  }, [page, categorySlug]);
+  }, [page, categorySlug, sortOrder]);
 
   return (
     <Home
-      products={sortedProducts}
+      products={products}
       categories={categories}
       loading={loading}
       error={error}

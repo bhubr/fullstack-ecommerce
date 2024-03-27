@@ -6,8 +6,17 @@ const productsRouter = express.Router();
 
 productsRouter.get('/', async (req, res) => {
   const page = Number(req.query.page) || 1;
-  const categorySlug = req.query.categorySlug as string | undefined;
-  const { products, count } = await getProducts({ page, categorySlug });
+  const { categorySlug, orderBy, orderDirection } = req.query as {
+    categorySlug: string;
+    orderBy: string;
+    orderDirection: 'asc' | 'desc';
+  };
+  const { products, count } = await getProducts({
+    page,
+    categorySlug,
+    orderBy,
+    orderDirection,
+  });
   res.set('X-Total-Count', String(count)).json(products);
 });
 
